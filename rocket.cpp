@@ -1,15 +1,161 @@
-//
-// Created by paulw on 3/29/2023.
-//
+/**
+    Created by Paul Fornage on 3/29/2023.
+    CS10A
+    Project 1: Functional Decomposition
+
+
+
+    prints a rocket according to some user input
+*/
 
 #include <iostream>
 
-void print_rectangle(int, int, bool);
-void print_triangle(int, bool);
+void printRectangle(int, int, bool);
+void printTriangle(int, bool);
+void drawRocketBoosters(int);
+void drawRocket(int, int, int, bool);
+void getRocketSpecs(int&, int&, int&, bool&);
+void programInfo();
+
+#define FULL_SQUARE "* "
+#define EMPTY_SQUARE "  "
 
 
 int main() {
     int rocket_width = 0;
+    int rocket_height = 0;
+    int payloads = 0;
+    bool payload_filled;
+    char choice = ' ';
+
+    programInfo();
+
+    do{
+
+
+        getRocketSpecs(rocket_width, rocket_height, payloads, payload_filled);
+        drawRocket(rocket_width, rocket_height, payloads, payload_filled);
+
+        std::cout << "\n\n---------------------------------------------------------" << std::endl;
+        std::cout << " Try the ROCKET BUILD pattern generating algorithms again?"    << std::endl;
+        std::cout << "---------------------------------------------------------"     << std::endl;
+        std::cout << "Type 'Y' for yes or 'N' for no: ";
+        std::cin >> choice;
+
+    }while(choice == 'Y'|| choice == 'y');
+
+    std::cout << "\nNow exiting the ROCKET BUILD program ...." << std::endl;
+
+
+
+
+
+
+    return 0;
+}
+
+
+/**
+ * prints a rectangle
+ * @param x width of rectangle
+ * @param y height of rectangle
+ * @param filled determines if the interior of the rectangle filled
+ */
+void printRectangle(/*in*/int x, /*in*/int y, /*in*/bool filled){
+    for(int y_index = 0; y_index < y; y_index++){
+        for(int x_index = 0; x_index < x; x_index++){
+            if (!filled &&
+                y_index != 0 && y_index != y-1 &&
+                x_index != 0 && x_index != x-1) {
+                std::cout << EMPTY_SQUARE;
+            } else {
+                std::cout << FULL_SQUARE;
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+
+/**
+ * prints an equilateral triangle with a right angle and the longest side horizontal on a grid
+ * @param base the length of the base of the triangle
+ * @param filled should the triangle be filled in? do to quirk in instructions, if this is false,
+ *               only the two points closest to the corners of the triangle are printed
+ */
+void printTriangle(/*in*/int base, /*in*/bool filled) {
+    for(int i = 0; i<base/2 + (base%2==1); i++){
+        for(int j = 0; j<base; j++){
+            if((filled && (j>=base/2-i-(base%2==0) && j<=base/2+i)) ||
+              (!filled && (j==base/2-i-(base%2==0) || j==base/2+i))){
+                std::cout << FULL_SQUARE;
+            }
+            else {
+                std::cout << EMPTY_SQUARE;
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+
+/**
+ * prints n empty squares
+ * @param n the number of empty squares to print
+ */
+void printEmptySquares(/*in*/int n){
+    for(int i = 0; i < n; i++){
+        std::cout << EMPTY_SQUARE;
+    }
+}
+
+
+/**
+ * draws the rockets booster, offset to be centered at the base of the rockey as best as possible
+ * @param base the width of the rocket,
+ * used to determine how many spaces to put on the left margin before the booster itself
+ */
+void drawRocketBoosters(/*in*/int base){
+    int offset = (base - 10)/2;
+
+    printEmptySquares(offset);
+    std::cout << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
+                EMPTY_SQUARE << FULL_SQUARE << std::endl;
+
+    printEmptySquares(offset);
+    std::cout << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
+                FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << std::endl;
+
+    printEmptySquares(offset);
+    std::cout << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE <<
+                EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << std::endl;
+
+}
+
+
+/**
+ * prints this thing? I'm not sure if I understand the directions
+ */
+void programInfo()  // TODO: ask teacherman what this should be
+{
+    //algorithm to be determined
+    std::cout << "*************************************************************************\n";
+    std::cout << "                                ROCKET BUILD\n";
+    std::cout << "                         pattern generating algorithms\n";
+    std::cout << "*************************************************************************\n";
+}
+
+
+/**
+ * sets the value of all parameters according to user input
+ * @param rocket_width Rocket module width
+ * @param moduleHeight Rocket module height
+ * @param numModules number of rocket body payload modules to dock together
+ * @param payload_filled true if the payload modules should be full
+ */
+void getRocketSpecs (/*inout*/ int &rocket_width, /*inout*/ int &moduleHeight,  /*inout*/ int &numModules, /*inout*/ bool &payload_filled) // TODO: ask teacherman if these are really inout
+{
+    rocket_width = 0;
     std::cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
     std::cin >> rocket_width;
     while(rocket_width > 15 || rocket_width < 10){
@@ -18,86 +164,55 @@ int main() {
         std::cin >> rocket_width;
     }
     std::cout << std::endl;
-    int rocket_height = 0;
+
+    moduleHeight = 0;
     std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
-    std::cin >> rocket_height;
-    while(rocket_height > 10 || rocket_height < 5){
+    std::cin >> moduleHeight;
+    while(moduleHeight > 10 || moduleHeight < 5){
         std::cout << "Try again\n";
         std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
-        std::cin >> rocket_height;
+        std::cin >> moduleHeight;
     }
     std::cout << std::endl;
-    int payloads = 0;
+
+    numModules = 0;
     std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
-    std::cin >> payloads;
-    while(payloads>5 || payloads<2){
+    std::cin >> numModules;
+    while(numModules>5 || numModules<2){
         std::cout << "Try again\n";
         std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
-        std::cin >> payloads;
+        std::cin >> numModules;
     }
     std::cout << std::endl;
+
     char body_type = ' ';
     std::cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
     std::cin >> body_type;
-    while(!(body_type=='F' || body_type=='E')){
+    while(!(body_type=='F' || body_type=='E' || body_type=='f' || body_type=='e')){
         std::cout << "Try again\n";
         std::cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
         std::cin >> body_type;
     }
     std::cout << std::endl;
-    bool payload_filled = body_type=='F';
-
-    print_triangle(rocket_width, !payload_filled);
-    for(int i = 0; i<payloads; i++){
-        print_rectangle(rocket_width, rocket_height, payload_filled);
-    }
-
-
-    return 0;
+    payload_filled = body_type=='F' || body_type=='f';
 }
+
+
 /**
- *
- * @param x width of rectangle
- * @param y height of rectangle
- * @param filled is the interior of the rectangle filled
+ *  draws a rocket using the parameters
+ * @param rocket_width the width of the rocket at it's widest point
+ * @param module_height the height of each module on the rocket
+ * @param payloads the number of payloads on the rocket
+ * @param payload_filled whether or not the payloads should be filled. they will be filled when this parameter is true,
+ *                       and empty when it is false. the nosecone will invert this,
+ *                       being full when this parameter is false and vice versa
  */
-void print_rectangle(/*in*/int x, /*in*/int y, /*in*/bool filled){
-    for(int y_index = 0; y_index < y; y_index++){
-        for(int x_index = 0; x_index < x; x_index++){
-            if (!filled &&
-                y_index != 0 && y_index != y-1 &&
-                x_index != 0 && x_index != x-1) {
-                std::cout << "  ";
-            } else {
-                std::cout << "* ";
-            }
-        }
-        std::cout << std::endl;
+void drawRocket(/*in*/int rocket_width, /*in*/int module_height, /*in*/int payloads, /*in*/bool payload_filled){
+    printTriangle(rocket_width, !payload_filled);
+    for(int i = 0; i<payloads; i++){
+        printRectangle(rocket_width, module_height, payload_filled);
     }
+    drawRocketBoosters(rocket_width);
 }
 
 
-void print_triangle(int base, bool filled) {  // TODO: FLUSH THING TRIANGLE
-    for(int i = 0; i<base/2 + (base%2==1); i++){
-        for(int j = 0; j<base; j++){
-            if(filled){  //  || i == base/2 - (base%2==0)
-                if(j>=base/2-i-(base%2==0) && j<=base/2+i){
-                    std::cout << "* ";
-                }
-                else {
-                    std::cout << "  ";
-                }
-            } else {
-                if(j==base/2-i-(base%2==0) || j==base/2+i){
-                    std::cout << "* ";
-                }
-                else {
-                    std::cout << "  ";
-                }
-            }
-        }
-        std::cout << std::endl;
-    }
-}
-
-void drawRocketBoosters(base)
