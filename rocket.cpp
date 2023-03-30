@@ -1,7 +1,14 @@
-/**
+/*
     Created by Paul Fornage on 3/29/2023.
     CS10A
     Project 1: Functional Decomposition
+
+
+    Functional decomposition Phase#3 - Rocket Build program
+    User input of four specific rocket module specifications
+    data items. Setup for another sample rocket build....
+    A sampling of function prototypes for a possible
+    attempt at functional decomposition of the rocket build.
 
 
 

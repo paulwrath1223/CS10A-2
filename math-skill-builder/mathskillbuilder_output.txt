@@ -1,0 +1,157 @@
+                    MATH IS FUN
+The Math Skill Builder program will assess basic mathematics skills.
+Each Math skill builder set generates four problems using randomly
+generated numbers in the range of 1 to 10, stored as double values.
+
+The random numbers generated serve as operands (or arguments) in the numeric
+expressions used for the arithmetic, geometry or other problem types generated
+in each Math skill builder set. User response to a problem is compared to the
+correct answer and an appropriate message is displayed. User performance data
+is provided at the end of each set or after multiple attempts of the same set
+A menu driven interface provides the user an opportunity to select a specific
+Math Builder Skill set to try and the program interface design algorithms are
+built with expandability in mind to allow for (1) additional problem sets or
+modules to be added or (2) additional different problem types in each set or
+(3) a larger random number range.
+
+Program Assertions: When comparing two double values with precision (for eg.,
+in comparing user response to the correct answer for a double quotient result
+or mixed type calculation the user is reminded to provide a response rounded
+to two decimal places, as a precision criteria of less than .01 will be used
+to determine equality. Expect a few floating point representational errors.
+        ++++++++++++++++++++++++++++++++++++++++++
+        -  MATH SKILL BUILDER SETS - Select one  -
+        *        1. BASIC ARITHMETIC             *
+        π        2. BASIC GEOMETRY               π
+        %        3. BASIC STATISTICS             %
+        \        4. EXIT MATH IS FUN             \
+        ++++++++++++++++++++++++++++++++++++++++++
+
+SELECT A MATH BUILDER SKILL SET OR TYPE 4 TO EXIT: 1
+
+-------------------------------------------------------------------------------------
+
+MATH BUILDER SKILL SET#1 selected. This skill set contains a series of 4 problems in the set.
+
+How many times you wish to attempt this current set (enter 1-5) : 2
+
+Arithmetic skill sets
+
+Arithmetic Problem Set#1
+-------------------------
+6.00 + 7.00 = 13
+Correct
+---------------------
+8.00 - 10.00 = srjc
+OOPS,that is an input error. Please retype: -2
+Correct
+---------------------
+6.00 * 5.00 = 30
+Correct
+---------------------
+Type a responses rounded to two decimal places below...
+6.00 / 6.00 = 0
+Incorrect. Correct answer displayed with precision of .01 = 1.00
+---------------------
+
+Arithmetic Problem Set#2
+-------------------------
+10.00 + 7.00 = 17
+Correct
+---------------------
+4.00 - 2.00 = .2
+Incorrect. Correct answer displayed with precision of .01 = 2.00
+---------------------
+4.00 * 9.00 = 36
+Correct
+---------------------
+Type a responses rounded to two decimal places below...
+6.00 / 5.00 = 1.25
+Incorrect. Correct answer displayed with precision of .01 = 1.20
+---------------------
+
+=================================================================
+Basic Arithmetic Skill Set: You got 5 correct out of 8 for 62%
+=================================================================
+        ++++++++++++++++++++++++++++++++++++++++++
+        -  MATH SKILL BUILDER SETS - Select one  -
+        *        1. BASIC ARITHMETIC             *
+        π        2. BASIC GEOMETRY               π
+        %        3. BASIC STATISTICS             %
+        \        4. EXIT MATH IS FUN             \
+        ++++++++++++++++++++++++++++++++++++++++++
+
+SELECT A MATH BUILDER SKILL SET OR TYPE 4 TO EXIT: 2
+
+-------------------------------------------------------------------------------------
+
+MATH BUILDER SKILL SET#2 selected. This skill set contains a series of 4 problems in the set.
+
+How many times you wish to attempt this current set (enter 1-5) : 1
+
+Geometry skill sets
+
+Geometric Problem Set#1
+-------------------------
+Calculate the area of a Triangle given base and height: Base = 10.00 Height = 6.00
+Area of Triangle is: 30
+Correct
+---------------------
+Calculate the perimeter of a Triangle with three sides: side1 = 8.00, side2 = 7.00, side3 = 6.00
+Perimeter of Triangle is: 22
+Incorrect. Correct answer displayed with precision of .01 = 21.00
+---------------------
+Calculate the perimeter of a Rectangle : Length = 6.00 and Width = 5.00
+Perimeter of Rectangle is: 22
+Correct
+---------------------
+Calculate the area of a Circle given radius: Radius = 9.00 and Pi(π) is 3.141593
+Type a response rounded to two decimal places below...
+Area of Circle is: 28.27
+Incorrect. Correct answer displayed with precision of .01 = 254.47
+---------------------
+
+=================================================================
+Basic Geometry Skill Set: You got 2 correct out of 4 for 50%
+=================================================================
+        ++++++++++++++++++++++++++++++++++++++++++
+        -  MATH SKILL BUILDER SETS - Select one  -
+        *        1. BASIC ARITHMETIC             *
+        π        2. BASIC GEOMETRY               π
+        %        3. BASIC STATISTICS             %
+        \        4. EXIT MATH IS FUN             \
+        ++++++++++++++++++++++++++++++++++++++++++
+
+SELECT A MATH BUILDER SKILL SET OR TYPE 4 TO EXIT: 3
+
+-------------------------------------------------------------------------------------
+
+MATH BUILDER SKILL SET#3 selected. This skill set contains a series of 4 problems in the set.
+
+How many times you wish to attempt this current set (enter 1-5) : 1
+
+Business statistics skill sets
+
+Statistics Problem Set#1(EXTRA CREDIT ONLY
+-------------------------
+4 Statistics formulas to be coded....
+---------------------
+
+=================================================================
+Basic Statistics Skill Set: You got 0 correct out of 4 for 0%
+=================================================================
+        ++++++++++++++++++++++++++++++++++++++++++
+        -  MATH SKILL BUILDER SETS - Select one  -
+        *        1. BASIC ARITHMETIC             *
+        π        2. BASIC GEOMETRY               π
+        %        3. BASIC STATISTICS             %
+        \        4. EXIT MATH IS FUN             \
+        ++++++++++++++++++++++++++++++++++++++++++
+
+SELECT A MATH BUILDER SKILL SET OR TYPE 4 TO EXIT: 4
+
+
+Now exiting MATH SKILL BUILDER program ....
+
+Process returned 0 (0x0)   execution time : 331.409 s
+Press any key to continue.
