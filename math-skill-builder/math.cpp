@@ -13,31 +13,12 @@ and various modules to process Math Skill Builder sets
 #include <ctime>
 #include <cmath>
 #include <iomanip>
+#include "math-functions.cpp"
 
 
 //program user interface in main
-void programInfo();
-void mathSkillBuilderMenu (/*out*/ int& choice);
-void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect);
-void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect);
 
-//overloaded functions accessed by Math Builder Skill set modules for random number generation
-void generateOperands (/*out*/ double& num1);
-void generateOperands (/*out*/ double& num1, /*out*/ double& num2);
-void generateOperands (/*out*/ double& num1, /*out*/double& num2,/*out*/double& num3);
 
-//various modules to process Math Builder Skill sets
-void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
-void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
-void statisticsProbSet (/*in*/ int numProbSets, /*out */ int& correctCount);//for extra credit only
-int getNumSets ();
-double getUserInput ();
-void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount);
-
-//global constants
-const int PROBSPERSET = 4;            // number of problems in each Math Skill Builder set
-const int MIN_NUM = 1, MAX_NUM = 10;  // random number range used for operands and arguments in each problem
-const double PI = 3.141593;           // geometry problems
 
 int main()
 {
@@ -59,3 +40,5 @@ int main()
 
     return 0;
 }
+
+

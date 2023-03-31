@@ -1,0 +1,209 @@
+
+Phase 5:  As we can see when working through Phase 1 - 4 the main function is now quite large so a bit more functional decomposition and reorganization is needed to help with better program flow.
+
+I have provided what main should look like for the final phase 5 below along with the function algorithms for the following functions:
+
+void programInfo();
+void mathSkillBuilderMenu (/*out*/ int& choice);
+So what remains is the following four function algorithms will need to be completed. The first two functions listed below processProbSets and printReport are called in main in phase 5 and will need the algorithms to be completed.
+
+HINT: The (1) calls in main from Phase 4 that relate to the three Math Skills Builder sets should be moved to processProbSets and (2) the individual assessment reports after each set is completed should be moved to printReport.
+
+//remaining function prototypes and related descriptions
+void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect);
+void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect);
+
+void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect){
+     //algorithm: move the following calls from main completed in phase 4
+     // numProbSets = getNumSets;
+     // Next add a switch statement and set choice as the argument. Now you can move each
+     // set header and calls to arithmeticProbSet, geometryProbSet and statisticsProbSet
+     // from main and into respective case label as they relate to a menu choice
+}
+
+void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect){
+     //algorithm: Based on current value in choice use selection control structures to
+    //generate appropriate assessment report for each skill set
+ }
+Although not always necessary, the last two function getUserInput and checkAnswer maybe helpful function algorithms for user input validation as well as for specific processing related to problem assessment and outcome in each skill set.
+
+If you code the getUserInput and checkAnswer function algorithms, run a test by calling these functions from within the skill set processing algorithm in arithmeticProbSet. If the algorithms work correctly the function calls should also be included in the geometryProbSet, statisticsProbSet skill builder functions.
+
+//remaining function prototypes and related descriptions
+double getUserInput ();
+void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount);
+
+double getUserInput (){
+   //algorithm: get UserAnswer to a problem, validate and return UserAnswer
+}
+
+void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount){
+ //algorithm: compares userAnswer with correctAnswer for equality and displays appropriate message
+ //increments reference parameter correctCount for correct answers
+}
+Phase 5: Your final main function for phase 5  must look like this:
+
+/*Functional decomposition Phase#5 - Math Skill Builder program
+Setup in main to test drive the Math Skill Builder program.
+A sampling of function prototypes grouped by program user interface
+in main, generateOperands overloaded function used to generate random numbers,
+and various modules to process Math Skill Builder sets
+*/
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+//program user interface in main
+void programInfo();
+void mathSkillBuilderMenu (/*out*/ int& choice);
+void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect);
+void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect);
+
+//overloaded functions accessed by Math Builder Skill set modules for random number generation
+void generateOperands (/*out*/ double& num1);
+void generateOperands (/*out*/ double& num1, /*out*/ double& num2);
+void generateOperands (/*out*/ double& num1, /*out*/double& num2,/*out*/double& num3);
+
+//various modules to process Math Builder Skill sets
+void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
+void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
+void statisticsProbSet (/*in*/ int numProbSets, /*out */ int& correctCount);//for extra credit only
+int getNumSets ();
+double getUserInput ();
+void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount);
+
+//global constants
+const int PROBSPERSET = 4;            // number of problems in each Math Skill Builder set
+const int MIN_NUM = 1, MAX_NUM = 10;  // random number range used for operands and arguments in each problem
+const double PI = 3.141593;           // geometry problems
+
+int main()
+{
+    cout << showpoint << fixed <<setprecision(2); // formatted number display
+    srand(time(0));                               // seed the random number generator
+
+    int choice = 0, numProbSets = 0, numCorrect = 0;
+
+    programInfo();
+    mathSkillBuilderMenu (choice);
+
+    while (choice!=4){
+        processProbSets (choice,numProbSets,numCorrect);
+        printReport (choice,numProbSets,numCorrect);
+        mathSkillBuilderMenu (choice);
+     }
+
+    cout << "\n\nNow exiting MATH SKILL BUILDER program ...." << endl;
+
+  return 0;
+}
+/*
+   The programInfo function provides a few details about the math skill builder program,
+   the menu driven user interface, the type of skill sets and the problems in each set are
+   generated and user response is assessed.
+   pre: none
+   post: Formatted display of program information displayed in console output
+*/
+
+void programInfo()
+{
+    cout << "                       MATH IS FUN                                            " << endl;
+    cout << "The Math Skill Builder program will assess basic mathematics skills.          " << endl;
+    cout << "Each Math skill builder set generates four problems using randomly            " << endl;
+    cout << "generated numbers in the range of 1 to 10, stored as double values.\n         " << endl;
+    cout << "The randomly generated numbers are to be used as operands or arguments        " << endl;
+    cout << "for the various arithmetic, geometry or other problem types to be generated   " << endl;
+    cout << "in each Math skill builder set. User response to a problem is compared to the " << endl;
+    cout << "correct answer and an appropriate message is displayed.\n                     " << endl;
+
+    cout << "A menu driven interface provides the user an opportunity to select a specific " << endl;
+    cout << "Math Builder Skill set to try and the program interface design algorithms are " << endl;
+    cout << "built with expandability in mind to allow for (1) additional problem sets or  " << endl;
+    cout << "modules to be added or (2) additional different problem types in each set or  " << endl;
+    cout << "(3) a larger random number range.\n                                           " << endl;
+
+    cout << "Program Assertions: When comparing two double values with precision (for eg., " << endl;
+    cout << "in comparing user response to the correct answer for a double quotient result " << endl;
+    cout << "or mixed type calculation the user is reminded to provide a response rounded  " << endl;
+    cout << "to two decimal places, as a precision criteria of less than .01 will be used  " << endl;
+    cout << "to determine equality. Expect a few floating point representational errors.   " << endl;
+}
+/*
+  The mathSkillBuilderMenu function includes a formatted display of 4 menu choices and a
+  leading prompt for user input is provided.
+
+  Input validation is included for out of range choice or non alpha character input. With
+  an appropriate message and a re-input is allowed. The validated input is passed
+  through a reference parameter variable choice to the calling code.
+  pre: none
+  post: Formatted display of program information displayed. A value for reference parameter choice
+        has been entered by the user and validated. Range validation (1-4) and a cin fail state will
+        allow user to reenter a new value.
+*/
+void mathSkillBuilderMenu (/*out*/ int& choice)
+{
+     cout << setw(50) << "++++++++++++++++++++++++++++++++++++++++++ " << endl;
+     cout << setw(50) << "- MATH SKILL BUILDER SETS - Select one -   " << endl;
+     cout << setw(50) << "* 1. BASIC ARITHMETIC *                    " << endl;
+     cout << setw(9) << char(227) << " 2. BASIC GEOMETRY "<< char(227) <<endl;
+     cout << setw(50) << "% 3. BASIC STATISTICS %                    " << endl;
+     cout << setw(50) << "\\ 4. EXIT MATH IS FUN \\                  " << endl;
+     cout << setw(50) << "++++++++++++++++++++++++++++++++++++++++++ " << endl;
+
+     cout << "\nSELECT A MATH SKILL BUILDER SET OR TYPE 4 TO EXIT: ";
+     cin >> choice;
+
+     while(choice < 1 || choice > 4 || !cin){
+        cin.clear();
+        cin.ignore(200,'\n');
+        cout << "OOPS, Invalid choice? " << endl;
+        cout << "\nSELECT A MATH SKILL BUILDER SET OR TYPE 4 TO EXIT: ";
+        cin >> choice;
+     }
+}
+Note: The Math Skill Builder menu format will be lost with a copy/paste. Please update the syntax in your IDE so the menu is properly formatted before submission.
+
+void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect)
+{
+    //ALGORITHM TO BE DETERMINED
+}
+void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect)
+{
+   //ALGORITHM TO BE DETERMINED
+}
+Here is link to a sample run with program output of completed project using the above functions listed:  mathskillbuilder_output.txtDownload mathskillbuilder_output.txt
+
+Please make sure to use good decomposition, separate your functions with at least 1-2 inches of whitespace and except for the three named global constants declared and referenced in Phases 1-5 of this project,  DO NOT use global variables.
+
+Now would be a good time to review and follow a set of guidelines regarding  Function Documentation requirement for ALL Programming Projects : Assertions and Dataflow comments.
+
+Let me know if you notice any incorrectly formatted C++ syntax in the above specifications as CANVAS page construction does not quite work well with C++ code embedded on pages.
+
+Good luck on this Math Skills Builder project!
+
+Keep me posted if you get stuck while working through this final functional decomposition and parameter passing project.
+
+General comment area
+Name your source code file according to the Project number (LastName_Project_2.cpp).
+
+Important submission guideline: Prior to submission of this Project, carefully review your source code and make sure it  (1) adheres to the program format, style and documentation guidelines provided in the getting started module, (2) meets the stated project specifications as outlined here, (3) includes your best effort at appropriate function related documentation and (4) displays as close to the correct project output as possible during a test run.
+
+Keep in mind the source code submitted must represent "your best effort", not acquired elsewhere online and if your code does not compile you will receive a 0 and there is no "redo" option once the source code is submitted and graded.
+
+Use the Project Submission link to submit the source file. When you submit your assignment there will be a text field in which you can add a note to me (called a "comment", but don't confuse it with a C++ comment). In this "comments" section of the submission page let me know whether the program works as required and any other comments regarding what you learned or had difficulty with when working on this project. Thank you!
+
+Please also include any comments on something new and useful (C++ related) that you discovered while developing and implementing algorithms (source code) to complete the programming segments of the assignment. THANK YOU!
+
+Rubric
+Project 2 Rubric
+Project 2 Rubric
+Criteria	Ratings	Pts
+This criterion is linked to a Learning OutcomeProject#2: Programming Challenge - Grading criteria of various algorithm. Functional Decomposition with correct algorithms developed in at least 10 functions for specific processing as per project specification utilizing parameter passing concepts
+50 pts
+This criterion is linked to a Learning OutcomeProject#2: Program format, style, naming conventions, proper use of standardized C++ code and function specific documentation (such as (1) data flow comments in function prototype and heading parameters list (2) detailed function descriptions with pre/post conditions included as comments)
+10 pts
+Total Points: 60
