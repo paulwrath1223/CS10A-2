@@ -1,5 +1,5 @@
 //
-// Created by paulw on 3/29/2023.
+// Created by Paul Fornage on 3/29/2023.
 //
 
 /*Functional decomposition Phase#5 - Math Skill Builder program
@@ -112,9 +112,9 @@ void mathSkillBuilderMenu (/*out*/ int& choice)
                  "        -  MATH SKILL BUILDER SETS - Select one  -\n"
                  "        *        1. BASIC ARITHMETIC             *\n"
                  "        " << char(227) << "        2. BASIC GEOMETRY               " << char(227) << "\n"
-                                                                                                       "        %        3. BASIC STATISTICS             %\n"
-                                                                                                       "        \\        4. EXIT MATH IS FUN             \\\n"
-                                                                                                       "        ++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+                 "        %        3. BASIC STATISTICS             %\n"
+                 "        \\        4. EXIT MATH IS FUN             \\\n"
+                 "        ++++++++++++++++++++++++++++++++++++++++++" << std::endl;
 
 
     std::cout << "\nSELECT A MATH SKILL BUILDER SET OR TYPE 4 TO EXIT: ";
@@ -353,7 +353,7 @@ void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& 
                          "MATH BUILDER SKILL SET#1 selected. This skill set contains a series of " << PROBSPERSET <<
                       " problems in the set.\n"
                       "\n"
-                      "How many times you wish to attempt this current set (enter 1-5) : ";
+                      "How many times you wish to attempt this current set (enter 1-5) : "; // TODO: use int getNumSets ();
 
             std::cin >> numProbSets;
 
