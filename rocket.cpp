@@ -10,8 +10,6 @@
     A sampling of function prototypes for a possible
     attempt at functional decomposition of the rocket build.
 
-
-
     prints a rocket according to some user input
 */
 
@@ -26,7 +24,12 @@ void programInfo();
 
 #define FULL_SQUARE "* "
 #define EMPTY_SQUARE "  "
-
+#define MIN_MODULE_WIDTH 10
+#define MAX_MODULE_WIDTH 15
+#define MIN_MODULE_HEIGHT 5
+#define MAX_MODULE_HEIGHT 10
+#define MIN_MODULES 2
+#define MAX_MODULES 5
 
 int main() {
     int rocket_width = 0;
@@ -52,12 +55,6 @@ int main() {
     }while(choice == 'Y'|| choice == 'y');
 
     std::cout << "\nNow exiting the ROCKET BUILD program ...." << std::endl;
-
-
-
-
-
-
     return 0;
 }
 
@@ -91,7 +88,7 @@ void printRectangle(/*in*/int x, /*in*/int y, /*in*/bool filled){
  *               only the two points closest to the corners of the triangle are printed
  */
 void printTriangle(/*in*/int base, /*in*/bool filled) {
-    for(int i = 0; i<base/2 + (base%2==1); i++){
+    for(int i = 0; i<base/2 + base%2; i++){
         for(int j = 0; j<base; j++){
             if((filled && (j>=base/2-i-(base%2==0) && j<=base/2+i)) ||
               (!filled && (j==base/2-i-(base%2==0) || j==base/2+i))){
@@ -123,7 +120,7 @@ void printEmptySquares(/*in*/int n){
  * used to determine how many spaces to put on the left margin before the booster itself
  */
 void drawRocketBoosters(/*in*/int base){
-    int offset = (base - 10)/2;
+    int offset = (base - MIN_MODULE_WIDTH)/2;
 
     printEmptySquares(offset);
     std::cout << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
@@ -165,7 +162,7 @@ void getRocketSpecs (/*inout*/ int &rocket_width, /*inout*/ int &moduleHeight,  
     rocket_width = 0;
     std::cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
     std::cin >> rocket_width;
-    while(rocket_width > 15 || rocket_width < 10){
+    while(rocket_width > MAX_MODULE_WIDTH || rocket_width < MIN_MODULE_WIDTH){
         std::cout << "Try again\n";
         std::cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
         std::cin >> rocket_width;
@@ -175,7 +172,7 @@ void getRocketSpecs (/*inout*/ int &rocket_width, /*inout*/ int &moduleHeight,  
     moduleHeight = 0;
     std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
     std::cin >> moduleHeight;
-    while(moduleHeight > 10 || moduleHeight < 5){
+    while(moduleHeight > MAX_MODULE_HEIGHT || moduleHeight < MIN_MODULE_HEIGHT){
         std::cout << "Try again\n";
         std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
         std::cin >> moduleHeight;
@@ -185,7 +182,7 @@ void getRocketSpecs (/*inout*/ int &rocket_width, /*inout*/ int &moduleHeight,  
     numModules = 0;
     std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
     std::cin >> numModules;
-    while(numModules>5 || numModules<2){
+    while(numModules>MAX_MODULES || numModules<MIN_MODULES){
         std::cout << "Try again\n";
         std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
         std::cin >> numModules;
