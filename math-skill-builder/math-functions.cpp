@@ -30,7 +30,7 @@ void generateOperands (/*out*/ double& num1, /*out*/double& num2,/*out*/double& 
 void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
 void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
 void statisticsProbSet (/*in*/ int numProbSets, /*out */ int& correctCount);//for extra credit only
-int getNumSets ();
+int getNumSets (); // TODO: where does this come in
 double getUserInput ();
 void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount);
 
