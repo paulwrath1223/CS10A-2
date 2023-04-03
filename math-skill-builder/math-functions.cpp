@@ -7,6 +7,9 @@
 #include <ctime>
 #include <cmath>
 #include <iomanip>
+#include <algorithm>
+#include <vector>
+
 
 const int PROBSPERSET = 4;            // number of problems in each Math Skill Builder set
 const int MIN_NUM = 1, MAX_NUM = 10;  // random number range used for operands and arguments in each problem
@@ -25,7 +28,6 @@ void generateOperands (/*out*/ double& num1, /*out*/double& num2,/*out*/double& 
 
 //various modules to process Math Builder Skill sets
 void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
-void generateArithmeticProblem(/*out*/ double&);
 void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
 void statisticsProbSet (/*in*/ int numProbSets, /*out */ int& correctCount);//for extra credit only
 int getNumSets ();
@@ -106,8 +108,8 @@ void mathSkillBuilderMenu (/*out*/ int& choice)
  * @post
  * @param correctCount OUT
  */
-void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){
-    double user_answer = 0, correct_answer = 0, num1 = 0, num2 = 0;
+void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){ // TODO: A LOT of repetition
+    double user_answer, correct_answer, num1, num2;
     correctCount = 0;
     for(int i = 0; i < numProbSets; i++){
         std::cout << "Arithmetic Problem Set#" << i+1 << std::endl;
@@ -133,6 +135,93 @@ void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){
         generateOperands(num1, num2);
         std::cout << num1 << " " << char(246) << " " << num2 << " = ";
         correct_answer = num1 / num2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+    }
+}
+
+
+/**
+ *
+ * @pre
+ * @post
+ * @param correctCount OUT
+ */
+void statisticsProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){ // TODO: A LOT of repetition
+    double user_answer, correct_answer, num1, num2, num3;
+    correctCount = 0;
+    for(int i = 0; i < numProbSets; i++){
+        std::cout << "Statistics Problem Set#" << i+1 << std::endl;
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2, num3);
+        std::cout << "What is the average (mean) of: " << num1 << ", " << num2 << ", " << num3 << "? ";
+        correct_answer = (num1 + num2 + num3)/3;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2, num3);
+        std::cout << "What is the median of: " << num1 << ", " << num2 << ", " << num3 << "? ";
+        double nums[] = {num1, num2, num3};
+        std::vector<double> my_vector (nums, nums+3);
+        std::sort(my_vector.begin(), my_vector.end());
+        correct_answer = my_vector[1];
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2, num3);
+        std::cout << "What is the maximum of: " << num1 << ", " << num2 << ", " << num3 << "? ";
+        correct_answer = std::max({num1, num2, num3});
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\nType a responses rounded to two decimal places below...\n";
+        generateOperands(num1, num2);
+        std::cout << "What is the minimum of: " << num1 << ", " << num2 << ", " << num3 << "? ";
+        correct_answer = std::min({num1, num2, num3});
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+    }
+}
+
+
+/**
+ *
+ * @pre
+ * @post
+ * @param correctCount OUT
+ */
+void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){ // TODO: A LOT of repetition
+    double user_answer, correct_answer, num1, num2, num3;
+    correctCount = 0;
+    for(int i = 0; i < numProbSets; i++){
+        std::cout << "Geometric Problem Set#" << i+1 << std::endl;
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2);
+        std::cout << "Calculate the area of a Triangle given base and height: Base = " << num1 <<
+                     " Height = " << num2 << "\n"
+                     "Area of Triangle is: ";
+        correct_answer = num1 * num2 / 2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2, num3); // TODO: Largest side must be less than the sum of the smaller sides
+        std::cout << "Calculate the perimeter of a Triangle with three sides: side1 = " << num1 << ", side2 = " <<
+                     num2 << ", side3 = " << num3 << std::endl << "Perimeter of Triangle is: ";
+        correct_answer = num1 + num2 + num3;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2);
+        std::cout << "Calculate the perimeter of a Rectangle : Length = " << num1 <<" and Width = " << num2 << std::endl <<
+                     "Perimeter of Rectangle is: ";
+        correct_answer = (num1 + num2) * 2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\nType a responses rounded to two decimal places below...\n";
+        generateOperands(num1);
+        std::cout << "Calculate the area of a Circle given radius: Radius = " << num1 << " and Pi(" << char(227) <<
+                     ") is 3.1415927\nType a response rounded to two decimal places below...\n"
+                     "Area of Circle is: ";
+        correct_answer = num1 * num1 * M_PI;
         user_answer = getUserInput();
         checkAnswer(user_answer, correct_answer, correctCount);
     }
@@ -209,9 +298,6 @@ void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ 
 }
 
 
-
-
-
 void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect)
 {
 
@@ -237,10 +323,44 @@ void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& 
             arithmeticProbSet(numProbSets, numCorrect);
             break;
         case(2):
-            std::cout << "geometry";
+            std::cout << "-------------------------------------------------------------------------------------\n"
+                         "\n"
+                         "MATH BUILDER SKILL SET#2 selected. This skill set contains a series of " << PROBSPERSET <<
+                         " problems in the set.\n"
+                         "\n"
+                         "How many times you wish to attempt this current set (enter 1-5) : ";
+
+            std::cin >> numProbSets;
+
+            while(numProbSets > 5 || numProbSets < 1 || !std::cin){
+                std::cin.clear();
+                std::cin.ignore(200,'\n');
+                std::cout << "OOPS, Invalid choice? " << std::endl;
+                std::cin >> numProbSets;
+            }
+
+            std::cout << "\n Geometry skill sets";
+            geometryProbSet(numProbSets, numCorrect);
             break;
         case(3):
-            std::cout << "stats";
+            std::cout << "-------------------------------------------------------------------------------------\n"
+                         "\n"
+                         "MATH BUILDER SKILL SET#3 selected. This skill set contains a series of " << PROBSPERSET <<
+                         " problems in the set.\n"
+                         "\n"
+                         "How many times you wish to attempt this current set (enter 1-5) : ";
+
+            std::cin >> numProbSets;
+
+            while(numProbSets > 5 || numProbSets < 1 || !std::cin){
+                std::cin.clear();
+                std::cin.ignore(200,'\n');
+                std::cout << "OOPS, Invalid choice? " << std::endl;
+                std::cin >> numProbSets;
+            }
+
+            std::cout << "\n Business statistics skill sets";
+            statisticsProbSet(numProbSets, numCorrect);
             break;
         default:
             std::cout << "processProbSets called with invalid \'choice\'";
@@ -254,20 +374,20 @@ void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect
 
     switch(choice){
         case(1):
-            std::cout << "Basic Arithmetic Skill Set: You got " << numCorrect <<
-                         " correct out of " << numProbSets*PROBSPERSET << " for " <<
-                         (100 * numCorrect)/(numProbSets*PROBSPERSET) << "%\n";
+            std::cout << "Basic Arithmetic Skill Set";
             break;
         case(2):
-            std::cout << "geometry";
+            std::cout << "Basic Geometry Skill Set";
             break;
         case(3):
-            std::cout << "stats";
+            std::cout << "Basic Statistics Skill Set";
             break;
         default:
             std::cout << "printReport called with invalid \'choice\'";
     }
 
-
+    std::cout << ": You got " << numCorrect <<
+                 " correct out of " << numProbSets*PROBSPERSET << " for " <<
+                 (100 * numCorrect)/(numProbSets*PROBSPERSET) << "%\n";
     std::cout << "=================================================================\n";
 }
