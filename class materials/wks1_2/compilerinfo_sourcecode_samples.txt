@@ -1,0 +1,200 @@
+STAND ALONE C++ COMPILERS TO DOWNLOAD AND INSTALL:
+CODE::BLOCKS - http://www.codeblocks.org/
+Microsoft Visual Studio C++  - https://visualstudio.microsoft.com/downloads/
+Microsfot Visual Studio Code - https://code.visualstudio.com/
+Online C++ compiler: https://repl.it/languages/cpp  
+CANVAS CS10A SECTION 5394 SITE: https://canvas.santarosa.edu/courses/63832
+------------------------------------------------------------------
+source code samples:
+
+//practice assignment
+//your name here
+
+#include <iostream>
+#include <cstdlib>      //wxDev-C++ users may need this header file here to allow calls to system commands
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello there!....or should I say NAMASTHE "<<endl;
+    cout << "After last weeks cold spell it looks like it is another cool winter day "<<endl;
+    cout <<  endl;
+    cout << "Time to get to the Maggini Hall labs to warm-up\n"          
+         <<  "and write some useful computer programs"<<endl<<endl;
+    cout << "C++ is a high-level programming language";
+    cout << ".....LETS GIVE IT A GO!!!"<<endl;
+    cout << "your name here"<<endl;
+   system ("PAUSE"); //if using MS Visual C++...not needed in Code::Blocks or XCode
+ return 0;
+}
+_________________________________________________________________________
+
+//******************************************************************
+// Sample program
+// This program computes the square and cube of 27
+//******************************************************************
+#include <iostream>
+
+
+using namespace std;
+
+int Square( int );
+int Cube( int );
+
+int main()
+{
+    cout << "The square of 27 is " << Square(27) << endl;
+    cout << "and the cube of 27 is " << Cube(27) << endl;
+   // system("PAUSE");
+    return 0;
+}
+
+int Square( int n )
+{
+    return n * n;
+}
+
+int Cube( int n )
+{
+    return n * n * n;
+}
+__________________________________________________________________
+// Program Area calculates the area of a square.     
+// The user is prompted to enter the number of 
+// inches on each side.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  inches;
+
+    cout  << "Enter the number of inches on a side "
+          << endl;
+    cout  << "Press the return key."
+          << endl;
+    cin  >> inches;
+    cout  << endl  << "The area is "  << inches * inches  << "."
+          << endl;
+    return 0;
+}
+-------------------------------------------------------------------
+//******************************************************************
+// Chessboard program
+// This program prints a chessboard pattern that is built up from
+// basic strings of white and black characters.
+//******************************************************************
+#include <iostream>
+#include <string>
+
+using namespace std; 
+
+const string BLACK = "********";  // Define a line of a black square
+const string WHITE = "        ";  // Define a line of a white square
+
+int main ()
+{
+  string whiteRow;            // A row beginning with a white square
+  string blackRow;            // A row beginning with a black square
+  
+  // Create a white-black row by concatenating the basic strings
+  whiteRow = WHITE + BLACK + WHITE + BLACK +
+             WHITE + BLACK + WHITE + BLACK;
+  
+  // Create a black-white row by concatenating the basic strings
+  blackRow = BLACK + WHITE + BLACK + WHITE +
+             BLACK + WHITE + BLACK + WHITE; 
+             
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;   
+  
+    // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;  
+  
+  return 0;                  
+}      
+--------------------------------------------------------------------------- 
+//lab practice assignment for CS10A section#4524 (due 1/26/22) - 10 EC points
+
+1. Compile and run the above program Chessboard (chessboard.cpp).
+2. Change the program so that a "%" is used rather than an asterisk to build the chessboard.
+3. Change the program so that only the outline of each square is shown. 
+(HINT: you may have to define another string constant). Here is a sample row with a few hollow rectangles provided as a an example.
+Your program will have more hollow rectangles to cover the entire chessboard dimensions.
+
+%%%%  %%%%	%%%%  %%%%	
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%%%%  %%%%	%%%%  %%%%	
+
+Compile and Run your program.
+
+4. Change the program from part 3 above so that the rectangles are 5 characters wide by 8 rows high. Here is a sample row with a few hollow rectangles provided as a an example. Your program will have more hollow rectangles to cover the entire chessboard dimensions.
+
+%%%%%   %%%%%	%%%%%   %%%%%	
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%%%%%   %%%%%	%%%%%   %%%%%	
+
+Compile and Run your program.
+
+Save your source code and upload the final version of your source code via the chessboard updte submission page on the class CANVAS module for WEEK#1
+----------------------------------------------------------------------------
+  

@@ -1,0 +1,191 @@
+//C++ source code samples
+//******************************************************************
+// Sample program
+// This program computes the square and cube of 27
+//******************************************************************
+#include <iostream>
+
+using namespace std;
+
+int Square( int );
+int Cube( int );
+
+int main()
+{
+    cout << "The square of 27 is " << Square(27) << endl;
+    cout << "and the cube of 27 is " << Cube(27) << endl;
+    return 0;
+}
+
+int Square( int n )
+{
+    return n * n;
+}
+
+int Cube( int n )
+{
+    return n * n * n;
+}
+___________________________________________________________________
+// Program Area calculates the area of a square.     
+// The user is prompted to enter the number of 
+// inches on each side.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  inches;
+
+    cout  << "Enter the number of inches on a side "
+          << endl;
+    cout  << "Press the return key."
+          << endl;
+    cin  >> inches;
+    cout  << endl  << "The area is "  << inches * inches  << "."
+          << endl;
+    return 0;
+}  
+_________________________________________________________________________
+// Program Wrap writes out the contents of a sandwich wrap.
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+const string TUNA = "tuna";
+const string PICKLE = "pickle";
+const string LETTUCE = "lettuce";
+const string WRAP = "tortilla";
+
+int main()
+{
+    string filling;
+    string wrap;
+
+    filling = TUNA + " and " + PICKLE + " with " + LETTUCE;
+    wrap = filling + " in " + WRAP + '.';
+    cout  << "Filling : "  << filling  << endl;
+    cout  << "Wrap : " << wrap  << endl;
+
+    return 0;
+}
+
+//******************************************************************
+// Chessboard program
+// This program prints a chessboard pattern that is built up from
+// basic strings of white and black characters.
+//******************************************************************
+#include <iostream>
+#include <string>
+
+using namespace std; 
+
+const string BLACK = "********";  // Define a line of a black square
+const string WHITE = "        ";  // Define a line of a white square
+
+int main ()
+{
+  string whiteRow;            // A row beginning with a white square
+  string blackRow;            // A row beginning with a black square
+  
+  // Create a white-black row by concatenating the basic strings
+  whiteRow = WHITE + BLACK + WHITE + BLACK +
+             WHITE + BLACK + WHITE + BLACK;
+  
+  // Create a black-white row by concatenating the basic strings
+  blackRow = BLACK + WHITE + BLACK + WHITE +
+             BLACK + WHITE + BLACK + WHITE; 
+             
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;   
+  
+    // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;  
+  
+  return 0;                  
+}      
+--------------------------------------------------------------------------- 
+//lab practice assignment for CS10A section#4524 (due 1/26/23) - 10 EC points
+
+1. Compile and run the above program Chessboard (chessboard.cpp).
+2. Change the program so that a "%" is used rather than an asterisk to build the chessboard.
+3. Change the program so that only the outline of each square is shown. 
+(HINT: you may have to define another string constant). Here is an example row.
+
+%%%%  %%%%	%%%%  %%%%	
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%%%%  %%%%	%%%%  %%%%	
+
+Compile and Run your program.
+
+4. Change the program from part 3 above so that the squares are 5 characters wide by 8 rows high. Here is an example row.
+
+%%%%%   %%%%%	%%%%%   %%%%%	
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%%%%%   %%%%%	%%%%%   %%%%%	
+
+Compile and Run your program.
+
+Save your source code.
+
+Save your source code and upload the final version of your source code via the chessboard update submission page on the class CANVAS module for week#1
+----------------------------------------------------------------------------

@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+void DoThis (int&, int&);
+
+int main ()
+{
+	int number1, number2;
+	
+	cout<<"Excercise "<<endl;
+	
+	DoThis(number1, number2);
+	cout<<number1<<' '<<number2<<endl;
+
+	return 0;
+}
+
+void DoThis (int& value1, int& value2)
+{
+	int value3;
+	cout<<"Enter two integer values"<<endl;
+	cin>>value3>>value1;
+	value2=value1 + 10;
+}
+___________________________________________________________
+//q4 - parameter_passing1.cpp
+#include <iostream>
+using namespace std;
+
+void Change (int, int&);
+
+int main()
+{
+	int a,b;
+	a = 10;
+	b = 7;
+
+	Change (a, b);
+	cout<<a<<' '<<b<<endl;
+
+	return 0;
+}
+
+void Change (int x, int& y)
+{
+	int b;
+	b = x;
+	y = y + b;
+	x = y;
+}
+________________________________________________
+//q5_parameter_passing2.cpp
+#include <iostream>
+using namespace std;
+
+void Test (int&, int);
+
+int main()
+{
+	int d, e;
+	d = 12;
+	e = 14;
+	Test (d, e);
+	cout<<"In the main function after the first call,  "
+         	       <<"the variables equal "<<d<<' '<<e<<endl;
+	d = 15;
+	e = 18;
+	Test(e, d);
+	cout<<"In the main function after the second call,  "<<"the variables equal "<<d<<' '<<e<<endl;
+
+        return 0;
+}
+void Test (int& s, int t)
+{
+	s = 3;
+	s = s + 2;
+	t = 4 * s;
+	cout<<"In function Test, the variables equal "<<s<< ' '<<t<<endl;
+}
+
+________________________________________________________________
+//q6-parameter_passing3.cpp
+#include <iostream>
+using namespace std;
+
+void Test(int&,int&,int&);
+
+int main()
+{
+	int a,b,c;
+
+	Test (a,b,c);
+	b = b + 10;
+	cout<<"Within main after the call we have following values "<<a<<" "<<b<<" "<<c;
+
+	return 0;
+}
+
+void Test(int& z,int& x,int&a)
+{
+	cout<<"Please enter three numbers"<<endl;
+	cin>>z>>x>>a;
+	a=z*x+a;
+	cout<<"In function Test the updated values are as follows "<<z<<" "<<x<<" "<<a<<endl;
+}
+_______________________________________________________________________

@@ -1,0 +1,332 @@
+#include <iostream>	//trace1.cpp
+using namespace std;
+
+void SomeFunc(float);	//?
+
+const int a = 20;	// a global constant
+int b = 13;			// ?
+int c;			// ?
+
+int main ( )
+{
+     b = 5;		// ?
+     c = 7;		// ?
+     SomeFunc (56.7);	// ?
+     return 0;
+}
+
+void SomeFunc (float c)	// ?
+{
+       float b;		// ?
+       b = 2.8;			// ?
+       cout << " a = " << a;	// ?
+       cout << " b = " << b;	// ?
+       cout << " c = " << c;	// ?
+}
+-----------------------------------------	
+#include <iostream>     //trace2.cpp
+using namespace std;
+
+void test2(int a, int b);
+void test1(int &a, int &b);
+
+int main()
+{
+	int a = 8, b = 10;
+	
+	test2(b,a);
+	cout << a << " " << b << endl;
+	test1(b,a);
+	cout << a << " " << b << endl;
+	test1(a,a);
+	cout << a << " " << b << endl;
+	return 0;
+}
+
+void test1(int &a, int &b)
+{
+	a = 4;
+	b = 6;
+	a = a + b;
+	cout << a << " " << b << endl;
+}
+
+void test2(int a, int b)
+{
+	cout << a << " " << b << endl;
+	a = 4;
+	b = 6;
+	a = a + b + 1;
+	cout << a << " " << b << endl;
+}
+----------------------------------------
+#include <iostream>   //trace3.cpp
+using namespace std;
+
+void test1(int a, int &b);
+void test2(int &b, int c);
+
+int main()
+{
+	int a = 1, b = 2, c = 3;
+	test1(a,b);
+	cout << a << " " << b << " " << c << endl;
+	test1(b,c);
+	cout << a << " " << b << " " << c << endl;
+	test2(a,b);
+	cout << a << " " << b << " " << c << endl;
+	test2(c,b);
+	cout << a << " " << b << " " << c << endl;
+	return 0;
+}
+
+void test1(int a, int &b)
+{
+	int c;	
+	c = 5;
+	a = b + c;
+	b = a + c;
+}
+
+void test2(int &b, int c)
+{
+	c = 10;
+	b = c + b;
+}
+----------------------------------------------
+#include <iostream>  //trace4.cpp
+using namespace std;
+
+void p();
+int b;
+
+int main()
+{
+	int a,c;
+	a = 4; b = 5; c = 6;
+	cout << a << " " << b << " " << c << endl;
+	p();
+	cout << a << " " << b << " " << c << endl;
+	return 0;
+}
+
+void p()
+{
+	int a;
+	int c;
+	
+	cout << a << " " << b << " " << c << endl;
+	a = 1; b = 2; c = 3;
+	cout << a << " " << b << " " << c << endl;
+}
+------------------------------------------------
+#include <iostream>   //trace5.cpp
+using namespace std;
+
+void x(int tic);
+int toe;
+
+int main()
+{
+	int tic, tac;
+	tic = 1; tac = 2; toe = 3;
+	cout << tic << " " << tac << " " << toe << endl;
+	x(tic);
+	cout << tic << " " << tac << " " << toe << endl;
+	x(tac);
+	cout << tic << " " << tac << " " << toe << endl;
+	x(toe);
+	cout << tic << " " << tac << " " << toe << endl;
+	return 0;
+}
+
+void x(int tic)
+{
+	int tac;
+	
+	cout << tic << " " << tac << " " << toe << endl;
+	tic = 4; tac = 5; toe = 6;
+	cout << tic << " " << tac << " " << toe << endl;
+}
+------------------------------------------------------
+#include <iostream>    //trace6.cpp
+using namespace std;
+
+void first(int &x);
+void second(int &x, int y);
+int x,y,z;
+
+int main()
+{
+	x = 40;
+	y = 50;
+	z = 60;
+	second(z, y);
+	cout << x << " " << y << " " << z << endl;
+	first(y);
+	cout << x << " " << y << " " << z << endl;
+	first(x);
+	cout << x << " " << y << " " << z << endl;
+	second(y, x);
+	cout << x << " " << y << " " << z << endl;
+	first(z);
+	cout << x << " " << y << " " << z << endl;
+	return 0;
+}
+	
+void first(int &x)
+{
+	int y;	
+	x = x * 2;
+	y = x + z;
+	z = z % 10;
+}
+
+void second(int &x, int y)
+{
+	y = y + 1;
+	x = y + z;
+	z = x + z;
+}
+---------------------------------------------------
+#include <iostream>   //trace7.cpp
+using namespace std;
+
+void p(int &a, int b);
+int a,b,c,d;
+
+int main()
+{
+	int a = 1, b = 2, c = 3, d = 4;
+	p(a,b);
+	cout << a << " " << b << " " << c << " " << d << endl;
+}
+
+void p(int &a, int b)
+{
+	int c;	
+	cout << a << " " << b << " " << c << " " << d << endl;
+	a = 5; b = 6; c = 7; d = 8;
+}
+-----------------------------------------------------
+#include <iostream> //trace8.cpp 
+using namespace std; 
+
+void Test ();
+
+int main ( )
+{
+	Test ();
+	Test ();
+	Test ();
+	return 0;
+}
+
+void Test ( )
+{
+	int i = 3;
+	static int j = 3;
+	i++;
+	j++;
+	cout << i << ' '<< j << endl;
+}
+-----------------------------------------------------
+#include <iostream> //q2.cpp
+using namespace std;
+
+void DoThis (int&, int&);
+
+int main ()
+{
+	int number1, number2;
+
+	cout<<"Excercise "<<endl;
+
+	DoThis(number1, number2);
+
+	cout<<number1<<' '<<number2<<endl;
+	return 0;
+}
+
+void DoThis (int& value1, int& value2)
+{
+	int value3;
+	cout<<"Enter two integer values"<<endl;
+	cin>>value3>>value1;
+	value2=value1 + 10;
+}
+_______________________________________________________
+#include <iostream>  //q4.cpp
+using namespace std;
+
+int b=12;
+void Change (int, int&);
+
+int main()
+{
+	int a,b;
+	a = 10;
+
+	Change (a, b);
+	cout<<a<<' '<<b<<endl;
+	return 0;
+}
+
+void Change (int x, int& y)
+{
+	int b;
+	b = x;
+	y = y + b;
+	x = y;
+}
+
+_________________________________________________________
+#include <iostream> //q5.cpp
+using namespace std;
+
+void Test (int&, int);
+
+int main()
+{
+	int d, e;
+	d = 12;
+	e = 14;
+	Test (d, e);
+	cout<<"In the main function after the first call, "<<"the variables equal "<<d<<' '<<e<<endl;
+	d = 15;
+	e = 18;
+	Test(e, d);
+	cout<<"In the main function after the second call,"<<"the variables equal "<<d<<' '<<e<<endl;
+        return 0;
+}
+void Test (int& s, int t)
+{
+	s = 3;
+	s = s + 2;
+	t = 4 * s;
+	cout<<"In function Test, the variables equal "<<s<< ' '<<t<<endl;
+}
+_______________________________________________________
+#include <iostream>  //q6.cpp
+using namespace std;
+
+void Test(int&,int&,int&);
+
+int main()
+{
+	int a,b,c;
+
+	Test (a,b,c);
+	b = b + 10;
+	cout<<"The answers are "<<b<<' '<<c<<' '<<a;
+	return 0;
+}
+
+void Test(int& z,int& x,int&a)
+{
+	cin>>z>>x>>a;
+	a=z*x+a;
+}
+
+------------------------------------------------------
+	

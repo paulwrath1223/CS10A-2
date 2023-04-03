@@ -1,0 +1,105 @@
+//******************************************************************
+// This program prints a several messages using void functions
+//******************************************************************
+#include <iostream>
+using namespace std;
+
+void drawLine();//function prototype
+
+int main()
+{
+    
+    drawLine(); //function call
+    cout<<"  SPRING IS HERE   "<<endl;
+    
+    for(int count=1;count<=4;count++)
+    drawLine(); //function call
+    
+    return 0;
+}
+//function definition
+void drawLine()
+{
+     cout<<"************************"<<endl;
+}
+_________________________________________________________________________
+//******************************************************************
+// This program prints a several messages using void functions
+//******************************************************************
+#include <iostream>
+using namespace std;
+
+void drawLine();//function prototype
+void drawLine(int);//function prototype
+void drawLine(int,string&);//function prototype
+void drawLine(int,int&);//function prototype
+
+int main()
+{
+    int lines;
+    string words;
+    int counter=0;
+    
+    drawLine(); //function call
+    cout<<"  SPRING IS HERE   "<<endl;
+    
+    cout<<"How many lines do you need? ";
+    cin>>lines;
+    
+  
+    drawLine(lines,words); //function call
+    cout<<endl<<words<<endl;
+    
+    drawLine(lines,counter);
+    cout<<"The iteration count in function was "<<counter<<endl;
+ 
+    return 0;
+}
+//function definition
+void drawLine()
+{
+     cout<<"************************"<<endl;
+}
+
+void drawLine(int value)
+{
+      for(int count=1;count<=value;count++)
+    drawLine(); 
+}
+
+void drawLine(int value,string& slogan)
+{
+     for(int count=1;count<=value;count++)
+    drawLine();  
+    cout<<slogan<<endl<<endl;
+    slogan="  SO IS THE POLLEN COUNT  ";   
+}
+void drawLine(int value,int& iteration)//function prototype
+{
+   for(int count=1;count<=value;count++)
+   { 
+    iteration++;
+    drawLine(); 
+   }
+}
+____________________________________________________________________
+#include <iostream>
+
+using namespace std; //introduces namespace std
+/*Prototype*/
+int square(int);
+/*function definition*/
+int square(int value)
+{	
+	
+		return value * value;
+}
+	
+int main ( )
+{
+	for (int x = 1; x <=10; x++)
+		cout <<square (x) << "  ";
+		cout <<endl;
+		return 0;
+}
+___________________________________________________________________

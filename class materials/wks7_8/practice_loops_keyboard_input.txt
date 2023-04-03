@@ -1,0 +1,114 @@
+// Program Shell1 prompts for and reads a one-digit number.
+// Values between 0 and the digit (inclusive) are summed.
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  counter;	// loop-control variable
+    int  sum;		// running sum
+    int  digit;
+
+    cout  << "Enter a one-digit number; press return." << endl;
+    cin  >> digit;
+    counter =  /* TO BE FILLED IN */
+    sum  =     /* TO BE FILLED IN */
+
+    while (            )       /* TO BE FILLED IN  */
+    {
+                              /*  TO BE FILLED IN */
+    }
+    cout  << "Sum of digits between 0 and " << digit  << " is "  << sum  << endl;
+    return 0;
+}
+__________________________________________________________________
+Programming Challenges using loops: run-time input/value processing – (WEEK#7)
+
+1.	Sum of Numbers  (SAMPLE 1)
+
+Write a program that asks the user for a positive integer value. The program should use a loop to get the sum of all the integers from 1 up to the number entered. For example, if the user enters 5, the loop will find the sum of 1,2,3,…….5.
+       What type of a loop is this?
+Input Validation: Do not accept a negative starting number.
+															
+2.	Sum of Numbers (SAMPLE 2a)
+
+Write a program that asks the user for several integer values and ends when the user inputs a -1. The program should use a loop to sum of all the positive integers entered. For example, if the user enters 5, 3, 2, -5, 6, 8,-1 the loop will find the sum of 5, 3, 2, 6 & 8. 
+What type of a loop is this?
+															
+3.	Sum of Numbers (SAMPLE 2b)
+Write a program that asks the user for a data file with several integer values and ends when a negative value (for example -5) is found. The program should use a loop to sum of all the positive integers in the file. For example, if the file contains 5, 3, 2, -5, 6, 8,-1 the loop will find the sum of 5, 3, 2. 
+What type of a loop is this?
+Input Validation: Include necessary data validation routines to check for state of the file stream.
+_________________________________________________________________
+// Program Shell2 counts the number of uppercase letters on a line.
+// The line must end with a period
+#include <iostream>
+using namespace std;
+
+int main ()
+{  
+    char letter;
+    int  letterCt=0;
+    
+    cout<<"Type in a bunch of characters ending with a period."<<endl;
+    cin>>letter;	
+  
+    while (                ) /* TO BE FILLED IN */
+    { 
+    		             /* TO BE FILLED IN */                
+    } 
+    cout<<"For the characters entered the number of uppercase letters is "<<letterCt<<endl;
+    return 0;
+}
+_____________________________________________________________
+// This program provides samples of the while loop, 
+// the do-while loop, and the for loop. (loop-examples.cpp)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	double num;
+	char doAgain;
+
+	// while loop
+	cout << "This code uses a while loop "
+	     << "controlled by an end sentinel.\n"; 
+	cout << "It finds the square of any integer.\n";
+	cout << "\nEnter an integer, or -99 to quit: ";
+	cin  >> num;
+	while (num != -99)
+	{	cout << num << " squared is " << pow(num, 2.0) << endl;
+		cout << "\nEnter an integer, or -99 to quit ";
+		cin  >> num;
+	}	
+   	cout << endl;
+	
+	// do-while loop
+	cout << "*****************************************\n";
+	cout << "This code uses a do-while loop "
+	     << "controlled by a Y/N User input.\n"; 
+	cout << "It finds the square of any integer.\n";
+	do
+	{	cout << "\nEnter an integer: ";
+		cin  >> num;
+		cout << num << " squared is " << pow(num, 2.0) << endl;
+		cout << "Do you want to square another number? (Y/N) ";
+		cin  >> doAgain;
+	} while (doAgain == 'Y' || doAgain == 'y');
+	cout << endl;
+
+	// for loop
+	cout << "*****************************************\n";
+	cout << "This code uses a for loop that loops 8 times.\n";
+	cout << "It finds the squares of the integers from 1 to 8.\n\n";
+  	for (num = 1; num <= 8; num++)
+	{
+		cout << num << " squared is " << pow(num, 2.0) << endl;
+	}
+	system("PAUSE");
+	return 0;
+}
+
+NOTES:

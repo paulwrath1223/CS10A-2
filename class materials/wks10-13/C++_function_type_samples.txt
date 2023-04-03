@@ -1,0 +1,218 @@
+// This program uses a function to perform division. If division
+// by zero is detected, the function returns. - pr6-11.cpp (Gaddis)
+#include <iostream>
+using namespace std;
+
+// Function prototype.
+void divide(double, double);
+
+int main()
+{
+   double num1, num2;
+   cout << "Enter two numbers and I will divide the first\n";
+   cout << "number by the second number: ";
+   cin >> num1 >> num2;
+   divide(num1, num2);
+   return 0;
+}
+
+//***************************************************************
+// Definition of function divide.                               *
+// Uses two parameters: arg1 and arg2. The function divides arg1*
+// by arg2 and shows the result. If arg2 is zero, however, the  *
+// function returns.                                            *
+//***************************************************************
+
+void divide(double arg1, double arg2)
+{
+   if (arg2 == 0.0)
+   {
+      cout << "Sorry, I cannot divide by zero.\n";
+      return;
+   }
+   cout << "The quotient is " << (arg1 / arg2) << endl;
+}
+_____________________________________________________________________________	
+// This program uses a function that returns true or false.pr6-15.cpp(Gaddis)
+#include <iostream>
+using namespace std;
+
+// Function prototype
+bool isEven(int);
+
+int main()
+{
+   int val;
+   // Get a number from the user.
+   cout << "Enter an integer and I will tell you ";
+   cout << "if it is even or odd: ";
+   cin >> val;
+   
+   // Indicate whether it is even or odd.
+   if (isEven(val))
+      cout << val << " is even.\n";
+   else
+      cout << val << " is odd.\n";
+   return 0;
+}
+
+//*****************************************************************
+// Definition of function isEven. This function accepts an        *
+// integer argument and tests it to be even or odd. The function  *
+// returns true if the argument is even or false if the argument  *
+// is odd. The return value is an bool.                           *
+//*****************************************************************
+bool isEven(int number)
+{
+   bool status;
+   if (number % 2 == 0)
+      status = true;  // number is even if there is no remainder.
+   else
+      status = false; // Otherwise, the number is odd.
+   return status;
+}
+__________________________________________________________________________
+// This program demonstrates default function arguments.pr6-24.cpp(Gaddis)
+#include <iostream>
+using namespace std;
+
+// Function prototype with default arguments
+void displayStars(int = 10, int = 1);
+
+int main()
+{
+   displayStars();      // Use default values for cols and rows.
+   cout << endl;
+   displayStars(5);     // Use default value for rows.
+   cout << endl;
+   displayStars(7, 3);  // Use 7 for cols and 3 for rows.
+   return 0;
+}
+
+//********************************************************
+// Definition of function displayStars.                  *
+// The default argument for cols is 10 and for rows is 1.*
+// This function displays a square made of asterisks.    *
+//********************************************************
+
+void displayStars(int cols, int rows)
+{
+   // Nested loop. The outer loop controls the rows
+   // and the inner loop controls the columns.
+   for (int down = 0; down < rows; down++)
+   {
+      for (int across = 0; across < cols; across++)
+         cout << "*";
+      cout << endl;
+   }
+}
+
+______________________________________________________________________________
+//Program swap.cpp to demostrate a function calling another function.
+
+#include <iostream>
+using namespace std;
+
+void get_input (int& input1, int& input2); 	//reads two integers from the keyboard
+void swap_values (int& variable1, int& variable2); //interchanges the values of variable1 and variable2
+void order (int& n1, int& n2);	//Orders the numbers in the variables n1 and n2 so that after the function call n1<= n2.
+void give_results (int output1, int output2);//Outputs the values in output1 and output2. Assumes that output1 <= output2
+
+int main ( )
+{
+	int first_num, second_num;
+
+	get_input (first_num, second_num);	//function call
+	order (first_num, second_num);		//function call
+	give_results (first_num, second_num);	//function call
+	return 0;
+}
+//***********************************
+void get_input(int& input1, int& input2)
+{
+	cout <<"Enter two integers:  ";
+	cin >>input1 >> input2;
+}
+
+//************************************
+void swap_values (int& variable1, int& variable2)
+{	
+int temp;
+temp = variable1;
+variable1 = variable2;
+variable2 = temp;					
+}
+//*****************************************
+void give_results (int output1, int output2)
+{
+cout << "In increasing order the numbers are:  " << output1 << "  " <<output2 << endl;
+}
+//Both void-functions and functions that return a value can have return-statements. 
+//In the case of a function that returns a value, the return-statement specifies 
+//the value returned. In the case of a void-function, the return-statement simply ends the function call. 
+void order (int& n1, int& n2)
+{
+	if (n1 > n2)
+	swap_values (n1, n2);
+}
+//These function definitions can be in any order.It is perfectly legitimate to mix call-by-value and 
+//call-by-reference formal parameters in the same function.
+______________________________________________________________________________
+
+// Program filei_o_function_demo3 prompts for and reads two integer values that represent the sides of a rectangle.    
+// The area of the rectangle is calculated and printed. 
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+void OpenForInput(ifstream&);
+void GetData(ifstream&, int&, int&);	// function prototype
+// GetData gets two integer values.
+
+int main()
+{
+	ifstream file;
+    int  height;
+    int  width;
+    int  area;
+
+	OpenForInput(file);
+    GetData(file, height, width);
+    area = height * width;
+
+
+    cout << "The area of the "  << height  << " by "
+         << width  << " rectangle is "  << area  << endl;
+    return 0;
+}
+//******************************************************************
+void OpenForInput( /* inout */ ifstream& someFile )    // File to be opened
+// Prompts the user for the name of an input file and attempts to open the file
+
+// Postcondition:
+//     The user has been prompted for a file name && IF the file could not be opened an error message has been printed
+// Note:
+//     Upon return from this function, the caller must test the stream state to see if the file was successfully opened
+
+{
+    string fileName;    // User-specified file name
+
+    cout << "Input file name: ";
+    cin >> fileName;
+
+    someFile.open(fileName.c_str());
+    if ( !someFile )
+        cout << "** Can't open " << fileName << " **" << endl;
+}
+//******************************************************
+
+void GetData(ifstream& dataFile, int& firstValue, int& secondValue) 
+// Post: The user has been prompted to input two values representing the length and width of a rectangle. 
+//       These values have been read and returned in firstValue and secondValue.   
+{   
+    dataFile  >> firstValue  >> secondValue;
+}
+_______________________________________________________________________
+contents of datain.dat => 10 20
+______________________________________________________________________

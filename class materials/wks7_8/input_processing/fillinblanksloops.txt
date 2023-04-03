@@ -1,0 +1,218 @@
+// Program Shell1 prompts for and reads a one-digit number.
+// Values between 0 and the digit (inclusive) are summed.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  counter;	// loop-control variable
+    int  sum;		// running sum
+    int  digit;
+
+    cout  << "Enter a one-digit number; press return."
+	  << endl;
+    cin  >> digit;
+    counter =  /* TO BE FILLED IN */
+    sum  =     /* TO BE FILLED IN */
+
+    while (            )       /* TO BE FILLED IN  */
+    {
+                              /*  TO BE FILLED IN */
+    }
+    cout  << "Sum of digits between 0 and "
+	  << digit  << " is "  << sum  << endl;
+	  system("PAUSE");
+    return 0;
+}
+__________________________________________________________________
+rogramming Challenges using loops: run-time input/value processing – (WEEK#8)
+
+1.	Sum of Numbers  (SAMPLE 1)
+
+Write a program that asks the user for a positive integer value. The program should use a loop to get the sum of all the integers from 1 up to the number entered. For example, if the user enters 5, the loop will find the sum of 1,2,3,…….5.
+       What type of a loop is this?
+Input Validation: Do not accept a negative starting number.
+															
+2.	Sum of Numbers (SAMPLE 2a)
+
+Write a program that asks the user for several integer values and ends when the user inputs a -1. The program should use a loop to sum of all the positive integers entered. For example, if the user enters 5, 3, 2, -5, 6, 8,-1 the loop will find the sum of 5, 3, 2, 6 & 8. 
+What type of a loop is this?
+															
+3.	Sum of Numbers (SAMPLE 2b)
+Write a program that asks the user for a data file with several integer values and ends when a negative value (for example -5) is found. The program should use a loop to sum of all the positive integers in the file. For example, if the file contains 5, 3, 2, -5, 6, 8,-1 the loop will find the sum of 5, 3, 2. 
+What type of a loop is this?
+Input Validation: Include necessary data validation routines to check for state of the file stream.
+
+_________________________________________________________________
+
+// Program Shell counts the number of uppercase letters on a line.
+// The line must end with a period
+
+#include <iostream>
+using namespace std;
+
+
+int main ()
+{  
+    char letter;
+    int  letterCt=0;
+    
+    cout<<"Type in a bunch of characters ending with a period."<<endl;
+    cin>>letter;	
+  
+    while (                ) /* TO BE FILLED IN */
+    { 
+    	
+    	                     /* TO BE FILLED IN */
+    	                     
+    	
+    } 
+    cout<<"For the characters entered the number of uppercase letters is "<<letterCt<<endl;
+    system("PAUSE");
+   
+    return 0;
+}
+
+_____________________________________________________________
+
+Programming Challenges using loops: File and character processing – (WEEK#8)
+
+Programming Challenge#1: Write a program that will open and read character-by-character the contents in file history.d1. Use appropriate validation for file processing. 
+How many nonblank characters are there in file history.dl? Add the necessary statements including a counter to your program that keeps track of the number of nonblank characters in the file. Print this number to the screen. Do not include ‘\n’ in your nonblank count.
+
+Programming Challenge#2: Write a functional design and a program to analyze a sample of text in a file. 
+
+Count the instances of the following categories of symbols: 
+• Uppercase letters 
+• Lowercase letters 
+• Digits 
+• End-of-sentence markers (periods, explanation points, and question marks) 
+• Intrasentence markers (commas, semicolons, and colons) 
+• Blanks 
+• All other symbols 
+
+Use a switch statement in your processing. 
+After collecting these statistics, use them to approximate the following statistics: 
+• Average word length 
+• Average sentence length 
+Design and implement a test plan for the program. 
+
+A sample program showing file read operations …
+
+//***********************************************************
+// EchoLine program
+// This program reads and echoes the characters from one line
+// of an input file
+//***********************************************************
+#include <iostream>
+#include <fstream>                // For file I/O
+ 
+using namespace std;
+ 
+int main()
+{
+  char   inChar;                  // An input character
+  ifstream inFile;                // Data file
+ 
+  inFile.open("text.dat");        // Attempt to open input file
+  if (!inFile)                    // Was it opened?
+  {
+    cout << "Can't open the input file.";  // No--print message
+    return 1;                     // Terminate program
+  }
+  inFile.get(inChar);             // Get first character
+  while (inChar != '\n')
+  {
+    cout << inChar;               // Echo it
+    inFile.get(inChar);           // Get next character
+  }
+  cout << endl;
+  return 0;
+}
+
+/*datafile contents ...
+Now is the time for all good men to come to the aid of their party.
+*/
+
+You may also find the CharCounts.cpp below helpful.
+
+//******************************************************************
+// CharCounts program
+// This program counts the number of letters, periods, question
+// marks, and exclamation marks found in the first 100 input
+// characters
+// Assumption: Input consists of at least 100 characters
+//******************************************************************
+#include <iostream>
+#include <cctype>      // For isalpha()
+ 
+using namespace std;
+ 
+int main()
+{
+  char inChar;            // Current input character
+  int  loopCount;         // Loop control variable
+  int  letterCount = 0;   // Number of letters
+  int  periodCount = 0;   // Number of periods
+  int  questCount = 0;    // Number of question marks
+  int  exclamCount = 0;   // Number of exclamation marks
+ 
+  cout << "Enter your text:" << endl;
+  for (loopCount = 1; loopCount <= 100; loopCount++)
+  {
+    cin.get(inChar); 
+    if (isalpha(inChar))
+      letterCount++;
+    else
+      switch (inChar)
+      {
+        case '.' : periodCount++;
+                   break;
+        case '?' : questCount++;
+                   break;
+        case '!' : exclamCount++;
+                   break;
+        default  : ;   // Unnecessary, but OK
+      }    
+  }
+  cout << endl;
+  cout << "Input contained" << endl
+       << letterCount << " letters" << endl
+       << periodCount << " periods" << endl
+       << questCount << " question marks" << endl
+       << exclamCount << " exclamation marks" << endl;
+  system("PAUSE");
+  return 0;
+}
+----------------------------------------------------------------
+__________________________________________________________
+
+// Program CountMarks counts punctuation marks in a file.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main ()
+{
+  ifstream  inData;
+  char symbol;
+  int  periodCt = 0;
+  int  commaCt = 0;
+  int  questionCt = 0;
+  int  colonCt = 0;
+  int  semicolonCt = 0;
+  inData.open("switch.dat");
+  /* FILL IN */
+
+
+
+
+  system("PAUSE"
+  return 0;
+}
+/*data file switch.dat contains 
+There are lots of symbols in this file:  ..;;??
+.,.,.,?:::  .
+*/
+

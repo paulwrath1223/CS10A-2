@@ -1,0 +1,126 @@
+// Program Shell1 prompts for and reads a one-digit number.
+// Values between 0 and the digit (inclusive) are summed.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  counter;	// loop-control variable
+    int  sum;		// running sum
+    int  digit;
+
+    cout  << "Enter a one-digit number; press return."
+	  << endl;
+    cin  >> digit;
+    counter =  /* TO BE FILLED IN */
+    sum  =     /* TO BE FILLED IN */
+
+    while (            )       /* TO BE FILLED IN  */
+    {
+                              /*  TO BE FILLED IN */
+    }
+    cout  << "Sum of digits between 0 and "
+	  << digit  << " is "  << sum  << endl;
+	  system("PAUSE");
+    return 0;
+}
+__________________________________________________________________
+// Program Shell counts the number of uppercase letters on a line.
+// The line must end with a period
+
+#include <iostream>
+using namespace std;
+
+
+int main ()
+{  
+    char letter;
+    int  letterCt=0;
+    
+    cout<<"Type in a bunch of characters ending with a period."<<endl;
+    cin>>letter;	
+  
+    while (                ) /* TO BE FILLED IN */
+    { 
+    	
+    	                     /* TO BE FILLED IN */
+    	                     
+    	
+    } 
+    cout<<"For the characters entered the number of uppercase letters is "<<letterCt<<endl;
+    system("PAUSE");
+   
+    return 0;
+}
+__________________________________________________________
+
+// Program CountMarks counts punctuation marks in a file.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main ()
+{
+  ifstream  inData;
+  char symbol;
+  int  periodCt = 0;
+  int  commaCt = 0;
+  int  questionCt = 0;
+  int  colonCt = 0;
+  int  semicolonCt = 0;
+  inData.open("switch.dat");
+  /* FILL IN */
+
+
+
+
+  system("PAUSE"
+  return 0;
+}
+/*data file switch.dat contains 
+There are lots of symbols in this file:  ..;;??
+.,.,.,?:::  .
+*/
+_____________________________________________________________
+
+//***********************************************************
+// This program counts the occurrences of "!=" in a data file
+//***********************************************************
+#include <iostream>
+#include <fstream>            // For file I/O
+using namespace std;
+ 
+int main()
+{
+  int    count;               // Number of != operators
+  char   prevChar;            // Last character read
+  char   currChar;            // Character read in this iteration
+  ifstream inFile;            // Data file
+ 
+  inFile.open("myfile.dat");  // Attempt to open file
+  if ( !inFile )
+  { // If file wouldn't open, print message, terminate program
+    cout << "Can't open input file" << endl;
+    return 1;
+  }
+  count = 0;                  // Initialize counter
+  inFile.get(prevChar);       // Initialize previous value
+  inFile.get(currChar);       // Initialize current value
+  while (inFile)              // While input succeeds . . . 
+  {
+    if (currChar == '=' &&    // Test for !=
+        prevChar == '!')
+      count++;                // Increment counter
+    prevChar = currChar;      // Update previous value to current
+    inFile.get(currChar);     // Get next value
+  }
+  cout << count << " != operators were found." << endl;
+  
+  return 0;
+}________________________________________________________
+contents of myfile.dat
+<= !!! === != ! = !=
+
+
+

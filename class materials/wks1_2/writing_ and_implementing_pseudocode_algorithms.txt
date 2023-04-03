@@ -1,0 +1,97 @@
+//******************************************************************
+// PrintName program
+// This program prints a name in two different formats
+//******************************************************************
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const string FIRST = "Herman";    // Person's first name
+const string LAST = "Smith";      // Person's last name
+const char   MIDDLE = 'G';        // Person's middle initial
+
+int main()
+{
+    string firstLast;    // Name in first-last format
+    string lastFirst;    // Name in last-first format
+
+    firstLast = FIRST + " " + LAST;
+    cout << "Name in first-last format is " << firstLast << endl;
+
+    lastFirst = LAST + ", " + FIRST + ", ";
+    cout << "Name in last-first-initial format is ";
+    cout << lastFirst << MIDDLE << '.' << endl;
+    return 0;
+}
+__________________________________________________________________
+// This program Payroll1.cpp calculates hourly wages, including overtime.
+#include <iostream>
+using namespace std;
+
+int main()          
+{
+   double basePayRate     = 18.25,   // Base pay rate
+          overtimePayRate = 27.38,   // Overtime pay rate (1.5 * base)
+          regularHours    = 40.0,    // Regular hours worked
+          overtimeHours   = 10,      // Overtime hours worked
+          regularWages,              // Computed regular wages
+          overtimeWages,             // Computed overtime wages
+          totalWages;                // Computed total wages
+
+   // Calculate regular wages
+   regularWages = basePayRate * regularHours; 
+  
+   // Calculate overtime wages
+   overtimeWages = overtimePayRate * overtimeHours;
+  
+   // Calculate total wages
+   totalWages = regularWages + overtimeWages;
+  
+   // Display total wages
+   cout << "Wages for this week are $" << totalWages << endl;
+   return 0;
+}
+_________________________________________________________________
+// This progam Payroll2.cpp calculates the user's pay.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   double hours, rate, pay;
+
+   // Get the number of hours worked.
+   cout << "How many hours did you work? ";
+   cin >> hours;
+   
+   // Get the hourly pay rate.
+   cout << "How much do you get paid per hour? ";
+   cin >> rate;
+   
+   // Calculate the pay.
+   pay = hours * rate;
+   
+   // Display the pay.
+   cout << "You have earned $" << pay << endl;
+   return 0; 
+}
+_____________________________________________________________________
+
+1.Write detailed pseudo code for a program (aee payroll2.cpp above) that calculates user’s gross pay when given inputs for hours worked and hourly pay rate. Use variables named hours, rate, and pay. 
+               
+Input hours           // with prompt  ... Ask the user to input the number of hours worked
+Input rate            // with prompt  ... Ask the user to input the hourly pay rate
+pay = hours * rate
+Display pay 
+
+
+2. Convert the following pseudo code to C++ code. Be sure to define the appropriate variables. 
+Store 30 in the speed variable.
+Store 10 in the time variable.
+Multiply speed by time and store the result in the distance variable. Display the contents of the distance variable.
+
+
+3. Convert the following pseudo code to C++ code. Be sure to define the appropriate variables.
+Store 172.5 in the force variable. Store 27.5 in the area variable.
+Divide force by area and store the result in the pressure variable. Display the contents of the pressure variable.

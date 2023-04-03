@@ -1,0 +1,220 @@
+//C++ source code samples - focus on program components, format and structure
+//******************************************************************
+// Sample program - with two value-returning functions
+// This program computes the square and cube of 27
+//******************************************************************
+#include <iostream>
+
+using namespace std;
+
+int Square( int );
+int Cube( int );
+
+int main()
+{
+    cout << "The square of 27 is " << Square(27) << endl;
+    cout << "and the cube of 27 is " << Cube(27) << endl;
+    return 0;
+}
+
+int Square( int n )
+{
+    return n * n;
+}
+
+int Cube( int n )
+{
+    return n * n * n;
+}
+___________________________________________________________________
+// Program Area calculates the area of a square.     
+// The user is prompted to enter the number of 
+// inches on each side.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  inches;
+
+    cout  << "Enter the number of inches on a side "
+          << endl;
+    cout  << "Press the return key."
+          << endl;
+    cin  >> inches;
+    cout  << endl  << "The area is "  << inches * inches  << "."
+          << endl;
+    return 0;
+}  
+_________________________________________________________________________
+//******************************************************************
+// PrintName program
+// This program prints a name in two different formats
+//******************************************************************
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const string FIRST = "Herman";    // Person's first name
+const string LAST = "Smith";      // Person's last name
+const char   MIDDLE = 'G';        // Person's middle initial
+
+int main()
+{
+    string firstLast;    // Name in first-last format
+    string lastFirst;    // Name in last-first format
+
+    firstLast = FIRST + " " + LAST;
+    cout << "Name in first-last format is " << firstLast << endl;
+
+    lastFirst = LAST + ", " + FIRST + ", ";
+    cout << "Name in last-first-initial format is ";
+    cout << lastFirst << MIDDLE << '.' << endl;
+    
+    return 0;
+}
+_____________________________________________________________________
+// This program Payroll1.cpp calculates hourly wages, including overtime.
+#include <iostream>
+using namespace std;
+
+int main()          
+{
+   double basePayRate     = 18.25,   // Base pay rate
+          overtimePayRate = 27.38,   // Overtime pay rate (1.5 * base)
+          regularHours    = 40.0,    // Regular hours worked
+          overtimeHours   = 10,      // Overtime hours worked
+          regularWages,              // Computed regular wages
+          overtimeWages,             // Computed overtime wages
+          totalWages;                // Computed total wages
+
+   // Calculate regular wages
+   regularWages = basePayRate * regularHours; 
+  
+   // Calculate overtime wages
+   overtimeWages = overtimePayRate * overtimeHours;
+  
+   // Calculate total wages
+   totalWages = regularWages + overtimeWages;
+  
+   // Display total wages
+   cout << "Wages for this week are $" << totalWages << endl;
+   return 0;
+}
+_____________________________________________________________________
+//************************************************************************************
+// Chessboard program - This program prints a chessboard pattern that is built up from
+// basic strings of white and black characters.
+//************************************************************************************
+#include <iostream>
+#include <string>
+using namespace std; 
+
+const string BLACK = "********";  // Define a line of a black square
+const string WHITE = "        ";  // Define a line of a white square
+
+int main ()
+{
+  string whiteRow;            // A row beginning with a white square
+  string blackRow;            // A row beginning with a black square
+  
+  // Create a white-black row by concatenating the basic strings
+  whiteRow = WHITE + BLACK + WHITE + BLACK +
+             WHITE + BLACK + WHITE + BLACK;
+  
+  // Create a black-white row by concatenating the basic strings
+  blackRow = BLACK + WHITE + BLACK + WHITE +
+             BLACK + WHITE + BLACK + WHITE; 
+             
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;   
+  
+    // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  
+  // Print five white-black rows 
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  cout << whiteRow << endl;
+  
+  // Print five black-white rows
+  cout << blackRow << endl;
+  cout << blackRow << endl; 
+  cout << blackRow << endl;
+  cout << blackRow << endl;
+  cout << blackRow << endl;  
+  
+  return 0;                  
+}      
+--------------------------------------------------------------------------- 
+//lab practice assignment for CS10A section#4524 (due 1/22/20) - 10 EC points
+
+1. Compile and run the above program Chessboard (chessboard.cpp).
+2. Change the program so that a "%" is used rather than an asterisk to build the chessboard.
+3. Change the program so that only the outline of each square is shown. 
+(HINT: you may have to define another string constant). Here is a sample row with a few hollow rectangles provided as a an example.
+Your program will have more hollow rectangles to cover the entire chessboard dimensions.
+
+%%%%  %%%%	%%%%  %%%%	
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%  %  %  %	%  %  %  %
+%%%%  %%%%	%%%%  %%%%	
+
+Compile and Run your program.
+
+4. Change the program from part 3 above so that the rectangles are 5 characters wide by 8 rows high. Here is a sample row with a few hollow rectangles provided as a an example. Your program will have more hollow rectangles to cover the entire chessboard dimensions.
+
+%%%%%   %%%%%	%%%%%   %%%%%	
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%   %	%   %	%   %	%   %
+%%%%%   %%%%%	%%%%%   %%%%%	
+
+Compile and Run your program.
+
+Save your source code and upload the final version of your source code via the chessboard update submission page on the class CANVAS module for WEEK#1
+----------------------------------------------------------------------------

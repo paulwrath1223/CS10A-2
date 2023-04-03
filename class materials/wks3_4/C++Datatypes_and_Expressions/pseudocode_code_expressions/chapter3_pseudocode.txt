@@ -1,0 +1,60 @@
+/* -----PC3 Pseudocode algorithm----
+
+store numberofTests,testscore1,testScore2,testScore3,testScore4,testScore5,testScoreAvg
+
+Prompt for and get input for the five test scores
+
+testScoreAvg = (testScore1 + testScore2 + testScore3 + testScore4 + testScore5) / numberoftests ;
+
+Display testScoreAvg
+*/
+
+//---------------------------------------------------------------------
+
+/* -----PC12 Pseudocode algorithm----
+store Celsius, Fahrenheit
+
+Prompt for and get input for Celsius
+
+Fahrenheit = ((9/5)*Celsius )+32
+
+Display Farenheit
+*/
+
+//---------------------------------------------------------------------
+
+/* -----PC18 Pseudocode algorithm----
+
+store principal=1000
+store intRate=0.0425
+store times=12
+store intEarned
+
+Prompt for and get input principal, intRate, times
+
+Calculate finalBal
+finalBal=principal *power(1 + (intRate/times), times)
+
+intEarned=finalBal-principal
+intPct=intRate* 100
+
+Display items
+Interest Rate
+Times Compounded
+Principal
+Interest Earned
+Final Balance in Savings
+*/
+
+//----------------------------------------------------------------------
+
+/* -----PC24 Pseudocode algorithm----
+
+store vines,rowLength,endPostLength,spaceBetweenVines
+
+Prompt for and get input for rowLength, endPostLength, spaceBetweenVines
+Calculate the number of vines
+vines = (rowLength - 2 * endPostLength) / spaceBetweenVines
+
+Display number of vines in a row
+*/

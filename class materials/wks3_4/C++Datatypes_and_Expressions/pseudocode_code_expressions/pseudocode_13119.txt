@@ -1,0 +1,53 @@
+/*to get started write pseudocode for test score average program
+store NUM_TESTS=5
+
+setup data types for storing five test scores and an average
+testScore1,testScore2,testScore3,testScore4,testScore5,scoreAverage
+
+prompt for and store input values for
+testScore1
+testScore2
+testScore3
+testScore4
+testScore5
+
+calculate scoreAverage=(testScore1,testScore2,testScore3,testScore4,testScore5)/NUM_TESTS
+
+display results
+show scoreAverage
+*/
+----------------------------------------------------
+/*to get started write pseudo code for average rainfall program
+setup data types for storing three months names
+month1,month2,month3
+
+setup data types for storing rainfall data for three months
+rain1,rain2,rain3,rainAverage
+
+prompt and store input values for
+month1
+rain1
+month2
+rain2
+month3
+rain3
+
+calculate rainAverage=(rain1,rain2,rain3)/3
+
+display results
+show rainAvg
+*/
+---------------------------------------------------------
+/*to get started write pseudo code celcius to Farenheit program
+setup data types for storing two values
+celcius
+fahrenheit
+
+prompt and store input value for
+celcius
+
+calculate farenheit= ( (9/5)*celcius)+32
+
+display result
+show fahrenheit
+*/

@@ -1,0 +1,84 @@
+State of an IO Stream
+
+In Chapter 4, we said that all references to an input or output stream are ignored if the stream is in the fail state. The fail state is entered if the file that is the parameter to the open operation isn’t found, if you try to input from a stream after all the values have been read, or if invalid data is encountered in the input stream. C++ provides a way to test the state of a stream: The stream name used in an expression returns true if the state if okay and false if the stream is in the fail state. Look at the following example.
+
+// Program Area demonstrates stream testing
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int side1;		// one side of a rectangle
+    int side2;		// the other side of a rectangle
+    ifstream inData;	// file stream
+    int area;		// area of rectangle
+
+    inData.open("myData.dat");
+    if (!inData)
+    {
+        cout  << "Input file not found."  << endl;
+        return 1;
+    }
+    inData >> side1 >> side2;
+    if (!inData)
+    {
+        cout  << "Data format incorrect.";
+        return 2;
+    }
+    area = side1 * side2;
+    cout  << "Area is "  << area  << endl;
+    return 0;
+} 
+
+If the input file myData.dat cannot be found, 1 is returned to the operating system. If the data format on file inData is incorrect, 2 is returned to the operating system. If there are no input errors, 0 is returned to the operating system. Notice that the function main is exited as soon as a value is returned. Therefore, there are three ways that this function can be completed: two with an error (return 1 or 2) and one with no error (return 0). Returning 0 means normal completion of a program; returning any other value signals an error. When you are writing your program, you may choose the values to return to indicate different error conditions.
+
+/*Program dropLowScore reads data from an input file (or keyboard) and displays three test scores.
+The lowest score is dropped with an appropriate message. The final score is determined by summing the two remaining scores. 
+Assumption:  You are to create a data file with three scores. The scores are unique an each score must be 50 or below, with no negative scores.
+Display the final score and letter grade based on the following scale: 90-100 = A, 80-89 = B, 70-79 = C, 60-69 = D, BELOW 60 = F
+
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{ 
+    int  test1Score;
+    int  test2Score;
+    int  test3Score;
+    //add fstream variables
+
+
+   /* statements below reflect prompts for input of three scores from the keyboard                                                     
+    cout  << "Enter score for test 1; press return." << endl;
+    cin  >> test1Score;
+    cout  << "Enter score for test 2; press return."  << endl;
+    cin  >> test2Score;
+    cout  << "Enter score for test 3; press return."  << endl;
+    cin  >> test3Score;*/
+    
+    /*WRITE CODE TO OPEN AND READ DATA FROM FILE*/
+    /*VALIDATE THE INPUT FILE STREAM TO CHECK IF DATA FILE HAS BEEN 
+    OPENED AND THAT THE DATA MATCHES THE VARIABLES IN WHICH THEY WILL BE STORED*/
+
+  
+    cout  << "The three test scores are: "  << endl;
+    cout  << test1Score  << endl;
+    cout  << test2Score  << endl;
+    cout  << test3Score  << endl;
+                            
+    /*WRITE LOGICAL EXPRESSIONS IE., IF-THEN-ELSE STATEMENTS TO DETERMINE TWO BEST SCORES*/
+    /* DISPLAY THE FINAL SCORE AND FINAL GRADE ...SEE PROGRAM SPECIFICATIONS ABOVE*/
+    
+   
+
+
+
+
+
+    
+    return 0;
+}                          
+
+

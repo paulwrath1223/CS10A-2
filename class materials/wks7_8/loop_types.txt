@@ -1,0 +1,213 @@
+// The Greatest and Least of These
+// This program finds the greatest and smallest value in a set of numbers.
+// It uses a sentinel controlled loop to input and process the numbers.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int num,                  // Holds each number input by the user
+		greatest,             // Largest value
+		least,                // Smallest value
+		sentinel = -99;       // End sentinel to terminate the loop
+
+	// Input the first number
+	cout << "Enter a whole number (" << sentinel << " to quit): ";
+	cin  >> num;
+
+	// Initialize largest and smallest variables to the first number
+	greatest = least = num;	 
+
+	// So long as the previous number entered was not -99, process it
+	while (num != sentinel) 
+	{ 
+		if (num > greatest)
+			greatest = num;
+		else if (num < least)
+			least = num;
+
+		// Get the next number
+		cout << "Enter another whole number (" << sentinel << " to quit): ";
+		cin  >> num;
+	}
+  	// Display the results
+	cout << "\nThe largest number you entered is " << greatest << ".\n";
+	cout << "The smallest number you entered is " << least << ".\n";
+
+	return 0;
+}
+________________________________________________________________________________________
+// This program averages 3 test scores. It uses a do-while loop
+// that allows the code to repeat as many times as the user wishes.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int score1, score2, score3;   // Three test scores
+	double average;               // Average test score
+	char again;                   // Loop again? Y or N
+
+	do
+	{	// Get three test scores
+	   cout << "\nEnter 3 scores and I will average them: ";
+		cin  >> score1 >> score2 >> score3;
+		
+		// Calculate and display the average
+		average = (score1 + score2 + score3) / 3.0;
+		cout << "The average is " << average << ".\n";
+		
+		// Does the user want to average another set?
+		cout << "Do you want to average another set? (Y/N) ";
+		cin  >> again;
+	} while ((again == 'Y') || (again == 'y'));
+	return 0;
+}
+________________________________________________________________________________
+//rectangle shape generator ...shape2.cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int colCount;
+   int rowCount=1;
+   int columns,rows;
+   char symbol;
+
+   cout<<"Please enter a character to be used for the shape generator"<<endl;
+   cin>>symbol;
+   cout<<"Please enter width and height of shape"<<endl;
+   cin>>columns>>rows;
+
+   while(!cin)
+   {
+        cin.clear();
+       cin.ignore();
+       cout<<"Please enter width and height of shape"<<endl;
+   cin>>columns>>rows;
+   }
+
+   while(rowCount<=rows) //loop for rows
+   {
+     colCount=1;
+    while(colCount<=columns) //loop for columns
+    {
+       cout<<symbol;
+       colCount++;
+    }
+    cout<<endl;
+    rowCount++;
+   }
+
+return 0;
+}
+________________________________________________________________________________
+#include<iostream> //triangle.cpp
+using namespace std;
+
+int main()
+{
+
+    int limit=5;
+    char symbol='x';
+    int colcount=1, rowcount=1;
+    cout<<"Please enter a positive number to be used to generate a triangle."<<endl;
+    cin>>limit;
+    while(!cin || limit<0)
+    {
+        cin.clear();
+        cin.ignore(100,'\n');
+        cout<<"Please enter a positive number to represent the side of a square."<<endl;
+    cin>>limit;
+
+    }
+
+    while(rowcount<=limit)
+    {
+    colcount=1;
+    while(colcount<=rowcount)
+    {
+        cout<<symbol;
+        colcount++;
+    }
+
+    cout<<endl;
+    rowcount++;
+    }
+
+    return 0;
+}
+_____________________________________________________________________________
+// Arrowhead Display
+// This program uses nested loops to display an arrowhead.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int NUM_ROWS = 7,           // Number of rows
+		      MAX_PLUS = 7;       // Maxiumum number of plus signs on a row
+
+	int numPluses;                    // Number of plus signs on a row
+	
+	for (int row = 1; row <= NUM_ROWS; row++)
+	{
+		// Compute the number of pluses for this row
+		numPluses = 2 * row - 1;      // This works for rows 1 thru 4
+
+		if (numPluses > MAX_PLUS)     // This adjusts rows 5 thru 7
+			numPluses = 14 - numPluses;
+
+		// Print the arrow shaft or leading spaces
+		if (row == (NUM_ROWS + 1) / 2)
+			cout << "++++++";
+		else
+			cout << "      ";
+	
+		// Inner loop to print the pluses for this row
+		for (int plus = 1; plus <= numPluses; plus++)
+			cout << '+';
+
+		// Go to the next row
+		cout << endl;
+	}
+	return 0;
+}
+______________________________________________________________________
+// Diamond Display
+// This program uses nested loops to display a diamond.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int NUM_ROWS = 7,           // Number of rows
+		      MAX_PLUS = 7;           // Maxiumum number of plus signs on a row
+
+	int numSpaces,                    // Number of leading blank spaces on a row
+		numPluses;                    // Number of plus signs on a row
+
+	for (int row = 1; row <= NUM_ROWS; row++)
+	{
+		// Compute the number of pluses and number of leading spaces for this row
+		numPluses = 2 * row - 1;      // This works for rows 1 thru 4
+
+		if (numPluses > MAX_PLUS)     // This adjusts rows 5 thru 7
+			numPluses = 14 - numPluses;
+
+		numSpaces = (MAX_PLUS - numPluses) / 2;
+
+		// Inner loop to print the leading spaces for this row
+		for (int space = 1; space <= numSpaces; space++)
+			cout << ' ';
+
+		// Inner loop to print the pluses for this row
+		for (int plus = 1; plus <= numPluses; plus++)
+			cout << '+';
+
+		// Go to the next row
+		cout << endl;
+	}
+	return 0;
+}

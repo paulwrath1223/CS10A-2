@@ -1,0 +1,80 @@
+//******************************************************************
+// parameter passing with pass-by-value and pass-by-reference
+
+#include <iostream>
+
+using namespace std;
+
+void summing(int,int,int,int&);           //void function prototype
+
+
+int main()
+{
+    
+    int num1,num2,num3;
+    int sum=0;
+    cout<<"Please enter three numbers"<<endl;
+    cin>>num1>>num2>>num3;
+    
+ 
+  summing(num1,num2,num3,sum);  //call to a void function sending in one value
+    
+    cout << "The sum total of the three values is " << sum<<endl;
+     
+    system("PAUSE");
+    return 0;
+}
+
+void summing(int value1,int value2,int value3, int& finalvalue)
+{
+    int total;
+    total= value1+value2+value3;
+    finalvalue=total;
+         
+}
+__________________________________________________________________
+
+
+//******************************************************************
+// parameter passing with pass-by-value and pass-by-reference
+
+#include <iostream>
+
+using namespace std;
+
+void summing(int,int,int,int&);    //void function prototype
+int total(int,int,int);           //value-returning function prototype
+
+
+int main()
+{
+    
+    int num1,num2,num3;
+    int sum=0;
+    cout<<"Please enter three numbers"<<endl;
+    cin>>num1>>num2>>num3;
+    
+ 
+  summing(num1,num2,num3,sum);  //call to a void function sending in one value
+    
+    cout << "The sum total of the three values is " << sum<<endl;
+    
+    cout << "The sum total of the three values is " << total(num1,num2,num3)<<endl;
+     
+    system("PAUSE");
+    return 0;
+}
+
+void summing(int value1,int value2,int value3, int& finalvalue)
+{
+    int total;
+    total= value1+value2+value3;
+    finalvalue=total;
+         
+}
+
+int total(int value1,int value2,int value3)
+{
+    return value1+value2+value3;
+}
+_____________________________________________________________________________

@@ -1,0 +1,78 @@
+//C++ source code samples
+//******************************************************************
+// Sample program
+// This program computes the square and cube of 27
+//******************************************************************
+#include <iostream>
+
+using namespace std;
+
+int Square( int );
+int Cube( int );
+
+int main()
+{
+    cout << "The square of 27 is " << Square(27) << endl;
+    cout << "and the cube of 27 is " << Cube(27) << endl;
+    return 0;
+}
+
+int Square( int n )
+{
+    return n * n;
+}
+
+int Cube( int n )
+{
+    return n * n * n;
+}
+___________________________________________________________________
+
+// Program Area calculates the area of a square.     
+// The user is prompted to enter the number of 
+// inches on each side.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int  inches;
+
+    cout  << "Enter the number of inches on a side "
+          << endl;
+    cout  << "Press the return key."
+          << endl;
+    cin  >> inches;
+    cout  << endl  << "The area is "  << inches * inches  << "."
+          << endl;
+    return 0;
+}  
+_________________________________________________________________________
+
+// Program Wrap writes out the contents of a sandwich wrap.
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+const string TUNA = "tuna";
+const string PICKLE = "pickle";
+const string LETTUCE = "lettuce";
+const string WRAP = "tortilla";
+
+int main()
+{
+    string filling;
+    string wrap;
+
+    filling = TUNA + " and " + PICKLE + " with " + LETTUCE;
+    wrap = filling + " in " + WRAP + '.';
+    cout  << "Filling : "  << filling  << endl;
+    cout  << "Wrap : " << wrap  << endl;
+
+    return 0;
+}
+
+
+

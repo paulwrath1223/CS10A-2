@@ -1,0 +1,50 @@
+Let us write some pseudocode to help us think of alogrithm development - Chapter 2
+---------------------------
+PC20: How many gallons to paint a fence 
+
+store height=6
+store length=100
+store numOfCoats=22
+store PaintSqFtGal=340
+store areaToPaint
+store gallons
+
+
+Calculate and store areaToPaint=height*length
+Calculate and store gallons=areaToPaint/PaintSqFtGal
+
+Display results in gallons
+
+-----------------------------
+PC19: Annual High Temperature
+
+store NYCTemp=85
+store DenverTemp=88
+store PhoenixTemp=106
+store pctRise=.02
+
+Calculate and store NYCTemp=NYCTemp * (1+pctRise)
+Calculate and store DenverTemp=DenverTemp * (1+pctRise)
+Calculate and store PhoenixTemp=PhoenixTemp * (1+pctRise)
+
+Display results for each city
+------------------------------
+
+PC15:
+Store shares=750
+Store costPerShare=35.00
+Store salesPErShare=31.15
+store totalPaid
+store totalRecieved
+store loss difference
+
+Calculate and store totalPaid=shares * costPerShare
+Calculate and store totalRecieved=shares * salesPerShare
+Calculate and store difference= totalRecieved-totalPaid
+------------------------------
+
+store boardCost = 14.95;    
+store profitPct =   .35;    
+store boardSellingPrice; 
+Calculate and store boardSellingPrice = boardCost * (1 + profitPct)
+Display result

@@ -1,0 +1,202 @@
+#include<iostream> //square.cpp
+using namespace std;
+
+int main()
+{
+    int limit=5;
+    char symbol='x';
+    int colcount=1, rowcount=1;
+    cout<<"Please enter a positive number to represent the side of a square."<<endl;
+    cin>>limit;
+    while(!cin || limit<0)
+    {
+        cin.clear();
+        cin.ignore(100,'\n');
+        cout<<"Please enter a positive number to represent the side of a square."<<endl;
+    cin>>limit;
+
+    }
+
+    while(rowcount<=limit)
+    {
+    colcount=1;
+    while(colcount<=limit)
+    {
+        cout<<symbol;
+        colcount++;
+    }
+
+    cout<<endl;
+    rowcount++;
+    }
+    return 0;
+}
+--------------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //declare variables
+
+    int columns=13; //width of a row
+    int colCount=0;
+    int rows=20;
+    int rowCount=0;
+    char symbol='X';
+
+    //prompt for user input
+    cout<<"Enter width (a non negative number not to exceed 10), height and a character to generate a rectangle"<<endl;
+    cin>>columns>>rows>>symbol;
+
+    if(columns<0 || columns >10)
+    {
+        cout<<"Data is out of range"<<endl;
+        return 1;
+    }
+
+    else
+    {
+
+        //gernerates rows
+        while (rowCount<rows)
+        {
+            //loop to generate a single row
+            while(colCount<columns)
+            {
+                cout<<symbol;
+                colCount++;
+        }
+            cout<<endl;
+
+            colCount=0;
+        rowCount++;
+
+        }
+    }
+
+    return 0;
+}
+-----------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //declare variables
+
+    int columns=13; //width of a row
+    int colCount=0;
+    int rows=20;
+    int rowCount=0;
+    char symbol='X';
+    char restart;
+
+    do
+    {
+
+    //prompt for user input
+    cout<<"Enter width (a non negative number not to exceed 10), height and a character to generate a rectangle"<<endl;
+    cin>>columns>>rows>>symbol;
+
+    while(columns<0 || columns >10)
+    {
+        cout<<"Data is out of range"<<endl;
+
+        cin.ignore();
+        cin.clear();
+
+        //prompt for user input
+       cout<<"Enter width (a non negative number not to exceed 10), height and a character to generate a rectangle"<<endl;
+       cin>>columns>>rows>>symbol;
+
+    }
+
+        //gernerates rows
+        while (rowCount<rows)
+        {
+            //loop to generate a single row
+            while(colCount<columns)
+            {
+                cout<<symbol;
+                colCount++;
+        }
+            cout<<endl;
+
+            colCount=0;
+        rowCount++;
+
+        }
+
+     cout<<"To restart the shape generator program type a Y: ";
+     cin>> restart;
+
+    }while (restart== 'Y' || restart == 'y');
+
+    return 0;
+}
+----------------------------------------------------------------------------
+#include<iostream> //triangle1.cpp
+using namespace std;
+
+int main()
+{
+
+    int limit=5;
+    char symbol='x';
+    int colcount=1, rowcount=1;
+    cout<<"Please enter a positive number to be used to generate a triangle."<<endl;
+    cin>>limit;
+    while(!cin || limit<0)
+    {
+        cin.clear();
+        cin.ignore(100,'\n');
+        cout<<"Please enter a positive number to represent the side of a square."<<endl;
+    cin>>limit;
+
+    }
+
+    while(rowcount<=limit)
+    {
+    colcount=1;
+    while(colcount<=rowcount)
+    {
+        cout<<symbol;
+        colcount++;
+    }
+
+    cout<<endl;
+    rowcount++;
+    }
+    return 0;
+}
+____________________________________________
+//shape start with sample slope
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int width=11;
+  int maxRows=width/2;
+  int rowCount=0;
+  int spaceCount=0;
+
+  while(rowCount<=maxRows)
+  {
+      spaceCount=rowCount;
+
+      while(spaceCount<maxRows)
+      {
+          cout<<" ";
+          spaceCount++;
+      }
+      cout<<"*"<<endl;
+
+      rowCount++;
+  }
+  return 0;
+}
+

@@ -1,0 +1,149 @@
+State of an IO Stream
+
+In Chapter 4, we said that all references to an input or output stream are ignored if the stream is in the fail state. The fail state is entered if the file that is the parameter to the open operation isn’t found, if you try to input from a stream after all the values have been read, or if invalid data is encountered in the input stream. C++ provides a way to test the state of a stream: The stream name used in an expression returns true if the state if okay and false if the stream is in the fail state. Look at the following example.
+
+// Program Area demonstrates stream testing
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int side1;		// one side of a rectangle
+    int side2;		// the other side of a rectangle
+    ifstream inData;	// file stream
+    int area;		// area of rectangle
+
+    inData.open("myData.dat");
+    if (!inData)
+    {
+        cout  << "Input file not found."  << endl;
+        return 1;
+    }
+    inData >> side1 >> side2;
+    if (!inData)
+    {
+        cout  << "Data format incorrect.";
+        return 2;
+    }
+    area = side1 * side2;
+    cout  << "Area is "  << area  << endl;
+    return 0;
+} 
+
+If the input file myData.dat cannot be found, 1 is returned to the operating system. If the data format on file inData is incorrect, 2 is returned to the operating system. If there are no input errors, 0 is returned to the operating system. Notice that the function main is exited as soon as a value is returned. Therefore, there are three ways that this function can be completed: two with an error (return 1 or 2) and one with no error (return 0). Returning 0 means normal completion of a program; returning any other value signals an error. When you are writing your program, you may
+choose the values to return to indicate different error conditions.
+---------------------------------------------------------------------------------------------------
+
+/****************************************************************
+// Program ReadFile reads and prints all integer numbers on file
+// myData.dat using an EOF-controlled loop.
+//****************************************************************
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main () 
+{
+  ifstream inData;
+  inData.open("myData.dat");
+  
+  int intValue;
+  
+  cout << "Numbers on file myData.dat: " << endl;
+  inData >> intValue;
+  while (inData)
+  {
+    cout << intValue << " ";
+	inData >> intValue;
+  }
+  cout << endl;
+  inData.close();
+  return 0;
+}
+_________________________________________
+contents of myData.dat
+1066 1492  766 1918 1935 1941 2008 2010
+
+__________________________________________
+
+//***********************************************************
+// This program NotEqual counts the occurrences of "!=" in a data file
+//***********************************************************
+#include <iostream>
+#include <fstream>            // For file I/O
+using namespace std;
+ 
+int main()
+{
+  int    count;               // Number of != operators
+  char   prevChar;            // Last character read
+  char   currChar;            // Character read in this iteration
+  ifstream inFile;            // Data file
+ 
+  inFile.open("myfile.dat");  // Attempt to open file
+  if ( !inFile )
+  { // If file wouldn't open, print message, terminate program
+    cout << "Can't open input file" << endl;
+    return 1;
+  }
+  count = 0;                  // Initialize counter
+  inFile.get(prevChar);       // Initialize previous value
+  inFile.get(currChar);       // Initialize current value
+  while (inFile)              // While input succeeds . . . 
+  {
+    if (currChar == '=' &&    // Test for !=
+        prevChar == '!')
+      count++;                // Increment counter
+    prevChar = currChar;      // Update previous value to current
+    inFile.get(currChar);     // Get next value
+  }
+  cout << count << " != operators were found." << endl;
+  return 0;
+}
+
+______________________________________________________
+contents of data myfile.dat
+<= !!! === != ! = !=
+
+______________________________________________________
+
+// Program LineCt counts the number of characters per line
+// and the number of lines in a file.
+// Assumption:  There is a '\n' before the EOF.
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int lineNo;
+    char character;
+    int number;
+    ifstream inData;
+
+    inData.open("Data.In");
+    lineNo = 0;
+    inData.get(character);
+    while (inData)
+    {
+	lineNo++;
+	number = 0;
+	while (character != '\n')
+	{
+	    number++;
+	    inData.get(character);
+	}
+	cout << "Line " << lineNo  << " contains "
+	     << number  << " characters."  << endl;
+	inData.get(character);
+    }
+    return 0;
+}
+______________________________________________________
+contents of data Data.in
+The eyes of Texas are opon you
+all the livelong day;
+The eyes of Texas are opon you
+all the livelongday;
+______________________________________________________

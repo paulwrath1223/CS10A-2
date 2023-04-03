@@ -1,0 +1,88 @@
+//Math Tutor HINT ...sample function prototypes with related formal parameters and function documentation,
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+// ***function prototypes per program specification and structure design***
+void getProbsPerSet (/*out*/ int& numProbs);
+void doOneSet (/* in */ char problemType,/* in */ int numProbs, /*out*/ int& correctCount);
+void getMaxNum (/* out */int& maxNum);
+void printHeader (/* in */ char problemType);
+void doOneProblem (/* in */char problemType,/* in */ int maxNum,/*out*/ bool& isCorrect);
+void generateOperands (/* out */int& num1, /*out */int& num2,/* in */ int maxNum);
+void calcCorrectAnswer (/* in */ char problemType,/* in */ int num1,/* in */int num2, /* inout*/ int& answer);
+void checkAnswer (/* in */int num1,/* in */ int num2, /*out */bool& isCorrect);
+void printReport (/* in */int probsPerSet, /* in */ int set1Correct,/* in */int set2Correct, /* in */int set3Correct);
+
+int main()
+{
+	int probsPerSet;
+	int set1Correct;
+
+	srand(time(0));
+	getProbsPerSet (probsPerSet);
+	doOneSet ('+', probsPerSet, set1Correct);
+	//HINT: other similar function calls to doOneSet with one single argument changed
+
+	printReport (probsPerSet, set1Correct, set2Correct, set3Correct);
+
+	return 0;
+}
+
+
+void getProbsPerSet (/*out*/ int& numProbs)
+// This function prompts the user for the number of problems to
+// complete in each set. The number must be between 3 and 10
+
+// Preconditions:
+// User has been prompted for and supplied the value of numProbs
+// and a blank line has been printed.
+// Postconditions:
+// User has provided a valid value now stored in numProbs
+{
+	cout << "Enter problems per set: ";
+	cin >> numProbs;
+	cout << endl;
+
+}
+
+
+void doOneSet (/* in */ char problemType,/* in */ int numProbs, /*out */ int& numCorrect)
+
+// This function prints a header for a set of problems, gets the
+// maximum value of the random numbers to be generated for problems,
+// and tracks the number of correct answers generated, which is
+// returned to the calling function via 'numCorrect'.
+
+// Preconditions:
+// problemType and numProbs are assigned. problemType is '+',
+// '-' or '*'.
+// Postconditions:
+// User has been provided 'numProbs' problems to solve of a type
+// defined by 'problemType'. 'numCorrect' contains the number of
+// problems correctly answered by the user.
+{
+int i;
+int maxNum;
+bool isCorrect;
+
+//your code here
+}
+
+
+void printReport (/* in */int probsPerSet, /* in */ int set1Correct, /* in */int set2Correct, /* in */int set3Correct)
+
+// This function prints a report detailing the user's success rate
+// at correctly answering arithmetic problems, posed in three sets.
+// It prints the user's score and percentage correct for each set,and overall.
+{
+	int set1Percent;		
+	int totalPercent;
+
+	set1Percent = (100 * set1Correct) / probsPerSet;
+
+	cout << endl;
+	cout << "Set#1: You got " << set1Correct << " correct out of "<< probsPerSet << " for " << set1Percent << "%" << endl;
+	// your code here
+}

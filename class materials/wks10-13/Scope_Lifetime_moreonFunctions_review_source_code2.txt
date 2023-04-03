@@ -1,0 +1,100 @@
+//******************************************************
+// This program demonstrates global and local variables. global.cpp
+//******************************************************
+#include <iostream>
+using namespace std;
+ 
+void SomeFunc(float);
+ 
+const int A = 17;              // A global constant
+int b;                         // A global variable
+int c;                         // Another global variable
+ 
+int main()
+{
+  b = 4;                     // Assignment to global b
+  c = 6;                     // Assignment to global c
+  SomeFunc(42.8);
+  return 0;
+}
+ 
+ //********************************************************
+ 
+void SomeFunc(float c)       // Prevents access to global c
+{
+  float b;                   // Prevents access to global b
+ 
+  b = 2.3;                   // Assignment to local b
+  cout << " A = " << A;      // Output global a (17)
+  cout << " b = " << b;      // Output local b (2.3)
+  cout << " c = " << c;      // Output local c (42.8)
+}
+
+______________________________________________________________________________
+// Program Scope demonstrate scope rules and lifetime classes.
+#include <iostream>
+#include <fstream>
+using namespace std;
+void  SumNumbers(ifstream&, int&);
+
+int main ()
+{
+    int  counter;
+    int  sum = 0;
+    int  number;
+    ifstream  inNums;
+    inNums.open("numeric.txt");
+    {
+	       int  sum = 0;
+	       SumNumbers(inNums, sum);
+	       cout  << "Output from first call to SumNumbers"
+               << endl;
+	       cout  << "Sum is "  << sum  << endl;
+
+    }
+    SumNumbers(inNums, sum);
+    cout  << "Output from second call to SumNumbers"
+           << endl;
+    cout  << "Sum is "  << sum  << endl;
+    return 0;
+}
+//**************************************
+void  SumNumbers(ifstream& inFile, int& answer)
+{
+    int number;
+    static int  counter = 1;
+    while (counter <= 4)
+    {
+	       inFile  >> number;
+	       answer = answer + number;
+	       counter++;
+    }
+}
+
+/*data file numeric.dat contains  10 20 30 40 10 20 30 40  */
+______________________________________________________________________________
+#include <iostream> //q2.cpp ...check program flow and scope of local varibles in functions
+using namespace std;
+
+void DoThis (int&, int&);
+
+int main ()
+{
+	int number1, number2;
+	
+	cout<<"Exercise "<<endl;
+	
+	DoThis(number1, number2);
+	
+	cout<<number1<<' '<<number2<<endl;
+	return 0;
+}
+
+void DoThis (int& value1, int& value2)
+{
+	int value3;
+	cout<<"Enter two integer values"<<endl;
+	cin>>value3>>value1;
+	value2=value1 + 10;
+}
+_______________________________________________________

@@ -1,0 +1,227 @@
+// Program StringDemo.cpp demonstrates string functions.
+#include <iostream>
+#include <string>
+using namespace std;
+
+const string TITLE = "How much was the doggie in the window?";
+const string CAT = "cat";
+
+int main()
+{
+  cout  << TITLE << endl;
+  cout  << TITLE.length()  << endl;
+  cout  << TITLE.find("the")  << endl;
+  cout  << TITLE.find(CAT)  << endl;
+  cout  << TITLE.substr(17, 6)  << endl;
+  cout  << TITLE.substr(17, 23)  << endl;
+  cout  << TITLE.substr(17, 23).length()  << endl;
+  cout  << "Character in the 4th position of TITLE is "
+        << TITLE.at(4);
+  cout  <<endl; 
+  return 0;
+}
+__________________________________________________________________
+
+//***********************************************************
+// Program Names.cpp demonstrates the use of substr.
+//***********************************************************
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+int main()
+{
+  string firstName = "mary";
+  string lastName = "melrose";
+  char ch;
+  ch = toupper(lastName.at(0));
+  lastName = ch  + lastName.substr(1, lastName.length());
+  ch = toupper(firstName.at(0));
+  firstName = ch + firstName.substr(1, firstName.length());
+  cout << firstName << " "  << lastName << endl;
+  return 0;
+}
+_____________________________________________________________________
+
+//******************************************************************
+// SubstrOps.cpp program demonstrates find and substr operations
+//******************************************************************
+#include <iostream>
+#include <string>     // For substr type
+ 
+using namespace std;
+ 
+int main()
+{
+  string name = "Olivia Johnson Peterson";
+  int index;
+  index = name.find(' ');
+  cout << "First Name: " << name.substr(0, index) << endl;
+  name = name.substr(index+1, name.length()-1);
+  index = name.find(' ');
+  cout << "Middle Name: " << name.substr(0, index) << endl;
+  name = name.substr(index+1, name.length()-1);
+  cout << "Last Name: " << name;
+  return 0;
+}
+_______________________________________________________________________
+// This program uses cin >> to read a word into a C-string.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int SIZE = 12;
+        char name[SIZE];    // name is a set of 12 memory cells
+	
+	cout << "Please enter your first name." << endl;
+	cin  >> name;
+	cout << "Hello, " << name << endl;
+       
+	return 0;
+}
+___________________________________________________________________
+// This program uses the strcpy function to copy one C-string to another.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int SIZE = 12;
+        char name1[SIZE], name2[SIZE];
+	
+	strcpy(name1, "Sebastian");             
+	cout << "name1 now holds the string " << name1 << endl;
+
+	strcpy(name2, name1);
+	cout << "name2 now also holds the string " << name2 << endl;
+	system("PAUSE");
+	return 0;
+}
+
+_________________________________________________________________________
+
+//program ascii.cpp shows how to get ascii equivalent for a character input
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	char f1;
+	int numeric;
+	cout << "Give character: ";
+	cin >> f1;
+	cout << "Its ascii value is: " << (int)f1 << endl;
+	cout << "Give a number to convert to ascii: ";
+	cin >> numeric;
+	cout << "The ascii value of " << numeric << " is " << (char)numeric<<endl;
+	//system("PAUSE");
+	return 0;
+}
+
+
+
+
+
+________________________________________________________________________
+
+// This program prints a character from its ASCII code.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int number = 65;
+
+	// Display the value of the number variable 
+	cout << number << endl;
+
+	// Use a type cast to display the value of number 
+	// converted to the char data type
+	cout << static_cast<char>(number) << endl;
+	return 0;
+}
+
+________________________________________________________________________
+
+// Programming Challenge - Test Average
+// This program calculates the average of a set of test scores.
+// It uses a type cast.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	const int NUM_TESTS = 5;
+
+	int test1,          // Variables to hold the test scores
+		test2,
+		test3,		
+	    test4,		
+	    test5,
+		testSum;        // Sum of the test scores
+
+	double testAvg;     // Average of the test scores
+
+	// Prompt user to enter the test scores
+	cout << "Enter the " << NUM_TESTS << " test scores separated by "
+		 << "one or more spaces." << endl;
+	cin  >> test1 >> test2 >> test3 >> test4 >> test5 ;
+												
+	// Calculate the average score
+	testSum = test1 + test2 + test3 + test4 + test5;
+	testAvg = static_cast<double>(testSum) / NUM_TESTS ;
+
+	// Display results
+	cout << "\n\nThe average of the " << NUM_TESTS << " scores is ";
+	cout << fixed << showpoint << setprecision(1);
+	cout << testAvg << endl;
+
+	return 0;
+}
+
+________________________________________________________________________
+
+// This program tracks the inventory of two widget stores. 
+// It illustrates the use of multiple and combined assignment. 
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int begInv,    // Beginning inventory for both stores
+       sold,      // Number of widgets sold
+       store1,    // Store 1's inventory
+       store2;    // Store 2's inventory
+		 
+   // Get the beginning inventory for the two stores
+   cout << "One week ago, 2 new widget stores opened\n";
+   cout << "at the same time with the same beginning\n";
+   cout << "inventory. What was the beginning inventory? ";
+   cin  >> begInv;
+   
+   // Set each store's inventory
+   store1 = store2 = begInv;
+   
+   // Get the number of widgets sold at each store
+   cout << "How many widgets has store 1 sold? ";
+   cin >> sold;
+   store1 -= sold;     // Adjust store 1's inventory
+   
+   cout << "How many widgets has store 2 sold? ";
+   cin >> sold;
+   store2 -= sold;     // Adjust store 2's inventory
+   
+   // Display each store's current inventory
+   cout << "\nThe current inventory of each store:\n";
+   cout << "Store 1: " << store1 << endl;
+   cout << "Store 2: " << store2 << endl;
+   return 0;
+}
+
+__________________________________________________________________________
+
+
+

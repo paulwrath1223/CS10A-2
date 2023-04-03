@@ -1,0 +1,6 @@
+List five elements that are common to all programming languages. 
+Key words
+Programmer-Defined  Symbols
+Operators
+Punctuation
+Syntax

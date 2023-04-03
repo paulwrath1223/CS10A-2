@@ -1,0 +1,184 @@
+// Program Box writes a box using periods. - box.cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void WriteBox(); //function prototype
+// Post: Writes a box (20 x 4) of dots on the screen. 
+
+int main()
+{   
+    cout << "A box: " << endl;
+    WriteBox(); //function call
+    cout << "Box has been drawn." << endl;
+    return 0;
+}
+//********************************************
+void WriteBox()          // name of the action
+// Post: A box (20 x 4) is printed using periods.
+
+{                         			 // begin action
+  cout << "...................." << endl;
+  cout << "." << setw(19)  << "."  << endl;
+  cout << "." << setw(19)  << "."  << endl;
+  cout << "...................." << endl;
+}			                        //end of action 
+_______________________________________________________________________
+#include <iostream> //program uses loops to generate box - box1.cpp
+using namespace std;
+
+void drawHorizontalLine();	//these two lines are
+void drawVerticalLines();	//called "prototypes"
+
+int main()
+{
+   drawHorizontalLine();  	//these three lines are
+   drawVerticalLines();		//"function calls"
+   drawHorizontalLine();
+}
+
+void drawHorizontalLine()	//this is a "function definition"
+{
+	int count;
+	for(count = 1; count <=6; count++){
+		cout <<"X";
+	}
+	cout <<endl;
+}
+
+void drawVerticalLines()       	//this is another "function definition"
+{
+	int rowCount;
+	int spaceCount;
+	for (rowCount = 1; rowCount <=3; rowCount++){
+		cout <<"X";
+		for(spaceCount = 1; spaceCount <=4; spaceCount++){
+			cout <<" ";
+		}
+		cout <<"X"<<endl;
+	}
+}
+_______________________________________________________________________
+#include <iostream> //value returning function called max - max.cpp
+using namespace std; //introduces namespace std
+
+int maximum(int, int, int);/*Prototype*/
+	
+int main ( )
+{
+	int a, b, c;
+	cout <<"Enter three integers: ";
+	cin >>a>>b>>c;
+	cout <<"Maximum is: " << maximum (a, b, c)<<endl;
+		return 0;
+}
+/*function definition*/
+int maximum(int x, int y, int z)
+{	
+	int max = x;
+	if (y>max)
+		max = y;
+	if (z>max)
+		max = z;
+		return max;
+}
+-------------------------------------------------------------------
+
+Function Documentation Resources: Assertions and Dataflow comments
+Writing Assertions as Function Documentation
+
+Although this topic is not often emphasized, in that it is sometimes explicitly covered in textbook chapter content and in other instances implied through the source code examples or in the Appendix, here is a bit of addtional information that may prove helpful while you begin exploring and implementing the concept of functional decomposition in your programs. The point of all this is .. how to properly document your functions. 
+When talking about functions, we can say informally that every C++ function has preconditions and post conditions as well as pass-by-value or pass-by-reference data parameters in many cases. From now on how about attempting to include preconditions and postconditions as well as data flow comments to document function interfaces.
+
+
+
+
+
+
+
+
+
+
+Here's an example:
+
+#include <iostream>
+using namespace std;
+
+//function prototype indicates the position of two datatypes as value parameters and the direction of dataflow
+void displayAverage(/*in*/float, /*in*/int) ; 
+
+int main()
+{
+  float someFloat = 0.0;
+  int someInt =0;
+ 
+  someFloat = 72.50; //assuming some input updates the value for this variable
+  someInt = 10;        //assuming some input updates this counte type variable
+
+   //here is a sample function call ...main is the calling function aka. as the caller
+   displayAverage(someFloat, someInt); //here is the function call with actual arguments
+   
+    //other program code here....
+    
+    return 0;
+}
+
+//and here is the function definition
+//***********************************************************************************************************
+// This function computes and displays the average given two incoming value parameters of type float and int*
+// See Gaddis textbook pgs. 318-319 section on Passing Data by Value                                        *       
+// Note this function header comment is used in the Gaddis textook source code samples                      *      
+//***********************************************************************************************************    
+void displayAverage(/*in*/float total, /*in*/int count) //function heading with data flow comments in formal parameter list 
+// Post:     The average has been output on one line
+{
+    cout <<"Average is "<< total / static_cast<float>(count) <<endl;
+}
+
+
+The precondition is an assertion describing everything that the function requires to be true at the moment when the caller invokes the function. The postcondition describes the state of the program at the moment when the function finishes executing.
+In the preceding example, the precondition warns the calling function to make sure that total has been assigned a meaningful value and that count is positive. If this precondition is true, the function guarantees it will satisfy the postcondition. If count isn't positive when displayAverage is invoked or called, the effect of the module is undefined. (For example, if count equals 0, the postcondition surely isn't satisfied-any code that implements this module crashes). YIKES!
+Sometimes the calling function doesn't need to satisfy any precondition before calling a function. In this case, the precondition can be written as the value true or simply omitted. In the following example, no precondition is necessary:
+
+Here's another example:
+
+#include <iostream>
+using namespace std;
+
+//function prototype indicates the position of three datatypes as reference parameters and the direction of dataflow
+void getDimensions(/*out*/ int&, /*out*/ int&, /*out*/ int&); 
+int main()
+{
+    //three local variables declared and initialized
+   int firstValue = 0;
+   int secondValue = 0;
+   int thirdValue = 0;
+ 
+    //here is a sample function call ...main is the calling function aka. as the caller
+    getDimensions(firstValue, secondValue, thirdValue); //here is the function call with actual arguments
+ 
+    //output statements below used to confirm if values changed after the previous call to the getDimensions function.
+    cout<<firstValue <<endl;
+    cout<<secondValue<<endl;
+    cout<<thirdValue<<endl;
+ 
+    return 0;
+}
+ 
+//and here is the function definition
+ //*********************************************************************************************************************
+// This function provides an input prompt and gets user input of three integer values which is then immediately passed * 
+// through from these three reference variables and written to the memory address of the related actual argument or    *
+// variable in the calling code. See Gaddis textbook pgs. 350-354 section on Using Reference Variables as Parameters    *              
+// Note this function header comment is used in the Gaddis textbook source code samples                                *
+//**********************************************************************************************************************   
+void getDimensions(/*out*/ int& height, /*out*/ int& width, /*out*/ int& stages) //function heading with data flow comments in formal parameter list 
+//Post:    User has been prompted to enter three integers
+//            height is the first input value
+//            width is the second input value
+//            stages is the third input value
+//Include comments related to any data validation routines
+{
+    cout<< "Please enter three values to represent height, width and stages of the rocket generator:"<<endl;
+    cin >>height>>width>>stages;
+}

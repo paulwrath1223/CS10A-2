@@ -1,0 +1,123 @@
+// Program StringDemo.cpp demonstrates string functions.
+#include <iostream>
+#include <string>
+using namespace std;
+
+const string TITLE = "How much was the doggie in the window?";
+const string CAT = "cat";
+
+int main()
+{
+  cout  << TITLE << endl;
+  cout  << TITLE.length()  << endl;
+  cout  << TITLE.find("the")  << endl;
+  cout  << TITLE.find(CAT)  << endl;
+  cout  << TITLE.substr(17, 6)  << endl;
+  cout  << TITLE.substr(17, 23)  << endl;
+  cout  << TITLE.substr(17, 23).length()  << endl;
+  cout  << "Character in the 4th position of TITLE is "
+        << TITLE.at(4);
+  cout  <<endl; 
+  return 0;
+}
+__________________________________________________________________
+
+//***********************************************************
+// Program Names.cpp demonstrates the use of substr.
+//***********************************************************
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+int main()
+{
+  string firstName = "mary";
+  string lastName = "melrose";
+  char ch;
+  ch = toupper(lastName.at(0));
+  lastName = ch  + lastName.substr(1, lastName.length());
+  ch = toupper(firstName.at(0));
+  firstName = ch + firstName.substr(1, firstName.length());
+  cout << firstName << " "  << lastName << endl;
+  return 0;
+}
+_____________________________________________________________________
+
+//******************************************************************
+// SubstrOps.cpp program demonstrates find and substr operations
+//******************************************************************
+#include <iostream>
+#include <string>     // For substr type
+ 
+using namespace std;
+ 
+int main()
+{
+  string name = "Olivia Johnson Peterson";
+  int index;
+  index = name.find(' ');
+  cout << "First Name: " << name.substr(0, index) << endl;
+  name = name.substr(index+1, name.length()-1);
+  index = name.find(' ');
+  cout << "Middle Name: " << name.substr(0, index) << endl;
+  name = name.substr(index+1, name.length()-1);
+  cout << "Last Name: " << name;
+  return 0;
+}
+_______________________________________________________________________
+// This program uses cin >> to read a word into a C-string.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int SIZE = 12;
+        char name[SIZE];    // name is a set of 12 memory cells
+	
+	cout << "Please enter your first name." << endl;
+	cin  >> name;
+	cout << "Hello, " << name << endl;      
+	return 0;
+}
+___________________________________________________________________
+// This program uses the strcpy function to copy one C-string to another.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const int SIZE = 12;
+        char name1[SIZE],
+	name2[SIZE];
+	
+	strcpy(name1, "Sebastian");             
+	cout << "name1 now holds the string " << name1 << endl;
+
+	strcpy(name2, name1);
+	cout << "name2 now also holds the string " << name2 << endl;
+	return 0;
+}
+------------------------------------------------------------------------
+// This program uses cin's width function.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	const int SIZE = 5;
+	char word[SIZE];
+
+	cout << "Enter a word: ";
+	cin.width(SIZE);
+	cin  >> word;
+	cout << "You entered " << word << endl;
+              system("PAUSE");
+	return 0;
+}
+
+
+
+
+

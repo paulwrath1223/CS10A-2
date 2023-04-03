@@ -1,0 +1,261 @@
+<title>Lecture Notes - cin.fail(), cin.clear(), cin.eof() and strchr()</title>
+<body bgcolor=ffffff>
+<center>
+<h2>Lecture Notes - cin.fail(), cin.clear(), cin.eof() and strchr()</h2>
+<!-- <h2><a href=http://www.cs.utk.edu/~plank/>James S. Plank</a></h2> -->
+</center>
+<hr>
+<h2>1. cin.fail() and cin.eof()</h2>
+
+Part of C++ input processing is the function <b>cin.fail()</b>.  This
+returns non-zero (true) if the last <b>cin</b> command failed, and
+zero (false) otherwise.  When you reach the end of a file and try to 
+read anything, this is a classic time for <b>cin.fail()</b>.  See the 
+program <b><a href=cplusplus/cinfail.cpp>cinfail.cpp</a></b>:
+<p>
+<center><table border=3 cellpadding=3><td><pre>
+
+  #include &lt;iostream&gt;
+  using namespace std;
+
+  int main()
+  {
+    string s;
+    int i;
+
+    i = 0;
+    while (1) {
+      i++;
+      cin &gt;&gt; s;
+      if (cin.fail()) return 0;
+      cout &lt;&lt; "String " &lt;&lt; i &lt;&lt; ": " &lt;&lt; s &lt;&lt; endl;  
+    }
+}
+</pre></td></table></center><p>
+
+You'll note, when you run this, it ends when the end of the file has
+been reached, because <b>cin.fail()</b> returns true here:
+
+<pre>
+  UNIX> <b>g++ cinfail.cpp</b>
+  UNIX> <b>cat input-1.txt</b>
+  Cats foot iron claw
+  Neuro-surgeons scream for more
+  At paranoias poison door.
+  21st century schizoid man.
+  UNIX> <b>a.out < input-1.txt</b>
+  String 1: Cats
+  String 2: foot
+  String 3: iron
+  String 4: claw
+  String 5: Neuro-surgeons
+  String 6: scream
+  String 7: for
+  String 8: more
+  String 9: At
+  String 10: paranoias
+  String 11: poison
+  String 12: door.
+  String 13: 21st
+  String 14: century
+  String 15: schizoid
+  String 16: man.
+  UNIX> <b></b>
+</pre>
+
+<b>cin.fail()</b> also returns 1 if you try to read an integer and 
+it receives something that cannot be converted to an integer.  For
+example, 
+see <b><a href=cplusplus/cinfail2.cpp>cinfail2.cpp</a></b>:
+<p>
+<center><table border=3 cellpadding=3><td><pre>
+
+  #include &lt;iostream&gt;
+  using namespace std;
+
+  int main()
+  {
+    int j;
+    int i;
+
+    i = 0;
+    while (1) {
+      i++;
+      cin &gt;&gt; j;
+      if (cin.fail()) return 0;
+      cout &lt;&lt; "Integer " &lt;&lt; i &lt;&lt; ": " &lt;&lt; j &lt;&lt; endl;  
+    }
+  }
+</pre></td></table></center><p>
+
+When we run it on <b>input-2.txt</b>, you see that it quits after
+reading the seventh word, because that is not an integer:
+
+<pre>
+  UNIX> <b>g++ cinfail2.cpp</b>
+  UNIX> <b>cat input-2.txt</b>
+  30 40 50 60 70 -100 Fred 99 88 77 66
+  UNIX> <b>a.out < input-2.txt</b>
+  Integer 1: 30
+  Integer 2: 40
+  Integer 3: 50
+  Integer 4: 60
+  Integer 5: 70
+  Integer 6: -100
+  UNIX> <b></b>
+</pre>
+
+So, how do you know if you read an incorrect input word, or if you
+are at the end of the file?  This is when you use <b>cin.eof()</b>
+and <b>cin.clear()</b>.  First, <b>cin.eof()</b> 
+returns 1 if you tried to read something but were at the end of file.  
+Second, <b>cin.clear()</b> is used to "clear the error state" of <b>cin</b>.
+In other words, when an input failure occurs and <b>cin.fail()</b> returns
+true, the input buffer (<b>cin</b>) is placed in an "error state", and further
+input processing will not work unless you clear the state by calling <b>cin.clear()</b>.
+Used together
+with <b>cin.fail()</b>, <b>cin.eof()</b> and <b>cin.clear()</b> let 
+you process and error check a variety of input.   
+For example, 
+<b><a href=cplusplus/cinfail3.cpp>cinfail3.cpp</a></b>
+below reads all the integers in a file and prints them out.  It uses
+<b>cin.fail()</b>/<b>cin.clear()</b> to check for and ignore non-integers, and uses
+<b>cin.eof()</b> to discover the end of the file:
+<p>
+<center><table border=3 cellpadding=3><td><pre>
+
+  #include &lt;iostream&gt;
+  using namespace std;
+
+  int main()
+  {
+    int j;
+    int i;
+    string dummy;
+
+    i = 0;
+    while (1) {
+      cin &gt;&gt; j;
+      if (!cin.fail()) {
+        i++;
+        cout &lt;&lt; "Integer " &lt;&lt; i &lt;&lt; ": " &lt;&lt; j &lt;&lt; endl;  
+      } else if (cin.eof()) {
+        return 0;
+      } else {
+        cin.clear();
+        cin &gt;&gt; dummy;
+      }
+    }
+  }
+</pre></td></table></center><p>
+
+When we run it on <b>input-3.txt</b>, you see that it works 
+as promised:
+
+<pre>
+  UNIX> <b>g++ cinfail3.cpp</b>
+  UNIX> <b>cat input-3.txt</b>
+  Black 100 as 50 a 25 dark 12 night -5 she 0 was -500
+  UNIX> <b>a.out < input-3.txt</b>
+  Integer 1: 100
+  Integer 2: 50
+  Integer 3: 25
+  Integer 4: 12
+  Integer 5: -5
+  Integer 6: 0
+  Integer 7: -500
+  UNIX> <b></b>
+</pre>
+
+<hr>
+<h2>2. strchr() to check for one of a bunch of characters</h2>
+
+Here's a nice trick.  Suppose you want to know whether a character
+is one of the characters '0',&nbsp 'A',&nbsp 'b',&nbsp '.',&nbsp ':'&nbsp 
+or&nbsp '/'.  Well, one
+way to test for this is to do a bunch of <b>if</b> statements.  The
+other way is to use <b>strchr()</b>.  Remember, <b>strchr(s, c)</b> 
+returns a pointer to the first instance of <b>c</b> in <b>s</b>, and
+it returns <b>NULL</b> if <b>c</b> is not in <b>s</b>.  So, if you 
+want to perform the above test, you can say:
+<pre>
+  if (strchr("0Ab.:/", c) != NULL)
+</pre>
+If that returns true, then <b>c</b> is one of the desired characters.
+Otherwise, it's not.
+<p>
+For example, suppose we want to write a program that has the user 
+enter a card by typing the rank and the suit, like "AH" for the
+ace of hearts, and "2C" for the two of clubs.  Then the code computes
+the card's rank in the deck, where <i>2C</i> is <i>card 0</i> and <i>AS</i> 
+is <i>card 51</i>.  Here's a way to 
+do it
+(in <b><a href=cplusplus/readcard.cpp>readcard.cpp</a></b>):
+<p>
+<center><table border=3 cellpadding=3><td><pre>
+
+  #include &lt;iostream&gt;
+  #include &lt;cstring&gt;
+  using namespace std;
+
+  const char *ranks = "23456789TJQKA";
+  const char *suits = "CDHS";
+
+  const char *longranks[13] =     // array of char * strings (C-style)
+     { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+     "Ten", "Jack", "Queen", "King", "Ace" };
+
+  const char *longsuits[4] =     // array of char * strings (C-style)
+     { "Clubs", "Diamonds", "Hearts", "Spades" };
+
+  int main()
+  {
+    string s;
+    const char *str;            // str will point to a C-style string
+    int cnum;
+
+    while (1) {
+      cout &lt;&lt; "Enter a card: ";
+      cin &gt;&gt; s;
+      str = s.c_str();
+      if (strlen(str) != 2) {
+        cout &lt;&lt; "The card must the format 'rank-suit', such as 'AH' or '2C'\n";  
+      } else if (strchr(ranks, str[0]) == NULL) {  // check rank
+        cout &lt;&lt; "The rank must be one of " &lt;&lt; ranks &lt;&lt; endl;  
+      } else if (strchr(suits, str[1]) == NULL) {  // check suit
+        cout &lt;&lt; "The suit must be one of " &lt;&lt; suits &lt;&lt; endl;  
+      } else {
+        cnum = (strchr(suits, str[1]) - suits)*13 + 
+               (strchr(ranks, str[0]) - ranks);
+        cout &lt;&lt; "Good card: #" &lt;&lt; cnum &lt;&lt; ": The " &lt;&lt;   
+            longranks[cnum%13] &lt;&lt; " of " &lt;&lt; longsuits[cnum/13] &lt;&lt; ".\n";  
+      }
+    }
+  }
+</pre></td></table></center><p>
+
+Note the use of pointer arithmetic to get the rank and suit.
+Study that one carefully.  It's a good trick to know.
+<p>
+Here's an example of it running:
+
+<pre>
+  UNIX> <b>g++ readcard.cpp</b>
+  UNIX> <b>a.out</b>
+  Enter a card: <b>AH</b>
+  Good card: #38: The Ace of Hearts.
+  Enter a card: <b>2C</b>
+  Good card: #0: The Two of Clubs.
+  Enter a card: <b>7S</b>
+  Good card: #44: The Seven of Spades.
+  Enter a card: <b>TD</b>
+  Good card: #21: The Ten of Diamonds.
+  Enter a card: <b>YS</b>
+  The rank must be one of 23456789TJQKA
+  Enter a card: <b>TY</b>
+  The suit must be one of CDHS
+  Enter a card: <b>Fred</b>
+  The card must the format 'rank-suit', such as 'AH' or '2C'
+  Enter a card: <b>^C</b>
+  UNIX> <b></b>
+</pre>

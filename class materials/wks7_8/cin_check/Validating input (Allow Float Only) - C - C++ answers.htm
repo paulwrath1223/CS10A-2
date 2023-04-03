@@ -1,0 +1,1088 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML dir=ltr lang=en xmlns="http://www.w3.org/1999/xhtml"><HEAD><META 
+content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Validating input (Allow Float Only) - C / C++ answers</TITLE><BASE 
+href="http://bytes.com/"></BASE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=Content-Type>
+<META name=keywords 
+content="Validating,input,Allow,Float,Only, Validating input (Allow Float Only), questions, insights, articles, development, programming, business, it, technology, small business">
+<META name=description 
+content="Validating input (Allow Float Only). Ask C / C++ questions and get answers from our community of C / C++ experts and professionals on BYTES."><LINK 
+rel=canonical 
+href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only">
+<STYLE id=vbulletin_css type=text/css>
+/**
+* vBulletin 3.7.6 CSS
+* Style: 'bytes.answers'; Style ID: 18
+*/
+@import url("/clientscript/vbulletin_css/style-d16465b5-00018.css");
+</STYLE>
+<LINK rel=stylesheet type=text/css href="http://bytes.com/cache/3386938192.css">
+<SCRIPT type=text/javascript 
+src="http://bytes.com/cache/3816751176.js"></SCRIPT>
+
+<SCRIPT type=text/javascript> <!--
+var SESSIONURL = "s=44862cc376e37f466db45c1bd2a6be53&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+window.onload = navMenuExp; 
+// --> </SCRIPT>
+<LINK title="Bytes RSS Feed" rel=alternate type=application/rss+xml 
+href="/external.php?type=RSS2"><LINK title="Bytes - answers - RSS Feed" 
+rel=alternate type=application/rss+xml 
+href="/external.php?type=RSS2&amp;forumids=308">
+<SCRIPT type=text/javascript 
+src="http://bytes.com/clientscript/helpfulanswers.js"></SCRIPT>
+
+<STYLE id=vbulletin_showthread_css type=text/css> <!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	--> </STYLE>
+</HEAD>
+<BODY>
+<DIV style="DISPLAY: none; HEIGHT: 3893px" id=codeBlur class=codeBlur 
+onclick="">&nbsp;</DIV>
+<DIV 
+style="POSITION: absolute; WIDTH: 807px; DISPLAY: none; TOP: 2921px; LEFT: 226px" 
+id=codeAbs class=codeAbs>
+<DIV class=codeHeader><SPAN class=codeLink>Contract</SPAN><SPAN 
+class=codeDivider>|</SPAN><SPAN class=codeLink 
+onclick=selectAll(this);>Select</SPAN><SPAN class=codeDivider>|</SPAN><SPAN 
+class=codeLink onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+class=codeDivider>|</SPAN><SPAN class=codeLink onclick=LineNumbers(this);>Line 
+Numbers</SPAN> </DIV>
+<DIV style="WIDTH: 100%; DISPLAY: block; WHITE-SPACE: normal; HEIGHT: 100%" 
+class=codeContent>
+<DIV><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;name[10];float&nbsp;price; 
+</SPAN><BR><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Name:&nbsp;";cin&gt;&gt;name;&nbsp; 
+</SPAN><BR><SPAN 
+class=codeSpan>P:&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Price:&nbsp;";cin&gt;&gt;price;&nbsp; 
+</SPAN><BR><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!cin)&nbsp;{&nbsp;//&nbsp;cin&nbsp;is&nbsp;not&nbsp;working&nbsp;-&nbsp;cin.fail&nbsp;=&nbsp;true 
+</SPAN><BR><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin.clear();&nbsp;//&nbsp;Clears&nbsp;the&nbsp;fail&nbsp;state&nbsp;indicator 
+</SPAN><BR><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin.ignore(1);&nbsp;//&nbsp;Ignores&nbsp;1&nbsp;character&nbsp;in&nbsp;the&nbsp;input&nbsp;stream.&nbsp;(Required&nbsp;to&nbsp;stop&nbsp;endless&nbsp;loop) 
+</SPAN><BR><SPAN 
+class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto&nbsp;P; 
+</SPAN><BR><SPAN class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;} 
+</SPAN></DIV></DIV></DIV>
+<DIV 
+style="Z-INDEX: 10; BORDER-BOTTOM: #ccc 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #f4f4f4; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; PADDING-TOP: 0px">
+<TABLE class=tempwrapper>
+  <TBODY>
+  <TR>
+    <TD width=300>
+      <DIV id=login_box>
+      <UL id=navbar>
+        <LI id=channel><A href="/topic/">all</A> </LI>
+        <LI id=channel><A href="/business/">Business</A> 
+        <UL>
+          <LI><A href="/topic/careers/">Careers and Education</A></LI>
+          <LI><A href="/topic/consulting/">Consulting</A></LI>
+          <LI><A href="/topic/finance/">Finance</A></LI>
+          <LI><A href="/topic/management/">Management</A></LI>
+          <LI><A href="/topic/marketing/">Marketing</A></LI></UL></LI>
+        <LI id=channel><A href="/it/">IT</A> 
+        <UL>
+          <LI><A href="/topic/apache/">Apache Web Server</A></LI>
+          <LI><A href="/topic/computer-hardware/">Computer Hardware</A></LI>
+          <LI><A href="/topic/cms/">Content Management Systems</A></LI>
+          <LI><A href="/topic/desktop-software/">Desktop Software</A></LI>
+          <LI><A href="/topic/iis/">IIS / Internet Information Server</A></LI>
+          <LI><A href="/topic/macosx/">Mac OS X</A></LI>
+          <LI><A href="/topic/windows/">Microsoft Windows / Windows 7 / Vista / 
+          XP</A></LI>
+          <LI><A href="/topic/mobile/">Mobile Phones and PDAs</A></LI>
+          <LI><A href="/topic/networking/">Networking - Hardware / 
+          Configuration</A></LI>
+          <LI><A href="/topic/security/">Security</A></LI>
+          <LI><A href="/topic/unix/">Unix / Linux / BSD</A></LI>
+          <LI><A href="/topic/web-applications/">Web Applications</A></LI>
+          <LI><A href="/topic/windows-server/">Windows Server 2003 / 
+          2008</A></LI></UL></LI>
+        <LI id=channel><A href="/development/">Development</A> 
+        <UL>
+          <LI><A href="/topic/net/">.NET Framework</A></LI>
+          <LI><A href="/topic/apis/">APIs</A></LI>
+          <LI><A href="/topic/asp-classic/">ASP / Active Server Pages</A></LI>
+          <LI><A href="/topic/asp-net/">ASP.NET</A></LI>
+          <LI><A href="/topic/algorithms/">Algorithms / Advanced Math</A></LI>
+          <LI><A href="/topic/c/">C / C++</A></LI>
+          <LI><A href="/topic/c-sharp/">C# / C Sharp</A></LI>
+          <LI><A href="/topic/coldfusion/">ColdFusion</A></LI>
+          <LI><A href="/topic/db2/">DB2 Database</A></LI>
+          <LI><A href="/topic/flash/">Flash / Actionscript</A></LI>
+          <LI><A href="/topic/html-css/">HTML / CSS</A></LI>
+          <LI><A href="/topic/java/">Java</A></LI>
+          <LI><A href="/topic/javascript/">JavaScript / Ajax / DHTML</A></LI>
+          <LI><A href="/topic/access/">Microsoft Access / VBA</A></LI>
+          <LI><A href="/topic/sql-server/">Microsoft SQL Server</A></LI>
+          <LI><A href="/topic/mobile-development/">Mobile Development</A></LI>
+          <LI><A href="/topic/mysql/">MySQL Database</A></LI>
+          <LI><A href="/topic/oracle/">Oracle Database</A></LI>
+          <LI><A href="/topic/php/">PHP</A></LI>
+          <LI><A href="/topic/perl/">Perl</A></LI>
+          <LI><A href="/topic/postgresql/">PostgreSQL Database</A></LI>
+          <LI><A href="/topic/python/">Python</A></LI>
+          <LI><A href="/topic/ruby/">Ruby / Ruby on Rails</A></LI>
+          <LI><A href="/topic/software-development/">Software 
+          Development</A></LI>
+          <LI><A href="/topic/visual-basic-net/">Visual Basic .NET</A></LI>
+          <LI><A href="/topic/visual-basic/">Visual Basic 4 / 5 / 6</A></LI>
+          <LI><A href="/topic/xaml/">XAML / WPF / Silverlight</A></LI>
+          <LI><A href="/topic/xml/">XML</A></LI></UL></LI></UL></DIV></TD>
+    <TD align=right>
+      <DIV id=login_box>
+      <UL>
+        <LI><A href="/register/">sign up</A> 
+        <LI><A onclick="showlayer('login_menu')" 
+        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#">login</A> 
+
+        <DIV style="DISPLAY: none" id=login_menu>
+        <DIV id=new-user-col>new member:<BR><BR><A class=green-button 
+        href="/register/" rel=nofollow>Register</A> </DIV>
+        <DIV id=signup-user-col>member login:<BR><BR>
+        <FORM 
+        onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)" 
+        method=post action=http://bytes.com/login.php?do=login>
+        <UL>
+          <LI><LABEL for=navbar_password>Email Address:</LABEL> <INPUT 
+          accessKey=u style="FONT-SIZE: 9pt" id=navbar_username class=bginput 
+          tabIndex=101 size=10 name=vb_login_username> 
+          <LI><LABEL for=navbar_password>Password:</LABEL> <INPUT 
+          style="FONT-SIZE: 9pt" id=navbar_password class=bginput tabIndex=102 
+          value="" size=10 type=password name=vb_login_password> <INPUT accessKey=s class=button title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." tabIndex=104 value="Log in" type=submit> 
+          </LI></UL><INPUT value=44862cc376e37f466db45c1bd2a6be53 type=hidden 
+        name=s> <INPUT value=login type=hidden name=do> <INPUT type=hidden 
+        name=vb_login_md5password> <INPUT type=hidden 
+        name=vb_login_md5password_utf> <INPUT value=1 type=hidden 
+        name=cookieuser> </FORM><BR><A 
+        href="http://bytes.com/login.php?do=lostpw" rel=nofollow>lost 
+        password?</A> </DIV>
+        <DIV class=spacer></DIV></DIV></LI></UL></DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV 
+style="Z-INDEX: 10; PADDING-BOTTOM: 0px; MARGIN: 5px 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; PADDING-TOP: 0px">
+<TABLE class=tempwrapper>
+  <TBODY>
+  <TR>
+    <TD width=140 align=left><A href="http://bytes.com"><IMG 
+      title="Connect with Expertise | Find Experts, Get Answers, Share Insights" 
+      border=0 
+      alt="Connect with Expertise | Find Experts, Get Answers, Share Insights" 
+      src="/images/logo4.gif" width=120 height=30></A> </TD>
+    <TD align=left>
+      <FORM style="DISPLAY: inline" method=post name=ask_question 
+      action=/submit/question><INPUT value=0 type=hidden name=topic> <INPUT class=btn_hdr title="Get help, ask your question now!" value=" Ask your Question " type=submit name=ask_a_question> 
+      </FORM>
+      <FORM style="DISPLAY: inline" method=post name=share_insight 
+      action=/submit/insight><INPUT value=0 type=hidden name=topic> <INPUT class=btn_hdr title="Share your insights by writing an Article" value=" Write an Article " type=submit name=share_an_insight> 
+      </FORM>
+      <FORM style="DISPLAY: inline" method=post name=share_insight 
+      action=/experts><INPUT value=0 type=hidden name=topic> <INPUT class=btn_hdr title="Find an Expert, Consultant " value=" Our Experts " type=submit name=share_an_insight> 
+      </FORM></TD>
+    <TD width=325 align=right>
+      <FORM method=post name=search action=http://bytes.com/search.php><INPUT 
+      value=process type=hidden name=do> <INPUT value=0 type=hidden 
+      name=showposts> <INPUT value=1 type=hidden name=quicksearch> <INPUT 
+      type=hidden name=forumchoice[]> <INPUT 
+      style="FONT-SIZE: 17px; VERTICAL-ALIGN: middle" onfocus="this.value=''" 
+      name=query> <INPUT style="HEIGHT: 1.85em; FONT-SIZE: 15px; VERTICAL-ALIGN: middle" value=Search type=submit name=gobutton> 
+      </FORM></TD></TR></TBODY></TABLE></DIV>
+<DIV class=navtable>
+<DIV class=navbar_box><A accessKey=1 href="/">bytes</A> <SPAN class=navbar>&gt; 
+<A href="http://bytes.com/topic/c/">c / c++</A></SPAN> <SPAN class=navbar>&gt; 
+<A href="http://bytes.com/topic/c/answers/">c / c++ questions</A></SPAN> 
+</DIV></DIV>
+<TABLE class=maintable>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <H1 
+      style="BORDER-BOTTOM: #ccc 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 10px; FONT-SIZE: 15pt; PADDING-TOP: 0px">Validating 
+      input (Allow Float Only)</H1>
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD height=1000 vAlign=top width=745><A id=poststop 
+            name=poststop></A>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px auto 8px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=d_ad_1>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 1px; PADDING-RIGHT: 0px; FLOAT: right; HEIGHT: 90px; PADDING-TOP: 0px"></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=h_ad_1>
+            <SCRIPT language=javascript type=text/javascript> <!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 1;
+var browDateTime = (new Date()).getTime();
+var Keywords = escape('development,c,answers');
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://please-support.bytes.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=65924&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '&amp;Keywords=' + Keywords  + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://please-support.bytes.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=65924&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '&amp;Keywords=' + Keywords  + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> </SCRIPT>
+
+            <SCRIPT language=javascript 
+            src="http://please-support.bytes.com/a.aspx?ZoneID=1&amp;Task=Get&amp;IFR=False&amp;PageID=65924&amp;SiteID=1&amp;Random=1285466848212&amp;Keywords=development%2Cc%2Canswers"></SCRIPT>
+
+            <SCRIPT type=text/javascript><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ssl-d.netline.com/ajs.php':'http://d.netline.com/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=67");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></SCRIPT>
+
+            <SCRIPT type=text/javascript 
+            src="http://d.netline.com/ajs.php?zoneid=67&amp;cb=20592491327&amp;charset=iso-8859-1&amp;loc=http%3A//bytes.com/topic/c/answers/711758-validating-input-allow-float-only&amp;referer=http%3A//www.google.com/search%3Fq%3Dcin.clear+does+not+work+in+while+loop%26sourceid%3Die7%26rls%3Dcom.microsoft%3Aen-us%3AIE-SearchBox%26ie%3D%26oe%3D"></SCRIPT>
+            <NOSCRIPT></NOSCRIPT><NOSCRIPT></NOSCRIPT></DIV></DIV>
+            <DIV style="CLEAR: both"></DIV>
+            <DIV id=posts>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2830789>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2830789 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/142037/elzix/"><IMG 
+                        title="Elzix's Avatar" border=0 alt="Elzix's Avatar" 
+                        src="http://bytes.com/avatars/avatar142037_4.gif" 
+                        width=24 height=24></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2830789><A class=bigusername 
+                        href="http://bytes.com/profile/142037/elzix/">Elzix</A> 
+                        </DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Sep 2007</DIV>
+                        <DIV>Location: Under my hair</DIV>
+                        <DIV>Posts: 3 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2830789></A>#<A id=postcount2830789 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2830789" 
+                        name=1>1</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2830789 class=alt1>
+                  <DIV id=post_message_2830789>
+                  <DIV style="MARGIN-RIGHT: 65px">Input required = 
+                  Float<BR>=&gt; Input not required = char<BR><BR>Is there a 
+                  simple peice of code so as to allow input of float values 
+                  only?<BR><BR>
+                  <DIV style="WIDTH: 500px" id=codeHolder class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: nowrap" 
+                  class=codeContent>
+                  <OL highlight="true">
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;name[10][20];float&nbsp;price[10]; 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Name:&nbsp;";cin&gt;&gt;name;&nbsp;//&nbsp;Input&nbsp;will&nbsp;allow&nbsp;any&nbsp;20&nbsp;char's 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Price:&nbsp;";cin&gt;&gt;price;&nbsp;//&nbsp; 
+
+                    <LI class=codeLI>&nbsp; </LI></OL></DIV></DIV>I need price for 
+                  further calculations </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV>
+            <SCRIPT language=JavaScript 
+            src="http://bytes.com/ads/as_intra.js"></SCRIPT>
+
+            <SCRIPT language=JavaScript 
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></SCRIPT>
+
+            <SCRIPT 
+            src="http://googleads.g.doubleclick.net/pagead/test_domain.js"></SCRIPT>
+
+            <SCRIPT 
+            src="http://pagead2.googlesyndication.com/pagead/render_ads.js"></SCRIPT>
+
+            <SCRIPT>google_protectAndRun("render_ads.js::google_render_ad", google_handleError, google_render_ad);</SCRIPT>
+
+            <SCRIPT language=JavaScript1.1 
+            src="http://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-8550604525820387&amp;output=js&amp;image_size=728x90&amp;lmt=1285466846&amp;num_ads=1&amp;skip=1&amp;channel=4683650471&amp;ad_type=text&amp;ea=0&amp;feedback_link=on&amp;flash=10.1.82.76&amp;url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F711758-validating-input-allow-float-only&amp;dt=1285466846410&amp;shv=r20100909&amp;jsv=r20100917&amp;correlator=1285466846450&amp;frm=0&amp;adk=2146854400&amp;ga_vid=1107239035.1285466847&amp;ga_sid=1285466847&amp;ga_hid=6851968&amp;ga_fc=0&amp;u_tz=-420&amp;u_his=0&amp;u_java=1&amp;u_h=800&amp;u_w=1280&amp;u_ah=770&amp;u_aw=1280&amp;u_cd=32&amp;u_nplug=0&amp;u_nmime=0&amp;biw=1259&amp;bih=633&amp;ref=http%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcin.clear%2Bdoes%2Bnot%2Bwork%2Bin%2Bwhile%2Bloop%26sourceid%3Die7%26rls%3Dcom.microsoft%3Aen-us%3AIE-SearchBox%26ie%3D%26oe%3D&amp;fu=0&amp;ifi=1&amp;dtd=280"></SCRIPT>
+
+            <DIV id=headerads>
+            <DIV class=ghdradby><A 
+            href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://bytes.com/topic/c/answers/711758-validating-input-allow-float-only%26hl%3Den%26client%3Dca-pub-8550604525820387%26adU%3Dwww.dockbuilders.com%26adT%3DDock%2BBuilders%2BSupply%26gl%3DUS&amp;usg=AFQjCNEHfDJ17rUsM9ZcijTa43SU2m8UEQ">Ads 
+            by Google</A></DIV>
+            <DIV class=ghdrad>
+            <DIV class=title><A 
+            onmouseover="window.status='go to www.dockbuilders.com'" 
+            onmouseout="window.status=''" 
+            href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BulKG3KqeTMnfI4z2jQT4lYyuDcr7htMBlOS-7ArAjbcB0MNCEAEYAiDB0vcBOABQ_uGd2QZgyZb7hsijoBmyAQlieXRlcy5jb226AQk3Mjh4OTBfanPIAQHaAUlodHRwOi8vYnl0ZXMuY29tL3RvcGljL2MvYW5zd2Vycy83MTE3NTgtdmFsaWRhdGluZy1pbnB1dC1hbGxvdy1mbG9hdC1vbmx5qAMB6APdBegD2wX1AwIAAMQ&amp;num=2&amp;sig=AGiWqtwlKdTPnWx7KjK0E0ebnF5WW15c6g&amp;client=ca-pub-8550604525820387&amp;adurl=http://www.dockbuilders.com/dockfloats.htm">Dock 
+            Builders Supply</A></DIV>
+            <DIV class=desc>
+            <DIV class=url><A 
+            onmouseover="window.status='go to www.dockbuilders.com'" 
+            onmouseout="window.status=''" 
+            href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BulKG3KqeTMnfI4z2jQT4lYyuDcr7htMBlOS-7ArAjbcB0MNCEAEYAiDB0vcBOABQ_uGd2QZgyZb7hsijoBmyAQlieXRlcy5jb226AQk3Mjh4OTBfanPIAQHaAUlodHRwOi8vYnl0ZXMuY29tL3RvcGljL2MvYW5zd2Vycy83MTE3NTgtdmFsaWRhdGluZy1pbnB1dC1hbGxvdy1mbG9hdC1vbmx5qAMB6APdBegD2wX1AwIAAMQ&amp;num=2&amp;sig=AGiWqtwlKdTPnWx7KjK0E0ebnF5WW15c6g&amp;client=ca-pub-8550604525820387&amp;adurl=http://www.dockbuilders.com/dockfloats.htm">www.dockbuilders.com</A></DIV><SPAN>Dock 
+            Floats - Over 30 Sizes! Encapsulated; Low Prices. 
+            </SPAN></DIV></DIV></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 1px; PADDING-RIGHT: 0px; FLOAT: right; HEIGHT: 90px; PADDING-TOP: 0px"></DIV></DIV>
+            <DIV style="CLEAR: both"></DIV><BR>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2830790>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2830790 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/52644/ganon11/"><IMG 
+                        title="Ganon11's Avatar" border=0 alt="Ganon11's Avatar" 
+                        src="http://bytes.com/avatars/avatar52644_9.gif" 
+                        width=50 height=50></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2830790><A class=bigusername 
+                        href="http://bytes.com/profile/52644/ganon11/">Ganon11</A> 
+                        </DIV>
+                        <DIV class=smallfont>
+                        <DIV class=rankbox title=Expert>E</DIV>
+                        <DIV class=rankbox title=Contributor>C</DIV></DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Oct 2006</DIV>
+                        <DIV>Location: New York, United States of America</DIV>
+                        <DIV>Posts: 3,416 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2830790></A>#<A id=postcount2830790 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2830790" 
+                        name=2>2</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2830790 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2830790>
+                  <DIV style="MARGIN-RIGHT: 65px">You shouldn't be able to cin 
+                  directly to the arrays like that - you need to cin to 
+                  price[0], or names [3], or something like that. 
+              </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2830799>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2830799 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/56617/sicarie/"><IMG 
+                        title="sicarie's Avatar" border=0 alt="sicarie's Avatar" 
+                        src="http://bytes.com/avatars/avatar56617_14.gif" 
+                        width=50 height=50></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2830799><A class=bigusername 
+                        href="http://bytes.com/profile/56617/sicarie/">sicarie</A> 
+                        </DIV>
+                        <DIV class=smallfont>
+                        <DIV class=rankbox title=Expert>E</DIV>
+                        <DIV class=rankbox title=Moderator>M</DIV>
+                        <DIV class=rankbox title=Contributor>C</DIV></DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Nov 2006</DIV>
+                        <DIV>Location: USA</DIV>
+                        <DIV>Posts: 4,071 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2830799></A>#<A id=postcount2830799 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2830799" 
+                        name=3>3</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2830799 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2830799>
+                  <DIV style="MARGIN-RIGHT: 65px">
+                  <DIV 
+                  style="BORDER-LEFT: #ccc 2px solid; LINE-HEIGHT: 18px; MARGIN: 5px 20px 20px; PADDING-LEFT: 10px; COLOR: #666; FONT-SIZE: 11px">Input 
+                  required = Float<BR>=&gt; Input not required = char<BR><BR>Is 
+                  there a simple peice of code so as to allow input of float 
+                  values only?<BR><BR>
+                  <DIV style="WIDTH: 500px" id=codeHolder class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: nowrap" 
+                  class=codeContent>
+                  <OL highlight="true">
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;name[10][20];float&nbsp;price[10]; 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Name:&nbsp;";cin&gt;&gt;name;&nbsp;//&nbsp;Input&nbsp;will&nbsp;allow&nbsp;any&nbsp;20&nbsp;char's 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Price:&nbsp;";cin&gt;&gt;price;&nbsp;//&nbsp; 
+
+                    <LI class=codeLI>&nbsp; </LI></OL></DIV></DIV>I need price for 
+                  further calculations </DIV><A 
+                  href="http://www.cplusplus.com/reference/clibrary/cstdio/scanf.html" 
+                  rel=nofollow target=_blank>scanf()</A> ?<BR><BR>(And Ganon11 
+                  is correct, you shouldn't be accessing the arrays like that, 
+                  I'm pretty sure you'll have values overwritten) 
+              </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2830876>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2830876 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/142037/elzix/"><IMG 
+                        title="Elzix's Avatar" border=0 alt="Elzix's Avatar" 
+                        src="http://bytes.com/avatars/avatar142037_4.gif" 
+                        width=24 height=24></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2830876><A class=bigusername 
+                        href="http://bytes.com/profile/142037/elzix/">Elzix</A> 
+                        </DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Sep 2007</DIV>
+                        <DIV>Location: Under my hair</DIV>
+                        <DIV>Posts: 3 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2830876></A>#<A id=postcount2830876 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2830876" 
+                        name=4>4</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2830876 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2830876>
+                  <DIV style="MARGIN-RIGHT: 65px">Ok, sorry for that mistake. My 
+                  algorithm is longer than this.. I'm just stressed that 
+                  everything else is working but this input.<BR><BR>
+                  <DIV style="WIDTH: 500px" id=codeHolder class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: nowrap" 
+                  class=codeContent>
+                  <OL highlight="true">
+                    <LI class=codeLI>char&nbsp;name[10];float&nbsp;price; 
+                    <LI 
+                    class=codeLI>cout&lt;&lt;"\tPart&nbsp;Name:&nbsp;";cin&gt;&gt;name;&nbsp;//&nbsp;Input&nbsp;will&nbsp;allow&nbsp;any&nbsp;20&nbsp;char's 
+
+                    <LI 
+                    class=codeLI>cout&lt;&lt;"\tPart&nbsp;Price:&nbsp;";cin&gt;&gt;price;&nbsp;// 
+                    </LI></OL></DIV></DIV>If it's confusing, IGNORE the code. The 
+                  code works well when int / float are input into price. When a 
+                  char appears in price, the algorithm loops 
+                  endlessly.<BR><BR>Q: how to prevent / throw the error, before 
+                  it is input into price? </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2831012>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2831012 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/56617/sicarie/"><IMG 
+                        title="sicarie's Avatar" border=0 alt="sicarie's Avatar" 
+                        src="http://bytes.com/avatars/avatar56617_14.gif" 
+                        width=50 height=50></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2831012><A class=bigusername 
+                        href="http://bytes.com/profile/56617/sicarie/">sicarie</A> 
+                        </DIV>
+                        <DIV class=smallfont>
+                        <DIV class=rankbox title=Expert>E</DIV>
+                        <DIV class=rankbox title=Moderator>M</DIV>
+                        <DIV class=rankbox title=Contributor>C</DIV></DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Nov 2006</DIV>
+                        <DIV>Location: USA</DIV>
+                        <DIV>Posts: 4,071 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2831012></A>#<A id=postcount2831012 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2831012" 
+                        name=5>5</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2831012 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2831012>
+                  <DIV style="MARGIN-RIGHT: 65px">Does scanf() not work for you? 
+                  If not, did you look at stringstreams? 
+              </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2831032>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2831032 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/52644/ganon11/"><IMG 
+                        title="Ganon11's Avatar" border=0 alt="Ganon11's Avatar" 
+                        src="http://bytes.com/avatars/avatar52644_9.gif" 
+                        width=50 height=50></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2831032><A class=bigusername 
+                        href="http://bytes.com/profile/52644/ganon11/">Ganon11</A> 
+                        </DIV>
+                        <DIV class=smallfont>
+                        <DIV class=rankbox title=Expert>E</DIV>
+                        <DIV class=rankbox title=Contributor>C</DIV></DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Oct 2006</DIV>
+                        <DIV>Location: New York, United States of America</DIV>
+                        <DIV>Posts: 3,416 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2831032></A>#<A id=postcount2831032 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2831032" 
+                        name=6>6</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2831032 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2831032>
+                  <DIV style="MARGIN-RIGHT: 65px">When the user tries to enter a 
+                  char value into a float value (or any incompatible type 
+                  mismatch like this), cin enters the fail state. This indicates 
+                  that something went wrong, and it can't be trusted for input. 
+                  When this happens, you need to clear it (to get rid of the 
+                  fail state indicator) and then flush it (to get rid of 
+                  whatever caused the error in the first place). This works out 
+                  to:<BR><BR>
+                  <DIV style="WIDTH: 500px" id=codeHolder class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: nowrap" 
+                  class=codeContent>
+                  <OL highlight="true">
+                    <LI 
+                    class=codeLI>if&nbsp;(!cin)&nbsp;{&nbsp;//&nbsp;This&nbsp;only&nbsp;executes&nbsp;if&nbsp;cin&nbsp;is&nbsp;not&nbsp;working&nbsp;-&nbsp;that&nbsp;is,&nbsp;if&nbsp;cin&nbsp;is&nbsp;in&nbsp;the&nbsp;fail&nbsp;state 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;cin.clear();&nbsp;//&nbsp;Clears&nbsp;the&nbsp;fail&nbsp;state&nbsp;indicator 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;cin.ignore(100);&nbsp;//&nbsp;Ignores&nbsp;100&nbsp;characters&nbsp;in&nbsp;the&nbsp;input&nbsp;stream.&nbsp;&nbsp;This&nbsp;is&nbsp;usually&nbsp;more&nbsp;than&nbsp;enough&nbsp;to&nbsp;get&nbsp;rid&nbsp;of&nbsp;the&nbsp;error-causing&nbsp;character. 
+
+                    <LI class=codeLI>} </LI></OL></DIV></DIV>When validating 
+                  input, obviously you want to keep trying until nothing wrong 
+                  happens, and you have the proper value in your variable. This 
+                  indicates that you want a loop; you can combine the above if 
+                  statement with a while() loop to constantly ask the user for a 
+                  price until the user actually enters a number rather than a 
+                  character. </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2831106>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2831106 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD class=alt2><A 
+                        href="http://bytes.com/profile/142037/elzix/"><IMG 
+                        title="Elzix's Avatar" border=0 alt="Elzix's Avatar" 
+                        src="http://bytes.com/avatars/avatar142037_4.gif" 
+                        width=24 height=24></A></TD>
+                      <TD noWrap>
+                        <DIV id=postmenu_2831106><A class=bigusername 
+                        href="http://bytes.com/profile/142037/elzix/">Elzix</A> 
+                        </DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Sep 2007</DIV>
+                        <DIV>Location: Under my hair</DIV>
+                        <DIV>Posts: 3 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2831106></A>#<A id=postcount2831106 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2831106" 
+                        name=7>7</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2831106 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2831106>
+                  <DIV style="MARGIN-RIGHT: 65px">Thanks for that answer, it 
+                  worked:<BR><BR>
+                  <DIV style="WIDTH: 500px" id=codeHolder class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: nowrap" 
+                  class=codeContent>
+                  <OL highlight="true">
+                    <LI 
+                    class=codeLI>if&nbsp;(!cin)&nbsp;{&nbsp;//&nbsp;This&nbsp;only&nbsp;executes&nbsp;if&nbsp;cin&nbsp;is&nbsp;not&nbsp;working&nbsp;-&nbsp;that&nbsp;is,&nbsp;if&nbsp;cin&nbsp;is&nbsp;in&nbsp;the&nbsp;fail&nbsp;state 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;cin.clear();&nbsp;//&nbsp;Clears&nbsp;the&nbsp;fail&nbsp;state&nbsp;indicator 
+
+                    <LI 
+                    class=codeLI>&nbsp;&nbsp;&nbsp;cin.ignore(100);&nbsp;//&nbsp;Ignores&nbsp;100&nbsp;characters&nbsp;in&nbsp;the&nbsp;input&nbsp;stream.&nbsp;&nbsp;This&nbsp;is&nbsp;usually&nbsp;more&nbsp;than&nbsp;enough&nbsp;to&nbsp;get&nbsp;rid&nbsp;of&nbsp;the&nbsp;error-causing&nbsp;character. 
+
+                    <LI class=codeLI>} </LI></OL></DIV></DIV>This is my code 
+                  now:<BR><BR>
+                  <DIV style="WIDTH: 500px; DISPLAY: block" id=codeHolder 
+                  class=codeHolder>
+                  <DIV class=codeHeader><SPAN class=codeLink 
+                  onclick="Blur(this, this.parentNode.parentNode, getChildren(this),true);">Expand</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=selectAll(this);>Select</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=WordWrap(this);>Wrap</SPAN><SPAN 
+                  class=codeDivider>|</SPAN><SPAN class=codeLink 
+                  onclick=LineNumbers(this);>Line Numbers</SPAN> </DIV>
+                  <DIV style="WIDTH: 650px; DISPLAY: block; WHITE-SPACE: normal" 
+                  class=codeContent>
+                  <DIV><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;name[10];float&nbsp;price; 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Name:&nbsp;";cin&gt;&gt;name;&nbsp; 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>P:&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;"\tPart&nbsp;Price:&nbsp;";cin&gt;&gt;price;&nbsp; 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!cin)&nbsp;{&nbsp;//&nbsp;cin&nbsp;is&nbsp;not&nbsp;working&nbsp;-&nbsp;cin.fail&nbsp;=&nbsp;true 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin.clear();&nbsp;//&nbsp;Clears&nbsp;the&nbsp;fail&nbsp;state&nbsp;indicator 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin.ignore(1);&nbsp;//&nbsp;Ignores&nbsp;1&nbsp;character&nbsp;in&nbsp;the&nbsp;input&nbsp;stream.&nbsp;(Required&nbsp;to&nbsp;stop&nbsp;endless&nbsp;loop) 
+                  </SPAN><BR><SPAN 
+                  class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto&nbsp;P; 
+                  </SPAN><BR><SPAN class=codeSpan>&nbsp;&nbsp;&nbsp;&nbsp;} 
+                  </SPAN></DIV></DIV></DIV><B>cin.ignore(1);</B> ignores every 
+                  letter inputed previously (the more letters input previously, 
+                  the more <B>P:</B> is executed.<BR><BR>Running the program 
+                  without <B>cin.ignore(1); </B>leaves it looping <B>P:</B> 
+                  endlessly </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 6px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=edit2831125>
+            <TABLE style="MARGIN-BOTTOM: 10px; CLEAR: both" id=post2831125 
+            class=tborder border=0 cellSpacing=1 cellPadding=6 width="100%" 
+            align=center>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+                class=alt2>
+                  <TABLE border=0 cellSpacing=6 cellPadding=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD noWrap>
+                        <DIV id=postmenu_2831125><A class=bigusername 
+                        href="http://bytes.com/profile/95640/weaknessforcats/">weaknessforcats</A> 
+                        </DIV>
+                        <DIV class=smallfont>
+                        <DIV class=rankbox title=Expert>E</DIV>
+                        <DIV class=rankbox title=Moderator>M</DIV>
+                        <DIV class=rankbox title=Contributor>C</DIV></DIV></TD>
+                      <TD width="100%">&nbsp;</TD>
+                      <TD vAlign=top noWrap>
+                        <DIV 
+                        style="LINE-HEIGHT: 13px; COLOR: #999999; FONT-SIZE: 8pt">
+                        <DIV>Join Date: Mar 2007</DIV>
+                        <DIV>Location: North Bend Washington USA</DIV>
+                        <DIV>Posts: 6,147 </DIV>
+                        <DIV></DIV>
+                        <DIV><A name=post2831125></A>#<A id=postcount2831125 
+                        title=permalink 
+                        href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only#post2831125" 
+                        name=8>8</A>: Sep 21 '07 
+                </DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD id=td_post_2831125 class=alt1>
+                  <DIV>
+                  <H2 
+                  style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #a8a8a8; FONT-SIZE: 9pt; PADDING-TOP: 0px">re: 
+                  Validating input (Allow Float Only)</H2></DIV>
+                  <HR style="BACKGROUND-COLOR: #eee; COLOR: #eee" SIZE=1>
+
+                  <DIV id=post_message_2831125>
+                  <DIV style="MARGIN-RIGHT: 65px">1) Don't use scanf() since 
+                  this is C++ and not C.<BR>2) When you cin&gt;&gt;price, the 
+                  code won't compile. When you ask for help, the code should art 
+                  least compile. This can't compile because the name of an array 
+                  is the address of element 0. Therefore, price is a float* and 
+                  not a float. The compiler will not allow you to change the 
+                  address of the array.<BR>3) Anytime you use cin&gt;&gt; the 
+                  assumption is that you know the input format. If you 
+                  cin&gt;&gt;aFloat and enter a char, a fail bit is set. You 
+                  have to clear the fail bit and flush your inout buffer<BR>4) 
+                  Anytime you use cin&gt;&gt; you should check that cin.fail() 
+                  is false. </DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+            <DIV id=lastpost></DIV></DIV>
+            <DIV>
+            <SCRIPT language=JavaScript 
+            src="http://bytes.com/ads/as_footer.js"></SCRIPT>
+
+            <SCRIPT language=JavaScript 
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></SCRIPT>
+
+            <SCRIPT 
+            src="http://pagead2.googlesyndication.com/pagead/render_ads.js"></SCRIPT>
+
+            <SCRIPT>google_protectAndRun("render_ads.js::google_render_ad", google_handleError, google_render_ad);</SCRIPT>
+
+            <SCRIPT language=JavaScript1.1 
+            src="http://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-8550604525820387&amp;output=js&amp;image_size=728x90&amp;lmt=1285466847&amp;num_ads=1&amp;skip=2&amp;channel=0507531137&amp;ad_type=text&amp;ea=0&amp;feedback_link=on&amp;flash=10.1.82.76&amp;url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F711758-validating-input-allow-float-only&amp;dt=1285466847441&amp;shv=r20100909&amp;jsv=r20100917&amp;correlator=1285466846450&amp;frm=0&amp;adk=3583027665&amp;ga_vid=1107239035.1285466847&amp;ga_sid=1285466847&amp;ga_hid=6851968&amp;ga_fc=0&amp;u_tz=-420&amp;u_his=0&amp;u_java=1&amp;u_h=800&amp;u_w=1280&amp;u_ah=770&amp;u_aw=1280&amp;u_cd=32&amp;u_nplug=0&amp;u_nmime=0&amp;biw=1259&amp;bih=633&amp;ref=http%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcin.clear%2Bdoes%2Bnot%2Bwork%2Bin%2Bwhile%2Bloop%26sourceid%3Die7%26rls%3Dcom.microsoft%3Aen-us%3AIE-SearchBox%26ie%3D%26oe%3D&amp;fu=0&amp;ifi=2&amp;dtd=80"></SCRIPT>
+
+            <DIV id=headerads>
+            <DIV class=ghdradby><A 
+            href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://bytes.com/topic/c/answers/711758-validating-input-allow-float-only%26hl%3Den%26client%3Dca-pub-8550604525820387%26adU%3DNovell.com/Solutions%26adT%3DNovell%2BIT%2BSolutions%26gl%3DUS&amp;usg=AFQjCNE1iCka_Eyy81ANP6yK8GVCdvzsFA">Ads 
+            by Google</A></DIV>
+            <DIV class=ghdrad>
+            <DIV class=title><A 
+            onmouseover="window.status='go to Novell.com/Solutions'" 
+            onmouseout="window.status=''" 
+            href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BEmOo3aqeTMa_GaCIjQTwrciuDb3ogL4BvbL-gBeh39iHJ4DlggIQARgDIMHS9wE4AFCw_4KN-f____8BYMmW-4bIo6AZoAHHmL78A7IBCWJ5dGVzLmNvbboBCTcyOHg5MF9qc8gBAdoBSWh0dHA6Ly9ieXRlcy5jb20vdG9waWMvYy9hbnN3ZXJzLzcxMTc1OC12YWxpZGF0aW5nLWlucHV0LWFsbG93LWZsb2F0LW9ubHnAAgHIAv2FjRKoAwHoA90F6APbBfUDAgAAxA&amp;num=3&amp;sig=AGiWqtz-XFwpI7Qy9F3ySVWhWBPoLivQTA&amp;client=ca-pub-8550604525820387&amp;adurl=http://www.novell.com/solutions/%3Futm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_term%3D%26utm_content%3D6074650453%26utm_campaign%3DACR_SiteTargeting_EN">Novell 
+            IT Solutions</A></DIV>
+            <DIV class=desc>
+            <DIV class=url><A 
+            onmouseover="window.status='go to Novell.com/Solutions'" 
+            onmouseout="window.status=''" 
+            href="http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=BEmOo3aqeTMa_GaCIjQTwrciuDb3ogL4BvbL-gBeh39iHJ4DlggIQARgDIMHS9wE4AFCw_4KN-f____8BYMmW-4bIo6AZoAHHmL78A7IBCWJ5dGVzLmNvbboBCTcyOHg5MF9qc8gBAdoBSWh0dHA6Ly9ieXRlcy5jb20vdG9waWMvYy9hbnN3ZXJzLzcxMTc1OC12YWxpZGF0aW5nLWlucHV0LWFsbG93LWZsb2F0LW9ubHnAAgHIAv2FjRKoAwHoA90F6APbBfUDAgAAxA&amp;num=3&amp;sig=AGiWqtz-XFwpI7Qy9F3ySVWhWBPoLivQTA&amp;client=ca-pub-8550604525820387&amp;adurl=http://www.novell.com/solutions/%3Futm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_term%3D%26utm_content%3D6074650453%26utm_campaign%3DACR_SiteTargeting_EN">Novell.com/Solutions</A></DIV><SPAN>Make 
+            Your IT Work As One. Talk To Our Experts Today. 
+            </SPAN></DIV></DIV></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 1px; PADDING-RIGHT: 0px; FLOAT: right; HEIGHT: 90px; PADDING-TOP: 0px"></DIV></DIV>
+            <DIV style="CLEAR: both"></DIV>
+            <TABLE style="MARGIN-TOP: -3px" border=0 cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallfont><A 
+                  href="http://bytes.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2831125"><IMG 
+                  title=Reply border=0 alt=Reply 
+                  src="/images/buttons/reply.gif"></A></TD></TR></TBODY></TABLE><BR>
+            <DIV class=smallfont align=center><STRONG>«</STRONG> <A 
+            href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only/prev">previous 
+            question</A> | <A 
+            href="http://bytes.com/topic/c/answers/711758-validating-input-allow-float-only/next">next 
+            question</A> <STRONG>»</STRONG> </DIV>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%" 
+            align=center>
+              <TBODY>
+              <TR vAlign=bottom>
+                <TD vAlign=top width="100%"></TD>
+                <TD class=smallfont align=right>
+                  <TABLE border=0 cellSpacing=0 cellPadding=0>
+                    <TBODY>
+                    <TR>
+                      <TD></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+            <DIV class=similar>
+            <H3>Similar topics</H3>
+            <UL>
+              <LI><A 
+              title="Hi everybody, &#10; &#10;I've just started programming in C and I've run into a problem. The compiler I'm using was distributed by the school and is a piece..." 
+              href="http://bytes.com/topic/c/answers/859816-validating-float-variable-c">Validating 
+              float variable in C</A> <SPAN>( <A 
+              href="http://bytes.com/topic/c/answers/">C / C++ answers</A> ) 
+              </SPAN>
+              <LI><A 
+              title="I'm working on examples of programming in several languages, all &#10;(except PHP) running under CGI so that I can show both the source &#10;files and the..." 
+              href="http://bytes.com/topic/c/answers/600448-requesting-advice-how-clean-up-c-code-validating-string-represents-integer">Requesting 
+              advice how to clean up C code for validating string represents 
+              integer</A> <SPAN>( <A href="http://bytes.com/topic/c/answers/">C 
+              / C++ answers</A> ) </SPAN>
+              <LI><A 
+              title="I need some help with validating user input.  I am writing a C computer &#10;program for an intro to C course.  Here is the situation.  I am &#10;creating an..." 
+              href="http://bytes.com/topic/c/answers/498690-validating-user-input">Validating 
+              user input?</A> <SPAN>( <A 
+              href="http://bytes.com/topic/c/answers/">C / C++ answers</A> ) 
+              </SPAN>
+              <LI><A 
+              title="Hi There, &#10; &#10;I want to be able to validate data entered by a user onto a form. &#10; &#10;Different fields will have different validation requirements. &#10; &#10;As..." 
+              href="http://bytes.com/topic/net/answers/452537-validating-winforms-data">Validating 
+              WinForms Data</A> <SPAN>( <A 
+              href="http://bytes.com/topic/net/answers/">.NET Framework 
+              answers</A> ) </SPAN>
+              <LI><A 
+              title="The following 'book example' of validating input seems to be incomplete. &#10;Since it is a beginner's book it may be intentional for simplicity. But &#10;I..." 
+              href="http://bytes.com/topic/c/answers/223414-validating-keyboard-input">Validating 
+              keyboard input</A> <SPAN>( <A 
+              href="http://bytes.com/topic/c/answers/">C / C++ answers</A> ) 
+              </SPAN>
+              <LI><A 
+              title="A user inputs a float value. The scanf() function gets the value. &#10;However, I need to create an error handler with an if else statement &#10;saying..." 
+              href="http://bytes.com/topic/c/answers/212996-anybody-know-how-i-would-code-error-statement-when-user-inputs-invalid-input">Anybody 
+              know how I would code an error statement when a user inputs an 
+              invalid input.</A> <SPAN>( <A 
+              href="http://bytes.com/topic/c/answers/">C / C++ answers</A> ) 
+              </SPAN>
+              <LI><A 
+              title="hi guys &#10;I need your suggestions / opinion for doing this the right way. &#10; &#10;I have a XML and a Schema for the same &#10; &#10;What I want is when its..." 
+              href="http://bytes.com/topic/net/answers/178363-validating-xml-against-xsd-schema">Validating 
+              XML Against a XSD Schema</A> <SPAN>( <A 
+              href="http://bytes.com/topic/net/answers/">.NET Framework 
+              answers</A> ) </SPAN>
+              <LI><A 
+              title="I've got a system which takes an XML file, translates it into an update gram &#10;and then loads it into my database with SQLXML3 (all in dot net). &#10;..." 
+              href="http://bytes.com/topic/net/answers/176325-validating-updategram">Validating 
+              UpdateGram</A> <SPAN>( <A 
+              href="http://bytes.com/topic/net/answers/">.NET Framework 
+              answers</A> ) </SPAN>
+              <LI><A 
+              title="Hello, &#10;After trying to validate this page for a couple of days now I was &#10;wondering if someone might be able to help me out. Below is a list of..." 
+              href="http://bytes.com/topic/html-css/answers/97238-need-some-help-validating">Need 
+              some help with validating</A> <SPAN>( <A 
+              href="http://bytes.com/topic/html-css/answers/">HTML / CSS 
+              answers</A> ) </SPAN></LI></UL></DIV></TD>
+          <TD class=spacer width=12></TD>
+          <TD height=1000 vAlign=top width=180><IMG 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            border=0 src="/images/sidecolumn.gif" width=180 height=1> 
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px auto 8px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=d_ad_4>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 1px; PADDING-RIGHT: 0px; FLOAT: right; HEIGHT: 90px; PADDING-TOP: 0px"></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px" 
+            id=h_ad_4>
+            <SCRIPT language=javascript type=text/javascript> <!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 4;
+var browDateTime = (new Date()).getTime();
+var Keywords = escape('development,c,answers');
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://please-support.bytes.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=70841&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '&amp;Keywords=' + Keywords  + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://please-support.bytes.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=70841&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime  + '&amp;Keywords=' + Keywords  + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> </SCRIPT>
+
+            <SCRIPT language=javascript 
+            src="http://please-support.bytes.com/a.aspx?ZoneID=4&amp;Task=Get&amp;IFR=False&amp;PageID=70841&amp;SiteID=1&amp;Random=1285466848963&amp;Keywords=development%2Cc%2Canswers"></SCRIPT>
+            <A 
+            href="http://please-support.bytes.com/a.aspx?Task=Click&amp;ZoneID=4&amp;CampaignID=20&amp;AdvertiserID=8&amp;BannerID=25&amp;SiteID=1&amp;RandomNumber=1095436180&amp;Keywords=development%2cc%2canswers" 
+            rel=nofollow target=_Blank><IMG border=0 alt="" align=center 
+            src="http://please-support.bytes.com/imgs/SBO-Bytes_ReadTechBanner_1_160x600.jpg" 
+            width=160 height=600></A><BR><NOSCRIPT></NOSCRIPT></DIV></DIV>
+            <DIV style="CLEAR: both"></DIV>
+            <DIV class=navbox>
+            <H3>More</H3>
+            <UL>
+              <LI><A href="/answers/">Latest Questions</A> 
+              <LI><A href="/insights/">Latest Expert Insights</A> 
+              <LI><A href="/faq.php">Need Help with Bytes? (FAQ)</A> </LI></UL>
+            <DIV 
+  style="CLEAR: both"></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE class="maintable footer">
+  <TBODY>
+  <TR>
+    <TD>Copyright 1995-2010 BYTES. All rights Reserved <A 
+      href="/about_us.html">About Bytes</A> | <A href="/faq.php">Help</A> <BR><A 
+      href="/topic/">Latest Expert Topics</A> | <A href="/tags/">Popular 
+      Tags</A> <BR><A href="/sitemap/">Sitemap</A> | <A 
+      href="/sitemap/f-308.html">C / C++ Answers Sitemap</A> | <A 
+      href="/sitemap/f-309.html">C / C++ Insights Sitemap</A> 
+      <DIV class=smallfont align=center></DIV></TD></TR></TBODY></TABLE>
+<SCRIPT type=text/javascript> <!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//--> </SCRIPT>
+
+<SCRIPT type=text/javascript>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="http://www.google-analytics.com/ga.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+var pageTracker = _gat._getTracker("UA-90111-7");
+pageTracker._initData();
+pageTracker._trackPageview();
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+                    window.orig_onload2 = window.onload;
+window.onload = function() {
+
+
+document.getElementById('d_ad_1').appendChild(document.getElementById('h_ad_1'));
+document.getElementById('h_ad_1').style.display = '';
+
+
+document.getElementById('d_ad_4').appendChild(document.getElementById('h_ad_4'));
+document.getElementById('h_ad_4').style.display = '';
+
+
+
+
+
+
+if(typeof window.orig_onload2 == "function") window.orig_onload2();
+}
+
+		</SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash;if(cpost){ if(cobj = fetch_object(cpost.substring(1,cpost.length)))cobj.scrollIntoView(true);else {cpostno = cpost.substring(5,cpost.length);if(parseInt(cpostno)>0 && (cpost.substring(1,5)=='post')){location.replace('http://bytes.com/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+</SCRIPT>
+</BODY></HTML>

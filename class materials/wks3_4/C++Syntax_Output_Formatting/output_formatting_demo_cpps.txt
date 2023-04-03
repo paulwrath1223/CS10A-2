@@ -1,0 +1,125 @@
+//This program (setwidth1.cpp) displays two rows of numbers and demonstrates the use of the setw(fieldwidth) manipulator
+
+#include <iostream>    //includes fixed, showpoint and left manipulators
+#include <iomanip>     //required for setprecision and setw
+
+using namespace std;
+
+int main()
+{
+    int value;
+    int value1 =1234, value2 = 6, value3 =900, value4 =12,value5=5, value6= 2345;
+    
+    //display the first two rows of values
+    
+    cout<<value1<<value2<<value3<<endl;
+    cout<<value4<<value5<<value6<<endl;
+    
+    //display two rows use the setw(fieldwidth) manipulator
+    cout<<setw(6)<<value1<<setw(6)<<value2<<setw(6)<<value3<<endl;
+    cout<<setw(6)<<value4<<setw(6)<<value5<<setw(6)<<value6<<endl;
+    
+    //another setw use
+    value=23134;
+    cout<<setw(2)<<value<<endl;
+    
+system("PAUSE");
+return 0;
+}
+_________________________________________________________
+// This program (setwidth2.cpp) demonstrates the setw manipulator used with values of various data types.
+
+#include <iostream>    //includes fixed, showpoint and left manipulators
+#include <iomanip>     //required for setprecision and setw
+
+using namespace std;
+
+int main()
+{
+   int intValue = 3456;
+   double doubleValue = 92.5;
+   string fname = "Seth Evans Sarkar";
+
+   cout  << setw(5) << intValue << endl;
+   cout << setw(8) << doubleValue << endl;
+   cout << setw(16) << fname <<  endl;
+   
+   system("PAUSE");
+   return 0;
+}
+_________________________________________________________
+
+// This program (setwidth3.cpp) demonstrates how setprecision rounds a floating point value.
+
+#include <iostream>    //includes fixed, showpoint and left manipulators
+#include <iomanip>     //required for setprecision and setw
+
+using namespace std;
+
+int main()
+{
+   double quotient, number1 = 262.654, number2 = 23.45;
+
+   quotient = number1 / number2;
+   cout << quotient << endl;
+   cout << setprecision(5) << quotient << endl;
+   cout << setprecision(4) << quotient << endl;
+   cout << setprecision(3) << quotient << endl;
+   cout << setprecision(2) << quotient << endl;
+   cout << setprecision(1) << quotient << endl;
+   
+   system ("PAUSE");
+   return 0;
+}
+___________________________________________________________
+// This program (setprecision1.cpp) demonstrates how setprecision rounds a
+// floating point value.
+#include <iostream>
+#include <iomanip> 		//required for setprecision
+using namespace std;
+
+int main()
+{
+   double quotient, number1 = 260.654, number2 = 23.45;
+
+   quotient = number1 / number2;
+   cout << quotient << endl;
+   cout << setprecision(5) << quotient << endl;
+   cout << setprecision(4) << quotient << endl;
+   cout << setprecision(3) << quotient << endl;
+   cout << setprecision(2) << quotient << endl;
+   cout << setprecision(1) << quotient << endl;
+   system ("PAUSE");
+   return 0;
+}
+___________________________________________________________
+// This program (setprecision2.cpp) demonstrates how setprecision rounds a floating point value.
+#include <iostream>
+#include <iomanip>      //Required for setprecision
+using namespace std;
+
+int main()
+{
+   //section below shows how setprecision affects the way various values are displayed
+   
+   double dollars= 42.56;
+   cout<<dollars<<endl;                       	//displays 42.56
+   cout<<setprecision(5)<<dollars<<endl;      //displays 42.56
+  
+   double value1= 38.92789;
+   cout << setprecision(3) << value1 << endl;   //value displayed 38.9
+  
+   double value2= 63.34567;
+   cout << setprecision(2) << value2 << endl;   //value displayed 63
+  
+   int number=21;
+   cout << setprecision(5) << number << endl;  //value displayed 21
+  
+   float item=109.5;        
+   cout << setprecision(4) << item << endl;    //value displayed 109.5
+   
+   system ("PAUSE");
+   return 0;
+}
+_____________________________________________________________
+
