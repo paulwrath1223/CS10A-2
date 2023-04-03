@@ -8,7 +8,6 @@
 #include <cmath>
 #include <iomanip>
 
-
 const int PROBSPERSET = 4;            // number of problems in each Math Skill Builder set
 const int MIN_NUM = 1, MAX_NUM = 10;  // random number range used for operands and arguments in each problem
 
@@ -26,6 +25,7 @@ void generateOperands (/*out*/ double& num1, /*out*/double& num2,/*out*/double& 
 
 //various modules to process Math Builder Skill sets
 void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
+void generateArithmeticProblem(/*out*/ double&);
 void geometryProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount);
 void statisticsProbSet (/*in*/ int numProbSets, /*out */ int& correctCount);//for extra credit only
 int getNumSets ();
@@ -106,21 +106,49 @@ void mathSkillBuilderMenu (/*out*/ int& choice)
  * @post
  * @param correctCount OUT
  */
-void arithmeticProbSet (/*out*/ int& correctCount){
-    double num1 = 0, num2 = 0, userAnswer = 0, correctAnswer = 0;
+void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){
+    double user_answer = 0, correct_answer = 0, num1 = 0, num2 = 0;
     correctCount = 0;
-    for(int )
-    //algorithm: display four arithmetic problems using calls to generateOperands
-    //process the binary operations-store calculated correctAnswer
-    //get userResponse-compare answers and display appropriate message
-    //increment correctCount if correct user answer
-    if (fabs(correctAnswer - userAnswer) < .01)//needed for comparing doubles
-    {
-        std::cout << "Correct" << std::endl;
-        correctCount++;
-    } else {
-        std::cout << "Incorrect" << std::endl;
+    for(int i = 0; i < numProbSets; i++){
+        std::cout << "Arithmetic Problem Set#" << i+1 << std::endl;
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2);
+        std::cout << num1 << " + " << num2 << " = ";
+        correct_answer = num1 + num2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2);
+        std::cout << num1 << " - " << num2 << " = ";
+        correct_answer = num1 - num2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\n";
+        generateOperands(num1, num2);
+        std::cout << num1 << " * " << num2 << " = ";
+        correct_answer = num1 * num2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
+        std::cout << "-------------------------\nType a responses rounded to two decimal places below...\n";
+        generateOperands(num1, num2);
+        std::cout << num1 << " " << char(246) << " " << num2 << " = ";
+        correct_answer = num1 / num2;
+        user_answer = getUserInput();
+        checkAnswer(user_answer, correct_answer, correctCount);
     }
+}
+
+
+/**
+ *
+ * @pre
+ * @post
+ * @param num2
+ */
+void generateOperands (/*out*/ double& num1)
+{
+    num1 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
+    //algorithm: generate two random numbers using the reference parameter.
 }
 
 
@@ -136,4 +164,110 @@ void generateOperands (/*out*/ double& num1, /*out*/ double& num2)
     num1 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
     num2 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
     //algorithm: generate two random numbers using the reference parameter.
+}
+
+
+/**
+ *
+ * @pre
+ * @post
+ * @param num1
+ * @param num2
+ * @param num3
+ */
+void generateOperands (/*out*/ double& num1, /*out*/ double& num2, /*out*/ double& num3)
+{
+    num1 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
+    num2 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
+    num3 = static_cast<double>(rand() % (MAX_NUM - MIN_NUM + 1) + MIN_NUM);
+    //algorithm: generate two random numbers using the reference parameter.
+}
+
+
+double getUserInput (){
+    double user_input;
+    std::cin >> user_input;
+    while(!std::cin){
+        std::cin.clear();
+        std::cin.ignore(200,'\n');
+        std::cout << "OOPS, Invalid choice? " << std::endl;
+        std::cin >> user_input;
+    }
+    return user_input;
+}
+
+
+void checkAnswer(/*in*/ double userAnswer, /*in*/ double correctAnswer, /*out*/ int& correctCount){
+    if (fabs(correctAnswer - userAnswer) < .01)//needed for comparing doubles
+    {
+        std::cout << "Correct" << std::endl;
+        correctCount++;
+    } else {
+        std::cout << "Incorrect. Correct answer displayed with precision of .01 = " <<
+                      std::fixed << std::setprecision(2) << correctAnswer << std::endl;
+    }
+}
+
+
+
+
+
+void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& numCorrect)
+{
+
+    switch(choice){
+        case(1):
+            std::cout << "-------------------------------------------------------------------------------------\n"
+                         "\n"
+                         "MATH BUILDER SKILL SET#1 selected. This skill set contains a series of " << PROBSPERSET <<
+                         " problems in the set.\n"
+                         "\n"
+                         "How many times you wish to attempt this current set (enter 1-5) : ";
+
+            std::cin >> numProbSets;
+
+            while(numProbSets > 5 || numProbSets < 1 || !std::cin){
+                std::cin.clear();
+                std::cin.ignore(200,'\n');
+                std::cout << "OOPS, Invalid choice? " << std::endl;
+                std::cin >> numProbSets;
+            }
+
+            std::cout << "\n Arithmetic skill sets";
+            arithmeticProbSet(numProbSets, numCorrect);
+            break;
+        case(2):
+            std::cout << "geometry";
+            break;
+        case(3):
+            std::cout << "stats";
+            break;
+        default:
+            std::cout << "processProbSets called with invalid \'choice\'";
+    }
+}
+
+
+void printReport (/*in*/ int choice,/*in*/ int numProbSets,/*in*/ int numCorrect)
+{
+    std::cout << "=================================================================\n";
+
+    switch(choice){
+        case(1):
+            std::cout << "Basic Arithmetic Skill Set: You got " << numCorrect <<
+                         " correct out of " << numProbSets*PROBSPERSET << " for " <<
+                         (100 * numCorrect)/(numProbSets*PROBSPERSET) << "%\n";
+            break;
+        case(2):
+            std::cout << "geometry";
+            break;
+        case(3):
+            std::cout << "stats";
+            break;
+        default:
+            std::cout << "printReport called with invalid \'choice\'";
+    }
+
+
+    std::cout << "=================================================================\n";
 }
