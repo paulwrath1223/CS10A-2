@@ -15,13 +15,6 @@
 
 #include <iostream>
 
-void printRectangle(int, int, bool);
-void printTriangle(int, bool);
-void drawRocketBoosters(int);
-void drawRocket(int, int, int, bool);
-void getRocketSpecs(int&, int&, int&, bool&);
-void programInfo();
-
 #define FULL_SQUARE "* "
 #define EMPTY_SQUARE "  "
 #define MIN_MODULE_WIDTH 10
@@ -30,6 +23,16 @@ void programInfo();
 #define MAX_MODULE_HEIGHT 10
 #define MIN_MODULES 2
 #define MAX_MODULES 5
+
+using namespace std;
+
+void printRectangle(int, int, bool);
+void printTriangle(int, bool);
+void drawRocketBoosters(int);
+void drawRocket(int, int, int, bool);
+void getRocketSpecs(int&, int&, int&, bool&);
+void programInfo();
+
 
 int main() {
     int rocket_width = 0;
@@ -46,15 +49,15 @@ int main() {
         getRocketSpecs(rocket_width, rocket_height, payloads, payload_filled);
         drawRocket(rocket_width, rocket_height, payloads, payload_filled);
 
-        std::cout << "\n\n---------------------------------------------------------" << std::endl;
-        std::cout << " Try the ROCKET BUILD pattern generating algorithms again?"    << std::endl;
-        std::cout << "---------------------------------------------------------"     << std::endl;
-        std::cout << "Type 'Y' for yes or 'N' for no: ";
-        std::cin >> choice;
+        cout << "\n\n---------------------------------------------------------" << endl;
+        cout << " Try the ROCKET BUILD pattern generating algorithms again?"    << endl;
+        cout << "---------------------------------------------------------"     << endl;
+        cout << "Type 'Y' for yes or 'N' for no: ";
+        cin >> choice;
 
     }while(choice == 'Y'|| choice == 'y');
 
-    std::cout << "\nNow exiting the ROCKET BUILD program ...." << std::endl;
+    cout << "\nNow exiting the ROCKET BUILD program ...." << endl;
     return 0;
 }
 
@@ -71,12 +74,12 @@ void printRectangle(/*in*/int x, /*in*/int y, /*in*/bool filled){
             if (!filled &&
                 y_index != 0 && y_index != y-1 &&
                 x_index != 0 && x_index != x-1) {
-                std::cout << EMPTY_SQUARE;
+                cout << EMPTY_SQUARE;
             } else {
-                std::cout << FULL_SQUARE;
+                cout << FULL_SQUARE;
             }
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
@@ -92,13 +95,13 @@ void printTriangle(/*in*/int base, /*in*/bool filled) {
         for(int j = 0; j<base; j++){
             if((filled && (j>=base/2-i-(base%2==0) && j<=base/2+i)) ||
               (!filled && (j==base/2-i-(base%2==0) || j==base/2+i))){
-                std::cout << FULL_SQUARE;
+                cout << FULL_SQUARE;
             }
             else {
-                std::cout << EMPTY_SQUARE;
+                cout << EMPTY_SQUARE;
             }
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
@@ -109,7 +112,7 @@ void printTriangle(/*in*/int base, /*in*/bool filled) {
  */
 void printEmptySquares(/*in*/int n){
     for(int i = 0; i < n; i++){
-        std::cout << EMPTY_SQUARE;
+        cout << EMPTY_SQUARE;
     }
 }
 
@@ -123,16 +126,16 @@ void drawRocketBoosters(/*in*/int base){
     int offset = (base - MIN_MODULE_WIDTH)/2;
 
     printEmptySquares(offset);
-    std::cout << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
-                EMPTY_SQUARE << FULL_SQUARE << std::endl;
+    cout << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
+                EMPTY_SQUARE << FULL_SQUARE << endl;
 
     printEmptySquares(offset);
-    std::cout << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
-                FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << std::endl;
+    cout << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE <<
+                FULL_SQUARE << FULL_SQUARE << FULL_SQUARE << endl;
 
     printEmptySquares(offset);
-    std::cout << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE <<
-                EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << std::endl;
+    cout << FULL_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << FULL_SQUARE <<
+                EMPTY_SQUARE << EMPTY_SQUARE << EMPTY_SQUARE << FULL_SQUARE << endl;
 
 }
 
@@ -143,10 +146,10 @@ void drawRocketBoosters(/*in*/int base){
 void programInfo()  // TODO: ask teacherman what this should be
 {
     //algorithm to be determined
-    std::cout << "*************************************************************************\n";
-    std::cout << "                                ROCKET BUILD\n";
-    std::cout << "                         pattern generating algorithms\n";
-    std::cout << "*************************************************************************\n";
+    cout << "*************************************************************************\n";
+    cout << "                                ROCKET BUILD\n";
+    cout << "                         pattern generating algorithms\n";
+    cout << "*************************************************************************\n";
 }
 
 
@@ -160,44 +163,44 @@ void programInfo()  // TODO: ask teacherman what this should be
 void getRocketSpecs (/*inout*/ int &rocket_width, /*inout*/ int &moduleHeight,  /*inout*/ int &numModules, /*inout*/ bool &payload_filled) // TODO: ask teacherman if these are really inout
 {
     rocket_width = 0;
-    std::cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
-    std::cin >> rocket_width;
+    cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
+    cin >> rocket_width;
     while(rocket_width > MAX_MODULE_WIDTH || rocket_width < MIN_MODULE_WIDTH){
-        std::cout << "Try again\n";
-        std::cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
-        std::cin >> rocket_width;
+        cout << "Try again\n";
+        cout << "Dimension#1: Enter Rocket module width (a number between 10-15): ";
+        cin >> rocket_width;
     }
-    std::cout << std::endl;
+    cout << endl;
 
     moduleHeight = 0;
-    std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
-    std::cin >> moduleHeight;
+    cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
+    cin >> moduleHeight;
     while(moduleHeight > MAX_MODULE_HEIGHT || moduleHeight < MIN_MODULE_HEIGHT){
-        std::cout << "Try again\n";
-        std::cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
-        std::cin >> moduleHeight;
+        cout << "Try again\n";
+        cout << "Dimension#2: Enter Rocket module height (a number between 5-10): ";
+        cin >> moduleHeight;
     }
-    std::cout << std::endl;
+    cout << endl;
 
     numModules = 0;
-    std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
-    std::cin >> numModules;
+    cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
+    cin >> numModules;
     while(numModules>MAX_MODULES || numModules<MIN_MODULES){
-        std::cout << "Try again\n";
-        std::cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
-        std::cin >> numModules;
+        cout << "Try again\n";
+        cout << "Rocket payload: Enter number of rocket body payload modules to dock together (a number between 2-5): ";
+        cin >> numModules;
     }
-    std::cout << std::endl;
+    cout << endl;
 
     char body_type = ' ';
-    std::cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
-    std::cin >> body_type;
+    cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
+    cin >> body_type;
     while(!(body_type=='F' || body_type=='E' || body_type=='f' || body_type=='e')){
-        std::cout << "Try again\n";
-        std::cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
-        std::cin >> body_type;
+        cout << "Try again\n";
+        cout << "Rocket Body: Enter empty or filled cargo space or payload type in module/s (E - empty or F - filled): ";
+        cin >> body_type;
     }
-    std::cout << std::endl;
+    cout << endl;
     payload_filled = body_type=='F' || body_type=='f';
 }
 
