@@ -161,7 +161,7 @@ void arithmeticProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){
         correct_answer = num1 * num2;
         user_answer = getUserInput();
         checkAnswer(user_answer, correct_answer, correctCount);
-        cout << "-------------------------\nType a responses rounded to two decimal places below...\n";
+        cout << "-------------------------\n";
         generateOperands(num1, num2);
         cout << num1 << " " << char(246) << " " << num2 << " = ";
         correct_answer = num1 / num2;
@@ -205,7 +205,7 @@ void statisticsProbSet (/*in*/ int numProbSets, /*out*/ int& correctCount){
         correct_answer = max({num1, num2, num3});
         user_answer = getUserInput();
         checkAnswer(user_answer, correct_answer, correctCount);
-        cout << "-------------------------\nType a responses rounded to two decimal places below...\n";
+        cout << "-------------------------\n";
         generateOperands(num1, num2);
         cout << "What is the minimum of: " << num1 << ", " << num2 << ", " << num3 << "? ";
         correct_answer = min({num1, num2, num3});
