@@ -1,0 +1,269 @@
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 56
+INVALID CHOICE ...please retype
+
+Enter your choice: 1
+
+---------------------------------------------------
+Enter 10 student scores (range 0 -100)
+---------------------------------------------------
+Student #1 score : 56
+Student #2 score : -89
+Invalid score, please retype
+Student #2 score : 89
+Student #3 score : 78
+Student #4 score : 166
+Invalid score, please retype
+Student #4 score : 66
+Student #5 score : 72
+Student #6 score : 99
+Student #7 score : 95
+Student #8 score : Srjc
+Invalid score, please retype
+Student #8 score : 100
+Student #9 score : 85
+Student #10 score : 68
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 3
+
+---------------------------------------------------
+Display 10 student scores
+---------------------------------------------------
+Student #1 score:    56
+Student #2 score:    89
+Student #3 score:    78
+Student #4 score:    66
+Student #5 score:    72
+Student #6 score:    99
+Student #7 score:    95
+Student #8 score:   100
+Student #9 score:    85
+Student #10 score:   68
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 4
+
+---------------------------------------------------
+Display highest of 10 student scores: 100
+---------------------------------------------------
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 5
+
+---------------------------------------------------
+Display lowest of 10 student scores: 56
+---------------------------------------------------
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 6
+
+---------------------------------------------------
+Display average of 10 student scores: 80.80
+---------------------------------------------------
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 2
+
+---------------------------------------------------
+Run-time input of 10 student scores from a data file
+---------------------------------------------------
+Enter student scores data filename: srjc.txt
+Error opening the file.
+Enter student scores data filename: scores.txt
+
+scores.txt  datafile has successfully opened and 10 scores have been read and stored.
+Select Data set: Display current student scores menu option#3  to view the scores
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 3
+
+---------------------------------------------------
+Display 10 student scores
+---------------------------------------------------
+Student #1 score:    47
+Student #2 score:    89
+Student #3 score:    65
+Student #4 score:    55
+Student #5 score:    62
+Student #6 score:    95
+Student #7 score:    87
+Student #8 score:    75
+Student #9 score:   100
+Student #10 score:   79
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 7
+
+---------------------------------------------------
+Display statistics for a single score out of 10 student scores:
+---------------------------------------------------
+Enter student entry or row # for score statistic (1 -10):2
+
+Student #2 score: 89
+Score statistics:2 higher
+Score statistics:7 lower
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 7
+
+---------------------------------------------------
+Display statistics for a single score out of 10 student scores:
+---------------------------------------------------
+Enter student entry or row # for score statistic (1 -10):9
+
+Student #9 score: 100
+Score statistics: none higher
+Score statistics:9 lower
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 7
+
+---------------------------------------------------
+Display statistics for a single score out of 10 student scores:
+---------------------------------------------------
+Enter student entry or row # for score statistic (1 -10):1
+
+Student #1 score: 47
+Score statistics:9 higher
+Score statistics: none lower
+
+-------------------------------------------------------------------------------------
+STUDENT SCORES DATA SET: 1-D ARRAY PROCESSING MENU OPTIONS
+-----------------------------------------------------------
+1. New data set: Keyboard input (10 student scores from user)
+2. New data set: File data read (10 student scores from a file, such as scores.txt)
+3. Data set: Display current student scores
+4. Data set: Display highest score
+5. Data set: Display lowest score
+6. Data set: Display average score
+7. Data set: Display single score statistics (enter Student entry number)
+8. Quit program
+-------------------------------------------------------------------------------------
+
+Enter your choice: 12
+INVALID CHOICE ...please retype
+
+Enter your choice: 8
+
+Array processing test now concluded. Exiting program .....
+
+Process returned 0 (0x0)   execution time : 200.243 s
+Press any key to continue

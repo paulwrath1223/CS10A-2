@@ -1,0 +1,201 @@
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:1
+
+********************* MOVIE RATINGS ****************
+REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105
+****************************************************
+  #1         3      1      5      2      1      5
+  #2         4      2      1      4      2      4
+  #3         3      1      2      4      4      1
+  #4         5      1      4      2      4      2
+
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:2
+
+********************* MOVIE RATINGS ****************
+REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105
+****************************************************
+  #1         3      1      5      2      1      5
+  #2         4      2      1      4      2      4
+  #3         3      1      2      4      4      1
+  #4         5      1      4      2      4      2
+
+****************************************************
+Average Rating for each movie:
+Movie#100: 3.75
+Movie#101: 1.25
+Movie#102: 3
+Movie#103: 3
+Movie#104: 2.75
+Movie#105: 3
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:3
+
+********************* MOVIE RATINGS ****************
+REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105
+****************************************************
+  #1         3      1      5      2      1      5
+  #2         4      2      1      4      2      4
+  #3         3      1      2      4      4      1
+  #4         5      1      4      2      4      2
+
+Enter a reviewer number (1-4), to find the Movie they rated the highest:6
+That is an invalid reviewer number.
+Enter a reviewer number (1-4), to find the Movie they rated the highest:1
+Reviewer#1 rated Movie#102 and 105 as the highest (*for display format please see my note above)
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:4
+
+********************* MOVIE RATINGS ****************
+REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105
+****************************************************
+  #1         3      1      5      2      1      5
+  #2         4      2      1      4      2      4
+  #3         3      1      2      4      4      1
+  #4         5      1      4      2      4      2
+
+Enter a movie number (100-105), to find the lowest rating:107
+That is an invalid movie number.
+Enter a movie number (100-105), to find the lowest rating:101
+Movie#101 lowest rating is 1 given by Reviewer#1, 3 and 4  (**for display format please see my note above)
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:5
+
+********DATA ENTRY FOR NEW MOVIE RATINGS ***********
+****************************************************
+REVIEWER# 1:
+****************************************************
+Enter rating (1-5) for movie#100: 1
+Enter rating (1-5) for movie#101: 2
+Enter rating (1-5) for movie#102: 3
+Enter rating (1-5) for movie#103: 4
+Enter rating (1-5) for movie#104: 5
+Enter rating (1-5) for movie#105: 6
+Invalid rating.  It must be from 1-5.
+Enter rating (1-5) for movie#105: 1
+****************************************************
+REVIEWER# 2:
+****************************************************
+Enter rating (1-5) for movie#100: 5
+Enter rating (1-5) for movie#101: 4
+Enter rating (1-5) for movie#102: 3
+Enter rating (1-5) for movie#103: 2
+Enter rating (1-5) for movie#104: 1
+Enter rating (1-5) for movie#105: 5
+****************************************************
+REVIEWER# 3:
+****************************************************
+Enter rating (1-5) for movie#100: 2
+Enter rating (1-5) for movie#101: 3
+Enter rating (1-5) for movie#102: 4
+Enter rating (1-5) for movie#103: 5
+Enter rating (1-5) for movie#104: 1
+Enter rating (1-5) for movie#105: 2
+****************************************************
+REVIEWER# 4:
+****************************************************
+Enter rating (1-5) for movie#100: 3
+Enter rating (1-5) for movie#101: 4
+Enter rating (1-5) for movie#102: 5
+Enter rating (1-5) for movie#103: 1
+Enter rating (1-5) for movie#104: 2
+Enter rating (1-5) for movie#105: 3
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:1
+
+********************* MOVIE RATINGS ****************
+REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105
+****************************************************
+  #1         1      2      3      4      5      1
+  #2         5      4      3      2      1      5
+  #3         2      3      4      5      1      2
+  #4         3      4      5      1      2      3
+
+
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:8
+INVALID CHOICE ...please retype
+---------------------------------------------------
+2-D ARRAY PROCESSING MENU OPTIONS
+---------------------------------------------------
+1. Display current movie ratings
+2. Show the average rating for each movie.
+3. Show a reviewers highest rated movie/s. (enter reviewer# 1-4)
+4. Show a movies lowest rating. (enter movie# 100-105)
+5. Enter new ratings (1-5) for movie# 100-105 for four reviewers
+6. Quit program
+
+Enter your choice:6
+
+Array processing test now concluded. Exiting program .....
+
+Process returned 0 (0x0)   execution time : 408.257 s
+Press any key to continue.
