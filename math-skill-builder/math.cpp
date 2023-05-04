@@ -51,7 +51,7 @@ int main()
     int choice = 0, numProbSets = 0, numCorrect = 0;
 
     programInfo();
-    mathSkillBuilderMenu (choice);
+    mathSkillBuilderMenu(choice);
 
     while (choice!=4){
         processProbSets (choice,numProbSets,numCorrect);
@@ -352,7 +352,6 @@ void processProbSets (/*in*/ int choice, /*out*/ int& numProbSets, /*out*/ int& 
                          "\n"
                          "MATH BUILDER SKILL SET#1 selected. This skill set contains a series of " << PROBSPERSET <<
                       " problems in the set.\n\n";
-
             numProbSets = getNumSets();
 
             cout << "\n Arithmetic skill sets";
