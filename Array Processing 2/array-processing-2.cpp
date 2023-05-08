@@ -8,8 +8,6 @@
 
 #define NUM_REVIEWERS 4   //Number of rows in reviews array
 #define NUM_MOVIES 6     //Number of columns in reviews array
-//#define DEFAULT_SCORE 5   // not used but left in case the program should be able to recompile with different NUM_REVIEWERS
-                            // and NUM_MOVIES values
 
 using namespace std;
 
@@ -95,28 +93,37 @@ int get_user_int(int min_acceptable, int max_acceptable){
     return user_input;
 }
 
+/**
+ *
+ * @param rating_array OUT The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post 'rating_array' values are set to some sample values
+ *
+ * sets values in 'rating_array' to some sample data
+ */
 void initialRatings(int (&rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
-//    bool expected_dims = ((NUM_REVIEWERS == 4) && (NUM_MOVIES == 6));
     int temp_rating_array[4][6] = {{3, 1, 5, 2, 1, 5},
                                    {4, 2, 1, 4, 2, 4},
                                    {3, 1, 2, 4, 4, 1},
                                    {5, 1, 4, 2, 4, 2}};
-//    if(!expected_dims){
-//        cout << "initialRatings is only has sample data for 4 reviewers and 6 movies, "
-//                "but the program is currently configured to use " << NUM_REVIEWERS << " reviewers and "
-//                << NUM_MOVIES << " movies. Values will be initialized to " << DEFAULT_SCORE;
-//    }
     for(int i = 0; i < NUM_REVIEWERS; i++){
         for(int j = 0; j < NUM_MOVIES; j++){
-//            if(expected_dims){
             rating_array[i][j] = temp_rating_array[i][j];
-//            } else {
-//                rating_array[i][j] = DEFAULT_SCORE;
-//            }
         }
     }
 }
 
+/**
+ *
+ * @param rating_array OUT The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post 'rating_array' is filled with values given by the user
+ *
+ * asks the user to enter the scores given by every reviewer on every movie
+ *
+ */
 void getNewRatings(int (&rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     cout << "********DATA ENTRY FOR NEW MOVIE RATINGS ***********\n";
     for(int i = 0; i < NUM_REVIEWERS; i++) {
@@ -131,6 +138,16 @@ void getNewRatings(int (&rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     }
 }
 
+/**
+ *
+ * @param rating_array IN The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post movie ratings are displayed to the user
+ *
+ * shows the user the values of 'rating_array' in the form of a table
+ *
+ */
 void displayRatings(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     cout << "********************* MOVIE RATINGS ****************\n"
             "REVIEWER|  MV#100 MV#101 MV#102 MV#103 MV#104 MV#105\n"
@@ -144,6 +161,16 @@ void displayRatings(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     }
 }
 
+/**
+ *
+ * @param rating_array IN The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post scores of all movies are averaged on the y axis (reviewers) and displayed to the user
+ *
+ * displays the scores of all movies averaged for all reviewers
+ *
+ */
 void showAverageRatings(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     displayRatings(rating_array);
     int sums[NUM_MOVIES] = {0};
@@ -159,47 +186,69 @@ void showAverageRatings(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     }
 }
 
+/**
+ *
+ * @param rating_array IN The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post the highest score given by a reviewer of the user's choice is displayed along with the number of all movies
+ * that received that score
+ *
+ * asks the user for a reviewer number to analyze, and then displays all movies that received the highest score given
+ * by that reviewer
+ */
 void showReviewersHighestRating(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     displayRatings(rating_array);
     cout << "\nEnter a reviewer number (1-" << NUM_REVIEWERS << "), to find the Movie they rated the highest:";
     int reviewer_number = get_user_int(1, NUM_REVIEWERS);
     int highest_score = 0;
-    int num_high_score = 0;
+    int num_high_score = 0; // the number of movies to be rated with the highest score
     for(int i = 0; i < NUM_MOVIES; i++){
         if(rating_array[reviewer_number-1][i] > highest_score) {
-            highest_score = rating_array[reviewer_number-1][i];
-            num_high_score = 1;
+            highest_score = rating_array[reviewer_number-1][i]; // set the new highest score
+            num_high_score = 1; // set the number of movies to receive the highest score to one.
         } else if(rating_array[reviewer_number-1][i] == highest_score){
-            num_high_score += 1;
+            num_high_score += 1; // if an element ties for the highest score, add one to the number of movies to receive the highest score.
         }
     }
     cout << "\nReviewer#" << reviewer_number << " rated Movie";
     if(num_high_score > 1){
-        cout << "s";
+        cout << "s"; // if multiple movies got the highest score, add an 's' to 'movie' to make it plural
     }
     cout << " #";
 
-    for(int i = 0; i < NUM_MOVIES; i++){
+    for(int i = 0; i < NUM_MOVIES; i++){ // this loop goes back through the list of scores by the selected reviewer and prints the score
+                                         // along with some grammar depending on how many more movies got this score
         if(rating_array[reviewer_number-1][i] == highest_score) {
             switch(num_high_score)
             {
                 case 2:
-                    cout << i+100 << " and ";
+                    cout << i+100 << " and "; // if there are 2 movies with the highest score left, it should be followed with 'and'
                     break;
                 case 1:
-                    cout << i+100;
+                    cout << i+100; // if this is the last movie with the highest score, it shouldn't be followed by any bridge
                     break;
                 default:
-                    cout << i+100 << ", ";
+                    cout << i+100 << ", "; // if there are more than 2 movies left, they should be followed by ', '
                     break;
             }
-            num_high_score -= 1;
+            num_high_score -= 1; // remove 1 from the number of movies left to print
         }
     }
-    cout << " as the highest, with a " << highest_score << " \n\n";
+    cout << " as the highest, with a score of " << highest_score << " \n\n";
 
 }
 
+/**
+ *
+ * @param rating_array IN The 2d array representing the scores of different movies(row) by different reviewers(column)
+ *
+ * @pre 'rating_array' is initialized with dimensions 'NUM_REVIEWERS', 'NUM_MOVIES'
+ * @post the reviewer that gave a movie of the users choice the lowest score is displayed
+ *
+ * asks the user to select a movie, and then displays what reviewers gave that movie the lowest score, along with what score that was
+ *
+ */
 void showMoviesLowestRating(const int (rating_array)[NUM_REVIEWERS][NUM_MOVIES]){
     displayRatings(rating_array);
     cout << "\nEnter a movie number (100-" << NUM_MOVIES + 99 << "), to find the lowest rating:";
